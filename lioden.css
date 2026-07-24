@@ -1065,3 +1065,430 @@ box-shadow:
 0 0 18px rgba(255,0,204,.3);
 
 }
+/*=========================================================
+PART 4
+CRT EFFECTS + LIODEN POLISH
+=========================================================*/
+
+
+/* ==========================================
+CRT OVERLAY
+========================================== */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(circle at center,
+rgba(255,255,255,.03),
+rgba(0,0,0,.35));
+
+mix-blend-mode:screen;
+
+opacity:.45;
+
+z-index:9998;
+
+}
+
+
+/* ==========================================
+SCREEN FLICKER
+========================================== */
+
+@keyframes screenFlicker{
+
+0%{opacity:.985;}
+
+5%{opacity:.97;}
+
+10%{opacity:1;}
+
+25%{opacity:.985;}
+
+50%{opacity:.99;}
+
+75%{opacity:.975;}
+
+100%{opacity:.99;}
+
+}
+
+html{
+
+animation:screenFlicker .22s infinite;
+
+}
+
+
+/* ==========================================
+WINDOW EFFECT
+========================================== */
+
+.feature,
+.boxcontainer{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.feature::before,
+.boxcontainer::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+right:0;
+
+height:2px;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+#ff00cc,
+transparent
+);
+
+opacity:.7;
+
+}
+
+
+/* ==========================================
+SOFT NOISE
+========================================== */
+
+.feature::after,
+.boxcontainer::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.015),
+rgba(255,255,255,.015));
+
+opacity:.25;
+
+}
+
+
+/* ==========================================
+HEADINGS
+========================================== */
+
+.feature h1,
+.feature h2,
+.feature h3,
+.panel-heading{
+
+text-shadow:
+
+0 0 6px #ff00cc,
+
+0 0 18px rgba(255,0,204,.45);
+
+}
+
+
+/* ==========================================
+LINKS
+========================================== */
+
+a{
+
+transition:
+
+color .25s,
+
+text-shadow .25s,
+
+letter-spacing .25s;
+
+}
+
+a:hover{
+
+letter-spacing:1px;
+
+}
+
+
+/* ==========================================
+LISTS
+========================================== */
+
+ul{
+
+list-style:square;
+
+}
+
+li::marker{
+
+color:var(--magenta);
+
+}
+
+
+/* ==========================================
+CODE
+========================================== */
+
+code,
+pre{
+
+background:#050505!important;
+
+border:1px solid var(--magenta)!important;
+
+color:var(--green)!important;
+
+font-family:'VT323',monospace!important;
+
+}
+
+
+/* ==========================================
+BLOCKQUOTE
+========================================== */
+
+blockquote{
+
+background:#050505;
+
+border-left:4px solid var(--orange);
+
+padding:16px;
+
+font-style:normal;
+
+}
+
+
+/* ==========================================
+BADGES
+========================================== */
+
+.badge{
+
+background:#000!important;
+
+border:1px solid var(--magenta)!important;
+
+color:var(--magenta)!important;
+
+}
+
+
+/* ==========================================
+ALERTS
+========================================== */
+
+.alert{
+
+background:#050505!important;
+
+border:2px solid var(--orange)!important;
+
+color:var(--orange)!important;
+
+}
+
+
+/* ==========================================
+TOOLTIPS
+========================================== */
+
+.tooltip-inner{
+
+background:#000!important;
+
+color:var(--green)!important;
+
+border:1px solid var(--magenta);
+
+}
+
+
+/* ==========================================
+MODALS
+========================================== */
+
+.modal-content{
+
+background:#050505!important;
+
+border:2px solid var(--magenta)!important;
+
+}
+
+.modal-header{
+
+border-bottom:2px solid var(--magenta)!important;
+
+}
+
+.modal-footer{
+
+border-top:2px solid var(--magenta)!important;
+
+}
+
+
+/* ==========================================
+TRANSITIONS
+========================================== */
+
+.feature,
+.boxcontainer,
+.btn,
+img{
+
+transition:all .25s ease;
+
+}
+
+
+/* ==========================================
+IMAGE FRAME
+========================================== */
+
+.feature img{
+
+padding:3px;
+
+background:#000;
+
+}
+
+
+/* ==========================================
+TERMINAL SEPARATOR
+========================================== */
+
+hr{
+
+border:none;
+
+border-top:2px solid rgba(255,0,204,.5);
+
+}
+
+
+/* ==========================================
+ASCII DIVIDER
+========================================== */
+
+.ascii-divider{
+
+font-family:'VT323',monospace;
+
+color:var(--green);
+
+text-align:center;
+
+letter-spacing:2px;
+
+}
+
+
+/* ==========================================
+BOOT CURSOR
+========================================== */
+
+.cursor::after{
+
+content:"_";
+
+animation:cursorBlink 1s steps(2,start) infinite;
+
+}
+
+@keyframes cursorBlink{
+
+0%{opacity:1;}
+
+50%{opacity:0;}
+
+100%{opacity:1;}
+
+}
+
+
+/* ==========================================
+ONLINE STATUS
+========================================== */
+
+.online{
+
+color:var(--green);
+
+text-shadow:
+
+0 0 6px var(--green);
+
+}
+
+
+/* ==========================================
+WARNING
+========================================== */
+
+.warning{
+
+color:var(--orange);
+
+}
+
+
+/* ==========================================
+ERROR
+========================================== */
+
+.error{
+
+color:#ff3366;
+
+}
+
+
+/* ==========================================
+SUCCESS
+========================================== */
+
+.success{
+
+color:#65ff66;
+
+}
