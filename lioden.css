@@ -1492,3 +1492,343 @@ SUCCESS
 color:#65ff66;
 
 }
+/*=========================================================
+PART 5
+LIODEN-SPECIFIC OVERRIDES
+=========================================================*/
+
+
+/* ==========================================
+FEATURE TITLES
+========================================== */
+
+.feature>.panel-heading,
+.feature>.header,
+.boxcontainer>.header{
+
+background:#0a000a!important;
+
+border-bottom:2px solid var(--magenta)!important;
+
+padding:10px 16px;
+
+}
+
+
+/* ==========================================
+FEATURE CONTENT
+========================================== */
+
+.feature>.content,
+.boxcontainer>.content{
+
+padding:18px;
+
+background:rgba(0,0,0,.82)!important;
+
+}
+
+
+/* ==========================================
+BREADCRUMBS
+========================================== */
+
+.breadcrumb{
+
+background:#000!important;
+
+border:2px solid var(--magenta)!important;
+
+border-radius:0!important;
+
+}
+
+.breadcrumb>li{
+
+font-family:'VT323',monospace!important;
+
+font-size:22px;
+
+}
+
+.breadcrumb>li>a{
+
+color:var(--orange)!important;
+
+}
+
+.breadcrumb>li>a:hover{
+
+color:var(--green)!important;
+
+}
+
+
+/* ==========================================
+PROFILE TABLES
+========================================== */
+
+table td:first-child{
+
+color:var(--magenta)!important;
+
+font-weight:bold;
+
+}
+
+
+/* ==========================================
+ODD ROWS
+========================================== */
+
+tr:nth-child(even){
+
+background:rgba(255,0,204,.03)!important;
+
+}
+
+tr:nth-child(odd){
+
+background:rgba(0,0,0,.30)!important;
+
+}
+
+
+/* ==========================================
+ICONS
+========================================== */
+
+img[src*="icon"]{
+
+filter:
+
+drop-shadow(0 0 5px #ff00cc);
+
+}
+
+
+/* ==========================================
+DEN IMAGES
+========================================== */
+
+img{
+
+image-rendering:auto;
+
+border-radius:0!important;
+
+}
+
+
+/* ==========================================
+TEXTAREAS
+========================================== */
+
+textarea{
+
+min-height:140px;
+
+}
+
+
+/* ==========================================
+FORMS
+========================================== */
+
+label{
+
+color:var(--green)!important;
+
+font-family:'VT323',monospace!important;
+
+font-size:22px;
+
+}
+
+
+/* ==========================================
+PAGINATION
+========================================== */
+
+.pagination>li>a{
+
+background:#000!important;
+
+border:1px solid var(--magenta)!important;
+
+color:var(--orange)!important;
+
+}
+
+.pagination>li>a:hover{
+
+background:var(--magenta)!important;
+
+color:#000!important;
+
+}
+
+
+/* ==========================================
+TABS
+========================================== */
+
+.nav-tabs{
+
+border-bottom:2px solid var(--magenta)!important;
+
+}
+
+.nav-tabs>li>a{
+
+background:#050505!important;
+
+color:var(--orange)!important;
+
+border:1px solid var(--magenta)!important;
+
+border-radius:0!important;
+
+}
+
+.nav-tabs>li.active>a{
+
+background:#150015!important;
+
+color:var(--green)!important;
+
+}
+
+
+/* ==========================================
+PROFILE LINKS
+========================================== */
+
+.feature a,
+.boxcontainer a{
+
+font-family:'VT323',monospace!important;
+
+}
+
+
+/* ==========================================
+FADE-IN
+========================================== */
+
+.feature,
+.boxcontainer{
+
+animation:terminalAppear .55s ease;
+
+}
+
+@keyframes terminalAppear{
+
+from{
+
+opacity:0;
+
+transform:translateY(8px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+
+/* ==========================================
+TERMINAL WINDOW BAR
+========================================== */
+
+.feature::before{
+
+content:" ●  ●  ●";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+right:0;
+
+height:28px;
+
+background:#090009;
+
+border-bottom:2px solid var(--magenta);
+
+padding-left:12px;
+
+line-height:28px;
+
+font-family:'VT323',monospace;
+
+color:#ff4444;
+
+z-index:2;
+
+}
+
+.feature>*{
+
+position:relative;
+
+z-index:3;
+
+}
+
+.feature{
+
+padding-top:36px!important;
+
+}
+
+
+/* ==========================================
+WINDOW TITLE
+========================================== */
+
+.feature h2:first-child::before{
+
+content:"LIONDOS.EXE";
+
+display:block;
+
+font-size:16px;
+
+font-family:'VT323',monospace;
+
+letter-spacing:2px;
+
+margin-bottom:6px;
+
+color:var(--green);
+
+opacity:.75;
+
+}
+
+
+/* ==========================================
+GLOW ON HOVER
+========================================== */
+
+.feature:hover{
+
+transform:translateY(-2px);
+
+}
+
+
+/* ==========================================
+END OF CORE THEME
+========================================== */
