@@ -416,3 +416,338 @@ background:var(--magenta);
 background:var(--hover);
 
 }
+/*======================================================
+
+PART 2
+LIONDOS INTERFACE
+
+======================================================*/
+
+
+/* Sidebar */
+
+.sidebar,
+.col-md-3 .panel,
+.col-md-3 .box{
+
+background:rgba(0,0,0,.88)!important;
+
+border:2px solid var(--magenta)!important;
+
+}
+
+
+/* Main content */
+
+.col-md-9{
+
+background:rgba(0,0,0,.70)!important;
+
+padding:20px;
+
+}
+
+
+/* Panel titles */
+
+.panel-heading{
+
+background:#080008!important;
+
+border-bottom:2px solid var(--magenta)!important;
+
+}
+
+
+/* Breadcrumbs */
+
+.breadcrumb{
+
+background:#000!important;
+
+border:2px solid var(--magenta)!important;
+
+}
+
+.breadcrumb a{
+
+color:var(--orange)!important;
+
+}
+
+
+/* Navbar */
+
+.navbar{
+
+background:#000!important;
+
+border-bottom:2px solid var(--magenta)!important;
+
+}
+
+.navbar a{
+
+color:var(--magenta)!important;
+
+font-family:'VT323',monospace!important;
+
+font-size:22px;
+
+}
+
+.navbar a:hover{
+
+color:var(--hover)!important;
+
+}
+
+
+/* Alerts */
+
+.alert{
+
+background:#000!important;
+
+border:2px solid var(--orange)!important;
+
+color:var(--orange)!important;
+
+}
+
+
+/* King title */
+
+h1{
+
+position:relative;
+
+padding-bottom:18px;
+
+}
+
+h1:after{
+
+content:"════════════════════════════════════";
+
+display:block;
+
+margin-top:8px;
+
+font-size:16px;
+
+color:var(--green);
+
+letter-spacing:2px;
+
+}
+
+
+/* Horizontal rules */
+
+hr{
+
+border:none;
+
+border-top:2px solid var(--magenta);
+
+opacity:.7;
+
+}
+
+
+/* Tables */
+
+.table-striped tbody tr:nth-child(odd){
+
+background:rgba(255,0,204,.04)!important;
+
+}
+
+.table-striped tbody tr:hover{
+
+background:rgba(101,255,102,.08)!important;
+
+}
+
+
+/* Images */
+
+img{
+
+border:2px solid var(--magenta);
+
+box-shadow:0 0 10px rgba(255,0,204,.4);
+
+}
+
+
+/* Progress bars */
+
+.progress{
+
+background:#111!important;
+
+border:1px solid var(--magenta);
+
+border-radius:0!important;
+
+}
+
+.progress-bar{
+
+background:linear-gradient(
+90deg,
+#ff00cc,
+#ff6600
+)!important;
+
+}
+
+
+/* Forms */
+
+.form-control{
+
+background:#050505!important;
+
+color:var(--green)!important;
+
+border:1px solid var(--magenta)!important;
+
+border-radius:0!important;
+
+}
+
+
+/* Dropdowns */
+
+.dropdown-menu{
+
+background:#050505!important;
+
+border:2px solid var(--magenta)!important;
+
+}
+
+.dropdown-menu a{
+
+color:var(--orange)!important;
+
+}
+
+.dropdown-menu a:hover{
+
+background:#120012!important;
+
+color:var(--hover)!important;
+
+}
+
+
+/* Footer */
+
+footer{
+
+background:#000!important;
+
+border-top:2px solid var(--magenta)!important;
+
+padding:20px;
+
+}
+
+
+/* Terminal block */
+
+.terminal{
+
+background:#000;
+
+padding:20px;
+
+border:2px solid var(--magenta);
+
+font-family:'VT323',monospace;
+
+color:var(--green);
+
+box-shadow:0 0 18px rgba(255,0,204,.4);
+
+}
+
+
+/* Boot text */
+
+.boot{
+
+color:var(--green);
+
+white-space:pre-wrap;
+
+line-height:1.3em;
+
+}
+
+
+/* Cursor */
+
+.cursor::after{
+
+content:"_";
+
+animation:blink 1s steps(2,start) infinite;
+
+}
+
+@keyframes blink{
+
+0%{opacity:1;}
+
+50%{opacity:0;}
+
+100%{opacity:1;}
+
+}
+
+
+/* Neon glow */
+
+.glow{
+
+text-shadow:
+
+0 0 5px var(--magenta),
+
+0 0 10px var(--magenta),
+
+0 0 20px var(--magenta);
+
+}
+
+
+/* Orange prompt */
+
+.prompt{
+
+color:var(--orange);
+
+}
+
+
+/* Green output */
+
+.output{
+
+color:var(--green);
+
+}
+
+
+/* Magenta command */
+
+.command{
+
+color:var(--magenta);
+
+}
