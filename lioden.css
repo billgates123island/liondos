@@ -2039,3 +2039,43 @@ input[name="bookmark"]:focus {
   width: auto !important;
   margin: -51px 4px 0 0 !important;
 }
+/* =========================================================
+   V18 — LARGE BOOKMARK BUTTON
+   ========================================================= */
+
+input[name="bookmark"] {
+  float: none !important;
+
+  min-width: 145px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+
+  margin: 0 !important;
+  padding: 8px 18px !important;
+
+  color: #fff !important;
+  background: #050505 !important;
+  border: 2px solid #ff00ff !important;
+
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+  letter-spacing: 0.6px !important;
+  text-align: center !important;
+  text-shadow: none !important;
+
+  box-shadow: none !important;
+}
+
+input[name="bookmark"]:hover,
+input[name="bookmark"]:focus {
+  color: #000 !important;
+  background: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Keep it aligned with the breadcrumb */
+#pageContainer > .floatright:has(input[name="bookmark"]) {
+  width: auto !important;
+  margin: -57px 4px 0 0 !important;
+}
