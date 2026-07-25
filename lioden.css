@@ -2105,3 +2105,38 @@ input[name="bookmark"]:focus {
   #pageContainer .inner-table th {
     padding: 10px 12px !important;
     font-size: 19px !
+/* =========================================================
+   V20 — RANDOM MEMBER CARDS
+   Make the brown cards black with a white outline
+   ========================================================= */
+
+#pageContainer .feature,
+#pageContainer .featured-member,
+#pageContainer .random-member,
+#pageContainer .random-pride-member {
+  background: #000 !important;
+  border: 1px solid #fff !important;
+  box-shadow: none !important;
+}
+
+#pageContainer .feature img,
+#pageContainer .featured-member img,
+#pageContainer .random-member img,
+#pageContainer .random-pride-member img {
+  border: 1px solid #fff !important;
+  background: #000 !important;
+}
+
+#pageContainer .feature a,
+#pageContainer .featured-member a,
+#pageContainer .random-member a,
+#pageContainer .random-pride-member a {
+  color: #ff6a1a !important;
+}
+
+#pageContainer .feature a:hover,
+#pageContainer .featured-member a:hover,
+#pageContainer .random-member a:hover,
+#pageContainer .random-pride-member a:hover {
+  color: #00ff00 !important;
+}
