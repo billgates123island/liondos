@@ -1,54 +1,56 @@
 /* ==========================================================================
-   LIONDOS // MULTIPLIED NEGATIVITY
-   Full Lioden theme — clean replacement stylesheet
-   Background: Nigel's Revolution Carrd asset
+   LIONDOS GLOBAL — SAFE GAMEPLAY THEME
+   Version 1.0 clean rebuild
+   Designed for Stylus on URLs on the domain: lioden.com
+
+   IMPORTANT:
+   - This stylesheet intentionally does NOT resize, reposition, transform,
+     filter, or pad interactive images.
+   - Crossroads, Explore, Battle, Hunting, lion layers, portraits, and image
+     maps retain Lioden's native geometry and click regions.
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Share+Tech+Mono&family=VT323&display=swap");
 
 :root {
-  --ld-bg: #020303;
-  --ld-panel: rgba(3, 5, 5, 0.94);
-  --ld-panel-soft: rgba(8, 12, 11, 0.91);
-  --ld-panel-alt: rgba(15, 18, 16, 0.94);
-  --ld-text: #ffffff;
-  --ld-muted: #d7d7d7;
-  --ld-dim: #a9a9a9;
-  --ld-pink: #ff00ff;
-  --ld-pink-soft: #ff5ce6;
-  --ld-green: #00ff00;
-  --ld-orange: #ff5a00;
-  --ld-cyan: #ff5a00;
-  --ld-red: #ff546f;
-  --ld-border: rgba(255, 0, 255, 0.82);
-  --ld-border-dim: rgba(255, 0, 255, 0.38);
-  --ld-shadow: rgba(255, 0, 255, 0.30);
-  --ld-font-display: "Abril Fatface", Georgia, serif;
-  --ld-font-terminal: "VT323", "Courier New", monospace;
-  --ld-radius: 0px;
+  --ld-black: #020202;
+  --ld-black-2: #070707;
+  --ld-black-3: #0d0d0d;
+  --ld-white: #ffffff;
+  --ld-muted: #d5d5d5;
+  --ld-pink: #ff00e6;
+  --ld-pink-soft: #ff5ceb;
+  --ld-orange: #ff6a1a;
+  --ld-green: #00ff29;
+  --ld-red: #ff465f;
+  --ld-border: rgba(255, 0, 230, 0.88);
+  --ld-border-soft: rgba(255, 0, 230, 0.38);
+  --ld-body-font: "Share Tech Mono", "Courier New", monospace;
+  --ld-ui-font: "VT323", "Courier New", monospace;
+  --ld-display-font: "Abril Fatface", Georgia, serif;
 }
 
 /* ==========================================================================
-   RESET AND READABILITY
+   FOUNDATION
    ========================================================================== */
 
 html {
-  background: #000;
   min-height: 100%;
+  background: #000;
 }
 
 body {
   min-height: 100%;
   margin: 0;
-  color: var(--ld-text) !important;
-  font-family: var(--ld-font-terminal) !important;
-  font-size: 19px !important;
-  line-height: 1.34 !important;
-  letter-spacing: 0.25px;
+  color: var(--ld-white) !important;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.74)),
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.72)),
     url("https://ihatecinemapolicies.carrd.co/assets/images/bg.jpg?v47970992911951")
       center center / cover fixed no-repeat !important;
+  font-family: var(--ld-body-font) !important;
+  font-size: 16px !important;
+  line-height: 1.48 !important;
+  letter-spacing: 0.02em;
   text-rendering: optimizeLegibility;
 }
 
@@ -58,7 +60,7 @@ button,
 select,
 textarea,
 table {
-  font-family: var(--ld-font-terminal) !important;
+  font-family: var(--ld-body-font) !important;
 }
 
 p,
@@ -70,134 +72,56 @@ small,
 .panel-body,
 .alert,
 .breadcrumb {
-  color: var(--ld-text);
+  color: inherit;
 }
 
 small,
+.small,
 .text-muted {
   color: var(--ld-muted) !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
 }
 
 b,
-strong,
-.b {
-  color: #fff !important;
-  font-weight: normal !important;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.18);
+strong {
+  color: inherit !important;
+  font-weight: 600 !important;
 }
 
 ::selection {
-  color: #050505;
+  color: #000;
   background: var(--ld-green);
 }
 
-/* Soft scanlines. Kept subtle so text remains readable. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  pointer-events: none;
-  opacity: 0.13;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.045) 0,
-    rgba(255, 255, 255, 0.045) 1px,
-    transparent 1px,
-    transparent 4px
-  );
-}
-
-/* Gentle vignette, not a screen-darkening overlay. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9997;
-  pointer-events: none;
-  box-shadow: inset 0 0 130px rgba(0, 0, 0, 0.48);
-}
-
 /* ==========================================================================
-   PAGE WIDTH — LARGER GAMEPLAY / INTERACTION UI
+   SITE SHELL — NATIVE WIDTHS PRESERVED
    ========================================================================== */
 
-.container,
-.container.main,
 .container.topbar,
-.container.footer {
-  width: min(1480px, calc(100vw - 28px)) !important;
-  max-width: none !important;
+.navbar,
+.navbar-default,
+.container.main,
+.container.footer,
+.footer,
+#pageContainer,
+#pageSidebar {
+  color: var(--ld-white) !important;
+  background: rgba(2, 2, 2, 0.96) !important;
 }
 
 .container.main {
-  background: rgba(4, 7, 7, 0.74) !important;
-  border-left: 1px solid var(--ld-border-dim);
-  border-right: 1px solid var(--ld-border-dim);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.78);
+  border-left: 1px solid var(--ld-border-soft);
+  border-right: 1px solid var(--ld-border-soft);
+  box-shadow: 0 0 34px rgba(0, 0, 0, 0.72);
 }
 
 #pageContainer {
-  width: 80% !important;
-  padding: 18px 22px 36px !important;
-  background:
-    linear-gradient(rgba(3, 5, 5, 0.90), rgba(3, 5, 5, 0.96)) !important;
-  border-right: 1px solid var(--ld-border-dim);
-  min-height: 800px;
+  border-right: 1px solid var(--ld-border-soft);
 }
 
 #pageSidebar {
-  width: 20% !important;
-  padding: 15px 12px 28px !important;
-  background: rgba(4, 7, 6, 0.89) !important;
-}
-
-/* Let gameplay modules consume the expanded center column. */
-#pageContainer > center,
-#pageContainer > form,
-#pageContainer > table,
-#pageContainer .table,
-#pageContainer .inner-table {
-  max-width: 100% !important;
-}
-
-#pageContainer center {
-  width: 100%;
-}
-
-/* Common large interaction containers. */
-#explore,
-.explore,
-#fraExplore,
-#battle,
-.battle,
-#fraBattle,
-#hunting,
-.hunting,
-#patrol,
-.patrol,
-#event,
-.event,
-.interaction,
-.game-interaction {
-  width: min(100%, 980px) !important;
-  max-width: 980px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Expand large scene artwork without touching layered lions. */
-#pageContainer img[src*="explore"],
-#pageContainer img[src*="battle"],
-#pageContainer img[src*="hunting"],
-#pageContainer img[src*="patrol"],
-#pageContainer img[src*="event"],
-#pageContainer img[src*="encounter"],
-#pageContainer img[src*="zone"] {
-  width: min(100%, 980px) !important;
-  max-width: 980px !important;
-  height: auto !important;
-  box-sizing: border-box;
+  background: rgba(3, 3, 3, 0.97) !important;
 }
 
 /* ==========================================================================
@@ -205,113 +129,101 @@ body::after {
    ========================================================================== */
 
 .container.topbar {
-  min-height: 38px;
-  background: rgba(2, 3, 3, 0.96) !important;
-  border: 1px solid var(--ld-border);
+  min-height: 42px !important;
+  padding: 8px 13px !important;
+  border: 1px solid var(--ld-border-soft);
   border-top: 0;
-  color: var(--ld-text) !important;
-  box-shadow: 0 0 12px var(--ld-shadow);
 }
 
 .welcomeback,
 .toplinks,
 .toplinks li,
 .toplinks a {
-  color: var(--ld-text) !important;
-  font-size: 16px !important;
-  letter-spacing: 0.6px;
+  color: var(--ld-white) !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 18px !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.45px !important;
+}
+
+.toplinks a,
+.welcomeback a {
+  color: var(--ld-orange) !important;
 }
 
 .toplinks a:hover,
-.welcomeback a:hover {
-  color: var(--ld-green) !important;
-}
-
-/* Currency icons need no decorative frame. */
-.topbar img,
-.toplinks img,
-img.icon {
-  border: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
+.toplinks a:focus,
+.welcomeback a:hover,
+.welcomeback a:focus {
+  color: var(--ld-white) !important;
+  text-decoration: underline !important;
 }
 
 /* ==========================================================================
-   NAVIGATION
+   MAIN NAVIGATION
    ========================================================================== */
 
 .navbar,
 .navbar-default {
   min-height: 68px !important;
   margin-bottom: 0 !important;
-  background:
-    linear-gradient(to bottom, #090909, #020202) !important;
   border: 1px solid var(--ld-border) !important;
-  border-radius: var(--ld-radius) !important;
-  box-shadow:
-    0 0 16px var(--ld-shadow),
-    inset 0 -1px 0 rgba(125, 255, 116, 0.18);
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
-.navbar-brand {
-  height: 68px !important;
-  padding: 0 12px !important;
-}
-
-.navbar-brand img {
-  max-height: 94px !important;
-  margin-top: -15px;
-  border: 1px solid var(--ld-border) !important;
+.navbar-brand img,
+.navbar img,
+.topbar img,
+.toplinks img {
   padding: 0 !important;
-  background: #000 !important;
-  box-shadow: 0 0 12px var(--ld-shadow) !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 .navbar-default .navbar-nav > li > a,
+.navbar-nav > li > a,
 .navbar a {
-  min-height: 66px;
-  padding: 23px 22px !important;
   color: var(--ld-pink) !important;
-  font-size: 21px !important;
-  line-height: 20px !important;
-  letter-spacing: 1px;
+  background: transparent !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 23px !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 1.05px !important;
   text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(255, 32, 207, 0.5);
-  transition: color 0.16s ease, background 0.16s ease;
+  text-shadow: none !important;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: #071007 !important;
-  background: var(--ld-green) !important;
-  text-shadow: none;
-}
-
-.navbar-toggle {
-  border: 1px solid var(--ld-pink) !important;
-  background: #000 !important;
-}
-
-.navbar-toggle .icon-bar {
-  background: var(--ld-green) !important;
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  color: #000 !important;
+  background: var(--ld-white) !important;
+  text-shadow: none !important;
 }
 
 /* ==========================================================================
    LINKS
    ========================================================================== */
 
-a {
-  color: var(--ld-cyan) !important;
+a,
+a:visited {
+  color: var(--ld-orange) !important;
+  font-weight: 400 !important;
   text-decoration: none !important;
-  transition: color 0.15s ease, text-shadow 0.15s ease;
+  text-shadow: none !important;
 }
 
 a:hover,
 a:focus {
-  color: var(--ld-green) !important;
-  text-shadow: 0 0 6px rgba(125, 255, 116, 0.5);
-  text-decoration: none !important;
+  color: var(--ld-white) !important;
+  text-decoration: underline !important;
+  text-shadow: none !important;
 }
 
 /* ==========================================================================
@@ -328,23 +240,23 @@ h5,
 .h3,
 .h4 {
   color: var(--ld-pink) !important;
-  font-family: var(--ld-font-display) !important;
+  font-family: var(--ld-display-font) !important;
   font-weight: 400 !important;
-  letter-spacing: 1.2px;
+  line-height: 1.1 !important;
+  letter-spacing: 0.8px !important;
   text-transform: uppercase;
-  text-shadow:
-    0 0 5px rgba(255, 32, 207, 0.75),
-    0 0 16px rgba(255, 32, 207, 0.24);
+  text-shadow: 0 0 9px rgba(255, 0, 230, 0.34);
 }
 
-h1 {
-  margin: 24px 0 22px !important;
-  font-size: clamp(34px, 4vw, 53px) !important;
-  line-height: 1.05 !important;
+h1,
+.h1 {
+  margin: 24px 0 20px !important;
+  font-size: 42px !important;
 }
 
-h2 {
-  font-size: 32px !important;
+h2,
+.h2 {
+  font-size: 31px !important;
 }
 
 h3,
@@ -353,25 +265,29 @@ h3,
 }
 
 #pageSidebar h3 {
-  margin: 14px 0 7px !important;
+  margin: 18px 0 8px !important;
   color: var(--ld-pink-soft) !important;
-  font-family: var(--ld-font-terminal) !important;
-  font-size: 24px !important;
-  letter-spacing: 1px;
-  text-shadow: 0 0 7px rgba(255, 32, 207, 0.38);
+  font-family: var(--ld-ui-font) !important;
+  font-size: 28px !important;
+  line-height: 1.05 !important;
+  letter-spacing: 1px !important;
+  text-shadow: none !important;
 }
 
 /* ==========================================================================
-   BREADCRUMBS AND ALERTS
+   BREADCRUMBS, ALERTS, AND INFORMATION BARS
    ========================================================================== */
 
 .breadcrumb {
-  margin: 0 0 16px !important;
-  padding: 9px 13px !important;
-  background: #030505 !important;
+  min-height: 48px !important;
+  margin-bottom: 15px !important;
+  padding: 11px 14px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
   border: 1px solid var(--ld-border) !important;
   border-radius: 0 !important;
-  font-size: 18px !important;
+  font-size: 17px !important;
+  line-height: 1.35 !important;
 }
 
 .breadcrumb > .active {
@@ -379,75 +295,158 @@ h3,
 }
 
 .alert {
-  padding: 11px 14px !important;
-  color: #fff !important;
-  background: rgba(5, 8, 7, 0.97) !important;
-  border: 1px solid var(--ld-orange) !important;
+  padding: 13px 15px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border: 1px solid var(--ld-green) !important;
+  border-left-width: 5px !important;
   border-radius: 0 !important;
-  font-size: 19px !important;
-  box-shadow: inset 4px 0 0 var(--ld-orange);
-}
-
-.alert-success {
-  border-color: var(--ld-green) !important;
-  box-shadow: inset 4px 0 0 var(--ld-green);
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  box-shadow: none !important;
 }
 
 .alert-warning {
   border-color: var(--ld-orange) !important;
-  box-shadow: inset 4px 0 0 var(--ld-orange);
 }
 
 .alert-danger {
   border-color: var(--ld-red) !important;
-  box-shadow: inset 4px 0 0 var(--ld-red);
+}
+
+/* Bookmark stays in Lioden's native layout. No negative margins. */
+input[name="bookmark"] {
+  min-width: 132px !important;
+  min-height: 42px !important;
+  padding: 7px 15px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border: 1px solid var(--ld-pink) !important;
+  border-radius: 0 !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.75px !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+input[name="bookmark"]:hover,
+input[name="bookmark"]:focus {
+  color: #000 !important;
+  background: var(--ld-white) !important;
+  border-color: var(--ld-white) !important;
 }
 
 /* ==========================================================================
-   PANELS / SIDEBAR WINDOWS
+   PANELS, WELLS, THUMBNAILS, AND RECURRING GREY BOXES
    ========================================================================== */
 
 .panel,
-.panel-default {
-  position: relative;
-  margin-bottom: 15px !important;
-  color: var(--ld-text) !important;
-  background: var(--ld-panel) !important;
-  border: 1px solid var(--ld-border) !important;
+.panel-default,
+.well,
+.thumbnail,
+.modal-content,
+.popover,
+.dropdown-menu,
+#pageContainer .media {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border: 1px solid var(--ld-border-soft) !important;
   border-radius: 0 !important;
-  box-shadow:
-    0 0 11px rgba(255, 32, 207, 0.13),
-    inset 0 0 20px rgba(255, 255, 255, 0.015);
+  box-shadow: none !important;
+}
+
+.panel-heading,
+.modal-header,
+.popover-title {
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border-color: var(--ld-border-soft) !important;
+  border-radius: 0 !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 20px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.panel-body,
+.well,
+.thumbnail,
+.modal-body {
+  color: var(--ld-white) !important;
+  font-size: 16px !important;
+  line-height: 1.48 !important;
+}
+
+#pageSidebar .panel {
+  margin-bottom: 18px !important;
+  border-color: var(--ld-border) !important;
 }
 
 #pageSidebar .panel::before {
   content: "●  ●  ●  LIONDOS.EXE";
   display: block;
-  height: 28px;
-  padding: 4px 9px;
+  min-height: 31px;
+  padding: 5px 10px;
   color: var(--ld-green);
-  background: #050706;
+  background: var(--ld-black);
   border-bottom: 1px solid var(--ld-border);
-  font-size: 17px;
-  line-height: 19px;
+  font-family: var(--ld-ui-font);
+  font-size: 19px;
+  line-height: 21px;
   letter-spacing: 0.8px;
 }
 
-.panel-heading {
-  color: var(--ld-pink) !important;
-  background: #10030d !important;
-  border-bottom: 1px solid var(--ld-border) !important;
-  border-radius: 0 !important;
-  font-family: var(--ld-font-terminal) !important;
-  font-size: 22px !important;
+#pageSidebar .panel-body {
+  padding: 13px !important;
+  color: var(--ld-white) !important;
+  font-size: 16px !important;
+  line-height: 1.42 !important;
 }
 
-.panel-body {
-  padding: 12px !important;
-  color: var(--ld-text) !important;
-  background: transparent !important;
-  font-size: 17px !important;
+/* ==========================================================================
+   PAGE TABS AND SECTION NAVIGATION
+   ========================================================================== */
+
+#pageContainer .nav-tabs,
+#pageContainer .nav-pills,
+#pageContainer ul.nav {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border: 1px solid var(--ld-border-soft) !important;
+  border-radius: 0 !important;
+}
+
+#pageContainer .nav-tabs > li > a,
+#pageContainer .nav-pills > li > a,
+#pageContainer ul.nav > li > a {
+  padding: 10px 14px !important;
+  color: var(--ld-orange) !important;
+  background: var(--ld-black-2) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  font-family: var(--ld-body-font) !important;
+  font-size: 16px !important;
   line-height: 1.25 !important;
+  letter-spacing: 0.03em !important;
+  text-shadow: none !important;
+}
+
+#pageContainer .nav-tabs > li > a:hover,
+#pageContainer .nav-tabs > li > a:focus,
+#pageContainer .nav-pills > li > a:hover,
+#pageContainer .nav-pills > li > a:focus,
+#pageContainer ul.nav > li > a:hover,
+#pageContainer ul.nav > li > a:focus,
+#pageContainer .nav-tabs > li.active > a,
+#pageContainer .nav-pills > li.active > a,
+#pageContainer ul.nav > li.active > a {
+  color: #000 !important;
+  background: var(--ld-white) !important;
+  border: 0 !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
 }
 
 /* ==========================================================================
@@ -455,14 +454,12 @@ h3,
    ========================================================================== */
 
 .table,
-table.table {
-  width: 100% !important;
-  margin-bottom: 18px !important;
-  color: var(--ld-text) !important;
-  background: rgba(2, 4, 4, 0.96) !important;
-  border: 1px solid var(--ld-border) !important;
-  border-collapse: collapse !important;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.42);
+table.table,
+.inner-table {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border-color: var(--ld-border-soft) !important;
+  box-shadow: none !important;
 }
 
 .table > thead > tr > th,
@@ -472,60 +469,48 @@ table.table {
 .table > tbody > tr > td,
 .table > tfoot > tr > td,
 table.table th,
-table.table td {
+table.table td,
+.inner-table th,
+.inner-table td {
   padding: 9px 11px !important;
-  color: var(--ld-text) !important;
-  background: rgba(5, 7, 7, 0.93) !important;
-  border: 1px solid rgba(255, 32, 207, 0.27) !important;
-  font-size: 18px !important;
-  line-height: 1.22 !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border-color: var(--ld-border-soft) !important;
+  font-size: 15.5px !important;
+  line-height: 1.42 !important;
   vertical-align: middle !important;
 }
 
 .table .top,
+.table .bottom,
 .table th,
 table.table th {
-  color: #fff !important;
-  background:
-    linear-gradient(to right, rgba(255, 32, 207, 0.19), rgba(125, 255, 116, 0.06)) !important;
-  font-size: 20px !important;
-  letter-spacing: 0.7px;
-}
-
-.table .bottom {
-  background: rgba(9, 12, 11, 0.97) !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  font-size: 17px !important;
+  letter-spacing: 0.02em !important;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) > td,
 .table-striped > tbody > tr:nth-of-type(odd) > th,
 .table > tbody > tr:nth-child(odd) > td {
-  background: rgba(9, 13, 12, 0.96) !important;
+  background: var(--ld-black-3) !important;
 }
 
-.table > tbody > tr:hover > td {
-  color: #fff !important;
-  background: rgba(125, 255, 116, 0.09) !important;
+.table > tbody > tr:hover > td,
+.table > tbody > tr:hover > th {
+  color: #000 !important;
+  background: var(--ld-white) !important;
 }
 
-.inner-table {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.inner-table td,
-.inner-table th {
-  border-color: rgba(255, 32, 207, 0.18) !important;
+.table > tbody > tr:hover a {
+  color: #000 !important;
+  text-decoration: underline !important;
 }
 
 td.left,
 th.left {
   color: var(--ld-pink-soft) !important;
-}
-
-td.right,
-th.right {
-  color: var(--ld-text) !important;
 }
 
 /* ==========================================================================
@@ -536,17 +521,18 @@ input,
 textarea,
 select,
 .form-control {
-  color: var(--ld-text) !important;
-  background: #030505 !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
   border: 1px solid var(--ld-border) !important;
   border-radius: 0 !important;
-  box-shadow: inset 0 0 7px rgba(255, 32, 207, 0.07);
-  font-size: 19px !important;
+  font-size: 16px !important;
+  line-height: 1.35 !important;
+  box-shadow: none !important;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #a8b4ac !important;
+  color: #c7c7c7 !important;
   opacity: 1;
 }
 
@@ -554,42 +540,47 @@ input:focus,
 textarea:focus,
 select:focus,
 .form-control:focus {
-  border-color: var(--ld-green) !important;
-  outline: none !important;
-  box-shadow:
-    0 0 0 1px var(--ld-green),
-    0 0 11px rgba(125, 255, 116, 0.23) !important;
-}
-
-textarea {
-  line-height: 1.3 !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border-color: var(--ld-white) !important;
+  outline: 2px solid var(--ld-pink) !important;
+  outline-offset: 1px;
+  box-shadow: none !important;
 }
 
 .btn,
 button,
 input[type="submit"],
 input[type="button"] {
-  min-height: 34px;
-  padding: 5px 13px !important;
-  color: #fff !important;
-  background: #09030a !important;
+  min-height: 38px;
+  padding: 7px 13px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
   border: 1px solid var(--ld-pink) !important;
   border-radius: 0 !important;
+  font-family: var(--ld-ui-font) !important;
   font-size: 19px !important;
-  letter-spacing: 0.7px;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.55px !important;
   text-transform: uppercase;
-  text-shadow: 0 0 5px rgba(255, 32, 207, 0.35);
+  text-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .btn:hover,
+.btn:focus,
 button:hover,
+button:focus,
 input[type="submit"]:hover,
-input[type="button"]:hover {
-  color: #030503 !important;
-  background: var(--ld-green) !important;
-  border-color: var(--ld-green) !important;
-  text-shadow: none;
-  box-shadow: 0 0 11px rgba(125, 255, 116, 0.32);
+input[type="submit"]:focus,
+input[type="button"]:hover,
+input[type="button"]:focus {
+  color: #000 !important;
+  background: var(--ld-white) !important;
+  border-color: var(--ld-white) !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
 }
 
 /* ==========================================================================
@@ -597,152 +588,133 @@ input[type="button"]:hover {
    ========================================================================== */
 
 .progress {
-  height: 18px !important;
-  margin-bottom: 7px !important;
+  height: 22px !important;
+  margin-bottom: 8px !important;
   overflow: hidden;
-  color: #fff !important;
-  background: #101412 !important;
-  border: 1px solid var(--ld-border-dim);
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border: 1px solid var(--ld-pink) !important;
   border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .progress-bar {
-  color: #030303 !important;
+  color: var(--ld-white) !important;
   background:
     linear-gradient(90deg, var(--ld-pink), var(--ld-orange), var(--ld-green)) !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  text-shadow:
+    1px 0 2px #000,
+    -1px 0 2px #000,
+    0 1px 2px #000,
+    0 -1px 2px #000 !important;
   box-shadow: none !important;
 }
 
-.progress > div:not(.progress-bar) {
-  position: relative;
-  z-index: 3;
-  color: #fff !important;
-  text-shadow: 0 1px 2px #000;
+.progress div {
+  color: var(--ld-white) !important;
+  text-shadow:
+    1px 0 2px #000,
+    -1px 0 2px #000,
+    0 1px 2px #000,
+    0 -1px 2px #000 !important;
 }
 
 /* ==========================================================================
-   COMMENT BOX
+   HOARD AND ITEM CARDS
+   ========================================================================== */
+
+#pageContainer .item,
+#pageContainer .item-card,
+#pageContainer .hoard-item,
+#pageContainer .inventory-item {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border: 1px solid var(--ld-border-soft) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#pageContainer .item .top,
+#pageContainer .item .bottom,
+#pageContainer .item-card .top,
+#pageContainer .item-card .bottom,
+#pageContainer .hoard-item .top,
+#pageContainer .hoard-item .bottom {
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+}
+
+/* ==========================================================================
+   COMMENTS
    ========================================================================== */
 
 #commentBox {
-  height: 330px !important;
-  color: var(--ld-text) !important;
-  background: rgba(2, 4, 4, 0.91) !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
   border: 1px solid var(--ld-border) !important;
   border-radius: 0 !important;
-  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.56);
+  box-shadow: none !important;
 }
 
 .comment {
-  color: var(--ld-text) !important;
-  background: rgba(5, 8, 7, 0.96) !important;
-  border-left: 3px solid var(--ld-orange);
-  font-size: 18px !important;
-}
-
-.comment:nth-child(even) {
-  background: rgba(11, 16, 14, 0.96) !important;
-  border-left-color: var(--ld-green);
-}
-
-#makeComment {
-  display: flex;
-  gap: 8px;
-}
-
-#comment {
-  flex: 1;
-  width: auto !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border-left: 3px solid var(--ld-orange) !important;
+  font-size: 16px !important;
+  line-height: 1.45 !important;
 }
 
 /* ==========================================================================
-   CAVES, MOUNDS, DYNASTY CARDS
+   INTERACTIVE SCREEN PROTECTION
+   These declarations restore native artwork geometry. No width, height,
+   position, margin, or scale is imposed on interactive assets.
    ========================================================================== */
 
-.cave-grid,
-.mound-grid,
-.dynastylist .left,
-#fraOrganizationBlock .left {
-  min-height: 100%;
-  padding: 9px !important;
-  color: var(--ld-text) !important;
-  background: rgba(3, 5, 5, 0.94) !important;
-  border: 1px solid var(--ld-border) !important;
-  box-shadow: 0 0 10px rgba(255, 32, 207, 0.10);
-  transition: border-color 0.16s ease, background 0.16s ease;
-}
-
-.cave-grid:hover,
-.mound-grid:hover,
-.dynastylist .left:hover {
-  background: rgba(125, 255, 116, 0.075) !important;
-  border-color: var(--ld-green) !important;
-}
-
-.cave-grid img,
-.mound-grid img,
-.dynastylist img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto 7px;
-  border: 0 !important;
+img[usemap],
+#pageContainer img[src*="crossroad"],
+#pageContainer img[src*="explore"],
+#pageContainer img[src*="battle"],
+#pageContainer img[src*="hunt"],
+#pageContainer img[src*="patrol"],
+#pageContainer img[src*="event"],
+#pageContainer img[src*="zone"],
+#pageContainer img[src*="map"] {
+  max-width: none !important;
   padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
-}
-
-/* ==========================================================================
-   IMAGE SAFETY
-   Never globally transform or pad Lioden's functional images.
-   ========================================================================== */
-
-img {
-  max-width: 100%;
-}
-
-/* Decorative framing only for safe standalone profile art. */
-#player > tbody > tr > td:last-child > img,
-.frame-image {
-  padding: 3px !important;
-  background: #000 !important;
-  border: 1px solid var(--ld-border) !important;
-  box-shadow: 0 0 11px var(--ld-shadow) !important;
-}
-
-/* Preserve UI icons, social buttons, arrows, currencies and game controls. */
-.topbar img,
-.navbar img,
-.panel img,
-.progress img,
-a > img,
-img.icon,
-img[src*="icon"],
-img[src*="arrow"],
-img[src*="button"],
-img[src*="layout"],
-img[src*="social"],
-img[src*="FB"],
-img[src*="Twit"],
-img[src*="Insta"] {
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  transform: none !important;
   filter: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Do not let decorative hover rules alter game controls. */
+img[usemap]:hover,
+#pageContainer img[src*="crossroad"]:hover,
+#pageContainer img[src*="explore"]:hover,
+#pageContainer img[src*="battle"]:hover,
+#pageContainer img[src*="hunt"]:hover,
+#pageContainer img[src*="map"]:hover {
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 /* ==========================================================================
-   LION / CUB / DECOR LAYER PROTECTION
+   LION, CUB, DECOR, AND PORTRAIT PROTECTION
+   Native stacking and dimensions remain untouched.
    ========================================================================== */
 
 #lion_image,
-.lion-image-block {
-  position: relative !important;
-  padding: 0 !important;
+.lion-image-block,
+#player {
   background: transparent !important;
-  border: 0 !important;
   box-shadow: none !important;
   transform: none !important;
 }
@@ -750,16 +722,14 @@ img[src*="Insta"] {
 #lion_image img,
 .lion-image-block img,
 .lion-image-block > img,
-.lion-image-block img[data-fixed="true"],
-.lion-image-block img[data-type],
-img[data-layer] {
-  position: absolute !important;
+img[data-layer],
+#player img {
   max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
+  background: transparent !important;
   box-shadow: none !important;
   filter: none !important;
   transform: none !important;
@@ -768,8 +738,8 @@ img[data-layer] {
 
 #lion_image img:hover,
 .lion-image-block img:hover,
-.lion-image-block > img:hover,
-img[data-layer]:hover {
+img[data-layer]:hover,
+#player img:hover {
   padding: 0 !important;
   border: 0 !important;
   box-shadow: none !important;
@@ -778,201 +748,282 @@ img[data-layer]:hover {
 }
 
 /* ==========================================================================
-   CAVE FEATURED LION / LARGE GAME ART
+   FOOTER
    ========================================================================== */
 
-/* Allow cave featured-lion canvases and interaction images to stay large. */
-#pageContainer > center > img,
-#pageContainer center > a > img {
-  height: auto;
+.container.footer,
+.footer {
+  padding: 17px 22px !important;
+  color: var(--ld-muted) !important;
+  border: 1px solid var(--ld-border-soft) !important;
+  border-top-color: var(--ld-border) !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
 }
 
-/* Do not add frames to assembled cave art or interactive click maps. */
-#pageContainer img[usemap],
-#pageContainer img[src*="battleLion"],
-#pageContainer img[src*="battleDecors"],
-#pageContainer img[src*="explore"],
-#pageContainer img[src*="hunting"],
-#pageContainer img[src*="patrol"],
-#pageContainer img[src*="event"] {
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  transform: none !important;
+.footer::before {
+  content: "LIONDOS // MULTIPLIED NEGATIVITY // SAFE MODE";
+  display: block;
+  margin-bottom: 7px;
+  color: var(--ld-green);
+  font-family: var(--ld-ui-font);
+  font-size: 18px;
+  letter-spacing: 0.8px;
 }
 
 /* ==========================================================================
-   GAMEPLAY INTERACTION ENLARGEMENT
+   RESPONSIVE
+   No interactive image scaling is introduced.
    ========================================================================== */
 
-@media (min-width: 1100px) {
-  /* Known or likely Explore/Battle/Hunting module wrappers. */
-  #explore,
-  .explore,
-  #fraExplore,
-  #battle,
-  .battle,
-  #fraBattle,
-  #hunting,
-  .hunting,
-  #patrol,
-  .patrol,
-  #event,
-  .event,
-  .interaction,
-  .game-interaction {
-    width: min(100%, 1040px) !important;
-    max-width: 1040px !important;
-    margin-inline: auto !important;
+@media (max-width: 991px) {
+  body {
+    background-attachment: scroll !important;
+    font-size: 15px !important;
   }
 
-  /* Scene images and click maps can use the wider center column. */
-  #pageContainer img[usemap],
-  #pageContainer img[src*="explore"],
-  #pageContainer img[src*="battle"],
-  #pageContainer img[src*="hunting"],
-  #pageContainer img[src*="patrol"],
-  #pageContainer img[src*="event"],
-  #pageContainer img[src*="encounter"],
-  #pageContainer img[src*="zone"] {
-    width: min(100%, 1040px) !important;
-    max-width: 1040px !important;
-    height: auto !important;
+  h1,
+  .h1 {
+    font-size: 34px !important;
+  }
+
+  .navbar-default .navbar-nav > li > a,
+  .navbar-nav > li > a,
+  .navbar a {
+    font-size: 21px !important;
+  }
+
+  #pageSidebar h3 {
+    font-size: 25px !important;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
 /* ==========================================================================
-   CUSTOM TERRITORY DESCRIPTION — LIONDOS CLASSES
+   PUBLIC DEN / CAVE PROFILE ADDITIONS
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+  .container,
+  .container.topbar,
+  .container.main,
+  .container.footer {
+    width: min(1320px, calc(100vw - 40px)) !important;
+    max-width: none !important;
+  }
+
+  #pageContainer {
+    width: 78% !important;
+  }
+
+  #pageSidebar {
+    width: 22% !important;
+  }
+}
+
+/* Subtle CRT texture is limited to public profile pages. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.08;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+/* ==========================================================================
+   CUSTOM TERRITORY DESCRIPTION
    ========================================================================== */
 
 .liondos {
   width: 100%;
-  margin: 10px auto 22px;
-  color: var(--ld-text);
-  font-size: 20px;
-  text-align: left;
+  margin: 14px auto 24px;
+  color: var(--ld-white);
+  font-family: var(--ld-body-font);
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 .liondos-window {
-  margin: 0 0 15px;
+  margin: 0 0 18px;
+  overflow: hidden;
+  color: var(--ld-white);
   background:
-    linear-gradient(rgba(4, 7, 6, 0.96), rgba(1, 3, 3, 0.98));
+    linear-gradient(180deg, rgba(7, 7, 7, 0.99), rgba(1, 1, 1, 0.99));
   border: 1px solid var(--ld-border);
-  box-shadow:
-    0 0 15px rgba(255, 32, 207, 0.15),
-    inset 0 0 35px rgba(125, 255, 116, 0.015);
+  box-shadow: 0 0 16px rgba(255, 0, 230, 0.10);
 }
 
 .liondos-titlebar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  min-height: 33px;
-  padding: 5px 11px;
-  color: var(--ld-green);
-  background: #060806;
-  border-bottom: 1px solid var(--ld-border);
-  font-size: 19px;
-  letter-spacing: 1px;
+  gap: 14px;
+  min-height: 43px;
+  padding: 8px 14px;
+  color: var(--ld-white);
+  background: var(--ld-black);
+  border-bottom: 1px solid var(--ld-orange);
+  font-family: var(--ld-ui-font);
+  font-size: 21px;
+  line-height: 1.1;
+  letter-spacing: 0.9px;
   text-transform: uppercase;
 }
 
 .liondos-lights {
-  color: var(--ld-pink);
-  letter-spacing: 3px;
+  color: var(--ld-green);
+  letter-spacing: 4px;
 }
 
 .liondos-body {
-  padding: 18px;
+  padding: 24px;
 }
 
 .liondos-hero {
-  padding: 24px 18px;
+  padding: 38px 24px 34px;
   text-align: center;
 }
 
 .liondos-hero h2 {
-  margin: 0 0 9px !important;
+  margin: 0 0 12px !important;
   color: var(--ld-pink) !important;
-  font-size: clamp(34px, 5vw, 58px) !important;
+  font-size: clamp(42px, 4.6vw, 62px) !important;
+  line-height: 1.04 !important;
 }
 
 .liondos-subtitle {
   color: var(--ld-green);
-  font-size: 21px;
-  letter-spacing: 2px;
+  font-family: var(--ld-ui-font);
+  font-size: 23px;
+  line-height: 1.2;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.liondos-divider {
+  height: 1px;
+  margin: 20px 0;
+  background:
+    linear-gradient(90deg, transparent, var(--ld-pink), var(--ld-orange), var(--ld-green), transparent);
+}
+
+.liondos-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+}
+
+.liondos-badge {
+  display: inline-block;
+  min-width: 158px;
+  padding: 8px 13px;
+  color: var(--ld-green);
+  background: var(--ld-black);
+  border: 1px solid var(--ld-green);
+  font-family: var(--ld-ui-font);
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: 0.7px;
+  text-align: center;
   text-transform: uppercase;
 }
 
 .liondos-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.liondos-grid > .liondos-window {
+  margin-bottom: 18px;
 }
 
 .liondos-data {
-  width: 100%;
+  width: 100% !important;
+  margin: 0 !important;
+  color: var(--ld-white) !important;
+  background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
 
 .liondos-data td {
-  padding: 5px 7px !important;
+  padding: 8px 7px !important;
+  color: var(--ld-white) !important;
   background: transparent !important;
   border: 0 !important;
-  border-bottom: 1px dotted rgba(255, 32, 207, 0.35) !important;
+  border-bottom: 1px dotted var(--ld-border-soft) !important;
+  font-size: 17px !important;
+  line-height: 1.35 !important;
+}
+
+.liondos-data tr:hover td {
+  color: var(--ld-white) !important;
+  background: transparent !important;
 }
 
 .liondos-data td:first-child {
-  width: 42%;
+  width: 43%;
   color: var(--ld-pink-soft) !important;
-  letter-spacing: 0.7px;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 20px !important;
+  letter-spacing: 0.7px !important;
   text-transform: uppercase;
 }
 
 .liondos-command {
+  margin: 0 0 12px;
   color: var(--ld-orange);
+  font-size: 17px;
+  line-height: 1.45;
 }
 
 .liondos-output {
+  margin: 0 0 10px;
   color: var(--ld-green);
+  font-size: 17px;
+  line-height: 1.45;
 }
 
 .liondos-muted {
-  color: var(--ld-muted);
-}
-
-.liondos-divider {
-  height: 1px;
-  margin: 15px 0;
-  background:
-    linear-gradient(90deg, transparent, var(--ld-pink), var(--ld-green), transparent);
-}
-
-.liondos-badge {
-  display: inline-block;
-  margin: 3px 4px 3px 0;
-  padding: 3px 8px;
-  color: var(--ld-green);
-  background: rgba(125, 255, 116, 0.04);
-  border: 1px solid rgba(125, 255, 116, 0.56);
-  font-size: 17px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  color: var(--ld-white);
+  opacity: 0.78;
 }
 
 .liondos-note {
-  padding: 10px 12px;
-  color: var(--ld-text);
-  background: rgba(255, 138, 31, 0.06);
-  border-left: 3px solid var(--ld-orange);
+  padding: 14px 15px;
+  color: var(--ld-white);
+  background: rgba(255, 106, 26, 0.06);
+  border: 1px dashed var(--ld-orange);
+  border-left-width: 4px;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 .liondos-cursor::after {
   content: "█";
-  margin-left: 4px;
+  margin-left: 5px;
   color: var(--ld-green);
   animation: liondos-blink 1.05s steps(2, end) infinite;
 }
@@ -983,1160 +1034,22 @@ img[data-layer]:hover {
   }
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-
-.container.footer,
-.footer {
-  padding: 18px 24px !important;
-  color: var(--ld-muted) !important;
-  background: rgba(2, 3, 3, 0.96) !important;
-  border: 1px solid var(--ld-border-dim);
-  border-top-color: var(--ld-border);
-  font-size: 16px !important;
-}
-
-.footer::before {
-  content: "LIONDOS // MULTIPLIED NEGATIVITY // TERMINAL STABLE";
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ld-green);
-  letter-spacing: 1px;
-}
-
-/* ==========================================================================
-   SCROLLBAR
-   ========================================================================== */
-
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #020303;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--ld-pink);
-  border: 2px solid #020303;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--ld-green);
-}
-
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 1199px) {
-  .container,
-  .container.main,
-  .container.topbar,
-  .container.footer {
-    width: calc(100vw - 18px) !important;
-  }
-
-  #pageContainer {
-    width: 77% !important;
-  }
-
-  #pageSidebar {
-    width: 23% !important;
-  }
-
-  .navbar-default .navbar-nav > li > a {
-    padding-inline: 14px !important;
-  }
-}
-
-@media (max-width: 991px) {
-  body {
-    font-size: 18px !important;
-    background-attachment: scroll !important;
-  }
-
-  #pageContainer,
-  #pageSidebar {
-    width: 100% !important;
-    border-right: 0;
-  }
-
-  #pageSidebar {
-    border-top: 1px solid var(--ld-border);
-  }
-
+@media (max-width: 900px) {
   .liondos-grid {
     grid-template-columns: 1fr;
   }
 
-  .navbar-brand img {
-    max-height: 68px !important;
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .container,
-  .container.main,
-  .container.topbar,
-  .container.footer {
-    width: 100% !important;
+  .liondos-hero h2 {
+    font-size: 38px !important;
   }
 
-  #pageContainer {
-    padding: 12px 10px 26px !important;
-  }
-
-  h1 {
-    font-size: 34px !important;
-  }
-
-  .table > tbody > tr > td,
-  .table > thead > tr > th {
-    padding: 7px !important;
-    font-size: 16px !important;
-  }
-}
-
-/* ==========================================================================
-   ACCESSIBILITY / PERFORMANCE
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
-
-/* ==========================================================================
-   V11 REFINEMENT — LEGIBILITY, SIDEBAR SCALE, HIGH-SATURATION PALETTE
-   ========================================================================== */
-
-body,
-p,
-span,
-div,
-li,
-td,
-th,
-label,
-small,
-.panel-body,
-.alert,
-.breadcrumb,
-#pageSidebar,
-#pageSidebar .panel-body,
-#pageSidebar .small {
-  color: #fff !important;
-}
-
-a,
-a:visited,
-.navbar a,
-.breadcrumb a,
-.toplinks a,
-.panel a,
-.table a,
-.liondos a {
-  color: var(--ld-orange) !important;
-}
-
-a:hover,
-a:focus,
-.navbar a:hover,
-.panel a:hover,
-.table a:hover {
-  color: var(--ld-green) !important;
-  text-shadow: 0 0 7px rgba(0, 255, 0, 0.55);
-}
-
-#pageSidebar {
-  font-size: 19px !important;
-}
-
-#pageSidebar h3 {
-  margin-top: 20px !important;
-  margin-bottom: 9px !important;
-  font-size: 29px !important;
-  line-height: 1.05 !important;
-}
-
-#pageSidebar .panel {
-  margin-bottom: 22px !important;
-  min-height: 96px;
-}
-
-#pageSidebar .panel::before {
-  min-height: 33px;
-  padding: 6px 11px;
-  font-size: 19px;
-  line-height: 20px;
-}
-
-#pageSidebar .panel-body {
-  padding: 15px 14px !important;
-  font-size: 18px !important;
-  line-height: 1.34 !important;
-}
-
-#pageSidebar .panel-body a {
-  display: inline-block;
-  margin: 2px 0;
-  line-height: 1.22;
-}
-
-#pageSidebar .col-md-12,
-#pageSidebar .col-xs-12,
-#pageSidebar .col-xs-6,
-#pageSidebar .col-xs-5 {
-  padding-left: 4px !important;
-  padding-right: 4px !important;
-}
-
-.progress {
-  position: relative;
-  height: 23px !important;
-  margin-bottom: 9px !important;
-  background: #050505 !important;
-  border: 1px solid var(--ld-pink) !important;
-}
-
-.progress-bar {
-  opacity: 0.82;
-  background: linear-gradient(
-    90deg,
-    var(--ld-pink) 0%,
-    var(--ld-orange) 48%,
-    var(--ld-green) 100%
-  ) !important;
-}
-
-.progress > div:not(.progress-bar),
-.progress > .progress-bar + div,
-.progress div {
-  color: #fff !important;
-  font-size: 16px !important;
-  font-weight: normal !important;
-  line-height: 21px !important;
-  text-shadow:
-    0 1px 2px #000,
-    1px 0 2px #000,
-    -1px 0 2px #000,
-    0 -1px 2px #000 !important;
-}
-
-#pageSidebar .progress {
-  min-width: 100%;
-}
-
-#pageSidebar .progress > div:last-child {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 5 !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  color: #fff !important;
-}
-
-#pageSidebar .visible-md.visible-lg .panel-body,
-#pageSidebar .visible-xs.visible-sm .panel-body {
-  font-size: 18px !important;
-}
-
-#pageSidebar .panel-body br {
-  line-height: 1.45;
-}
-
-@media (min-width: 1200px) {
-  #pageContainer {
-    width: 78% !important;
-  }
-
-  #pageSidebar {
-    width: 22% !important;
-  }
-}
-
-.liondos {
-  font-size: 22px !important;
-}
-
-.liondos-titlebar {
-  min-height: 38px;
-  padding: 7px 13px;
-  font-size: 21px;
-}
-
-.liondos-body {
-  padding: 22px;
-}
-
-.liondos-hero {
-  padding: 30px 22px;
-}
-
-.liondos-hero h2 {
-  font-size: clamp(38px, 5vw, 64px) !important;
-  line-height: 1.05 !important;
-}
-
-.liondos-subtitle {
-  color: var(--ld-green) !important;
-  font-size: 24px;
-}
-
-.liondos-data td {
-  color: #fff !important;
-  font-size: 20px !important;
-}
-
-.liondos-data td:first-child {
-  color: var(--ld-pink-soft) !important;
-}
-
-.liondos-command {
-  color: var(--ld-orange) !important;
-}
-
-.liondos-output {
-  color: var(--ld-green) !important;
-}
-
-.liondos-muted {
-  color: #fff !important;
-  opacity: 0.82;
-}
-
-.liondos-badge {
-  color: #000 !important;
-  background: var(--ld-green);
-  border-color: var(--ld-green);
-  font-size: 18px;
-  text-shadow: none !important;
-}
-
-.liondos-note {
-  color: #fff !important;
-  background: rgba(255, 90, 0, 0.08);
-  border-left-color: var(--ld-orange);
-}
-
-.liondos-window .liondos-command,
-.liondos-window .liondos-output {
-  margin-bottom: 12px;
-  line-height: 1.35;
-}
-
-.liondos-window:nth-child(3n+1) {
-  box-shadow:
-    0 0 16px rgba(255, 0, 255, 0.16),
-    inset 0 0 28px rgba(0, 255, 0, 0.018);
-}
-
-.liondos-window:nth-child(3n+2) .liondos-titlebar {
-  border-bottom-color: var(--ld-orange);
-}
-
-.liondos-window:nth-child(3n+3) .liondos-titlebar {
-  border-bottom-color: var(--ld-green);
-}
-
-.online,
-.status-online,
-.liondos-output,
-.liondos-subtitle,
-.liondos-titlebar,
-.footer::before {
-  color: #00ff00 !important;
-}
-
-#pageSidebar .b,
-#pageSidebar small,
-#pageSidebar .small,
-#pageSidebar .floatleft,
-#pageSidebar .floatright {
-  color: #fff !important;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-.panel-heading {
-  color: var(--ld-pink) !important;
-}
-
-
-/* ==========================================================================
-   V12 — CONSOLE CORE
-   Larger type, denser PC-console styling, subtle CSS-only micro-animations.
-   ========================================================================== */
-
-body {
-  font-size: 20px !important;
-}
-
-#pageContainer,
-#pageSidebar,
-.table td,
-.table th,
-.panel-body,
-.alert,
-.breadcrumb,
-input,
-textarea,
-select,
-button,
-.btn {
-  font-size: 20px !important;
-}
-
-#pageSidebar .panel-body {
-  font-size: 19px !important;
-}
-
-#pageSidebar h3 {
-  font-size: 30px !important;
-}
-
-.liondos {
-  font-size: 23px !important;
-}
-
-.liondos-titlebar {
-  min-height: 40px;
-  font-size: 22px;
-}
-
-.liondos-body {
-  padding: 24px;
-}
-
-/* Console window shell */
-.console-window {
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 18px;
-  background:
-    linear-gradient(180deg, rgba(6, 9, 7, 0.98), rgba(1, 2, 2, 0.99));
-  border: 1px solid var(--ld-pink);
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.9),
-    0 0 18px rgba(255, 0, 255, 0.14),
-    inset 0 0 28px rgba(0, 255, 0, 0.018);
-}
-
-.console-window::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.12;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent 3px,
-      rgba(0, 255, 0, 0.04) 4px
-    );
-}
-
-.console-bar {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  min-height: 40px;
-  padding: 7px 13px;
-  color: var(--ld-green);
-  background:
-    linear-gradient(90deg, #040604, #090209 65%, #040604);
-  border-bottom: 1px solid var(--ld-pink);
-  font-size: 21px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.console-lights {
-  color: var(--ld-pink);
-  letter-spacing: 4px;
-}
-
-.console-body {
-  position: relative;
-  z-index: 2;
-  padding: 22px;
-  color: #fff;
-}
-
-.console-line {
-  margin: 0 0 10px;
-  color: #fff;
-  line-height: 1.35;
-}
-
-.console-label {
-  color: var(--ld-orange);
-}
-
-.console-value {
-  color: var(--ld-green);
-}
-
-.console-dim {
-  color: #fff;
-  opacity: 0.7;
-}
-
-.console-prompt::before {
-  content: "C:\\LIONDOS\\PRIDE> ";
-  color: var(--ld-orange);
-}
-
-.console-cursor::after {
-  content: "█";
-  margin-left: 5px;
-  color: var(--ld-green);
-  animation: console-blink 1s steps(2, end) infinite;
-}
-
-.console-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.console-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.console-meter {
-  height: 18px;
-  margin: 7px 0 14px;
-  overflow: hidden;
-  background: #050505;
-  border: 1px solid var(--ld-pink);
-}
-
-.console-meter > span {
-  display: block;
-  height: 100%;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      var(--ld-green) 0 14px,
-      #050505 14px 17px
-    );
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.28);
-}
-
-.console-card {
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.018);
-  border: 1px solid rgba(255, 0, 255, 0.35);
-}
-
-.console-card-title {
-  margin-bottom: 9px;
-  color: var(--ld-pink);
-  font-size: 22px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.console-rule {
-  height: 1px;
-  margin: 16px 0;
-  background:
-    linear-gradient(90deg, transparent, var(--ld-orange), var(--ld-green), transparent);
-}
-
-.console-chip {
-  display: inline-block;
-  margin: 3px 5px 3px 0;
-  padding: 4px 8px;
-  color: #000;
-  background: var(--ld-green);
-  border: 1px solid var(--ld-green);
-  font-size: 17px;
-  text-transform: uppercase;
-}
-
-.console-chip.orange {
-  background: var(--ld-orange);
-  border-color: var(--ld-orange);
-}
-
-.console-chip.pink {
-  background: var(--ld-pink);
-  border-color: var(--ld-pink);
-}
-
-.console-log {
-  max-height: 260px;
-  overflow: auto;
-  padding: 14px;
-  background: #020302;
-  border-left: 3px solid var(--ld-orange);
-}
-
-.console-warning {
-  padding: 12px 14px;
-  color: #fff;
-  background: rgba(255, 90, 0, 0.08);
-  border: 1px dashed var(--ld-orange);
-}
-
-/* CSS-only micro graphics inspired by old web badges */
-.console-glyph-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.console-glyph {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 88px;
-  height: 31px;
-  color: #fff;
-  background: #000;
-  border: 1px solid var(--ld-pink);
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: 0.4px;
-  text-align: center;
-  text-transform: uppercase;
-  box-shadow: inset 0 0 8px rgba(255, 0, 255, 0.14);
-}
-
-.console-glyph::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  pointer-events: none;
-  border: 1px dashed rgba(0, 255, 0, 0.55);
-}
-
-.console-glyph.signal {
-  animation: console-signal 1.8s steps(2, end) infinite;
-}
-
-.console-glyph.scan::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-  height: 2px;
-  background: var(--ld-green);
-  box-shadow: 0 0 6px var(--ld-green);
-  animation: console-scan 2.4s linear infinite;
-}
-
-.console-orbit {
-  position: relative;
-  width: 26px;
-  height: 26px;
-  margin-right: 6px;
-  border: 2px solid var(--ld-green);
-  border-radius: 50%;
-}
-
-.console-orbit::before,
-.console-orbit::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-}
-
-.console-orbit::before {
-  inset: 6px;
-  background: var(--ld-pink);
-}
-
-.console-orbit::after {
-  width: 5px;
-  height: 5px;
-  left: 9px;
-  top: -4px;
-  background: var(--ld-orange);
-  transform-origin: 3px 17px;
-  animation: console-orbit 2.8s linear infinite;
-}
-
-@keyframes console-blink {
-  50% { opacity: 0; }
-}
-
-@keyframes console-signal {
-  50% {
-    color: #000;
-    background: var(--ld-green);
-    border-color: var(--ld-green);
-  }
-}
-
-@keyframes console-scan {
-  from { transform: translateY(0); }
-  to { transform: translateY(21px); }
-}
-
-@keyframes console-orbit {
-  to { transform: rotate(360deg); }
-}
-
-@media (max-width: 900px) {
-  .console-grid,
-  .console-grid-3 {
-    grid-template-columns: 1fr;
+  .liondos-titlebar {
+    font-size: 19px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .console-cursor::after,
-  .console-glyph.signal,
-  .console-glyph.scan::after,
-  .console-orbit::after {
+  .liondos-cursor::after {
     animation: none !important;
   }
-}
-/* ==========================================
-   ORANGE TEXT LEGIBILITY FIX
-   ========================================== */
-
-a,
-a:visited,
-.liondos-command,
-.console-label,
-.console-prompt::before,
-.console-warning,
-.alert-warning {
-  color: #ff6a1a !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.15px !important;
-  line-height: 1.28 !important;
-  text-shadow: none !important;
-}
-
-/* Clickable links should not look bold or crowded */
-a,
-a:visited {
-  font-size: 0.98em !important;
-}
-
-a:hover,
-a:focus {
-  color: #00ff00 !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.15px !important;
-  text-shadow: 0 0 4px rgba(0, 255, 0, 0.35) !important;
-}
-
-/* Console commands need additional vertical separation */
-.liondos-command,
-.console-line.console-prompt {
-  margin-top: 8px !important;
-  margin-bottom: 14px !important;
-  line-height: 1.4 !important;
-}
-
-/* Orange alert and note blocks */
-.liondos-note,
-.console-warning {
-  color: #fff !important;
-  line-height: 1.4 !important;
-}
-
-.console-warning {
-  border-color: #ff6a1a !important;
-  background: rgba(255, 106, 26, 0.055) !important;
-}
-
-/* Prevent bold tags inside orange links */
-a b,
-a strong,
-.console-label b,
-.console-label strong {
-  color: inherit !important;
-  font-weight: 400 !important;
-}
-/* Make the territory status badges larger */
-
-.liondos-badge,
-.console-chip {
-  padding: 7px 14px !important;
-  font-size: 21px !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.6px !important;
-  margin: 5px 6px 5px 0 !important;
-}
-
-.liondos-hero .liondos-badge,
-.liondos-hero .console-chip {
-  min-width: 150px;
-  text-align: center;
-}
-/* =========================================================
-   V15 — PURPLE ACTION BARS + TEXT FIXES
-   ========================================================= */
-
-:root {
-  --ld-purple-deep: #4b0078;
-  --ld-purple: #7600bd;
-  --ld-purple-bright: #9400ff;
-}
-
-/* Large action buttons:
-   Breeding Requests, User Log, Attack History */
-a[href="/stud_requests.php"] > .left,
-a[href="/userlog.php"] > .left,
-a[href^="/attacks.php"] > .left {
-  padding: 10px 16px !important;
-  color: #ff6a1a !important;
-  background: var(--ld-purple-deep) !important;
-  border: 1px solid var(--ld-purple-bright) !important;
-  font-size: 21px !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.25px !important;
-  text-align: center !important;
-  transition:
-    color 0.15s ease,
-    background 0.15s ease,
-    border-color 0.15s ease !important;
-}
-
-a[href="/stud_requests.php"]:hover > .left,
-a[href="/userlog.php"]:hover > .left,
-a[href^="/attacks.php"]:hover > .left {
-  color: #000 !important;
-  background: #fff !important;
-  border-color: #fff !important;
-  text-shadow: none !important;
-}
-
-/* Account Settings bar */
-a[href="/account-settings.php"] {
-  display: block !important;
-  width: 100% !important;
-  padding: 11px 16px !important;
-  color: #ff6a1a !important;
-  background: var(--ld-purple-deep) !important;
-  border: 1px solid var(--ld-purple-bright) !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.25px !important;
-  text-align: center !important;
-}
-
-a[href="/account-settings.php"]:hover {
-  color: #000 !important;
-  background: #fff !important;
-  border-color: #fff !important;
-  text-shadow: none !important;
-}
-
-/* Keep Edit Your Details black with larger orange text */
-a[onclick*="editdetailspanel"] {
-  display: block !important;
-  padding: 10px 12px !important;
-  color: #ff6a1a !important;
-  background: #050505 !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.2px !important;
-}
-
-a[onclick*="editdetailspanel"]:hover {
-  color: #00ff00 !important;
-  background: #050505 !important;
-}
-
-/* Fix Allies and Clan Membership heading readability */
-#allies .top,
-#clans .top {
-  color: #fff !important;
-  background: #090909 !important;
-  font-family: "VT323", monospace !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 1.3 !important;
-  letter-spacing: 0.35px !important;
-  text-transform: none !important;
-  text-shadow: none !important;
-}
-
-/* Normal text inside these tables */
-#allies td,
-#clans td {
-  color: #fff !important;
-  font-weight: 400 !important;
-}
-
-/* View All remains orange on black */
-#allies .bottom {
-  background: #050505 !important;
-}
-
-#allies .bottom a {
-  color: #ff6a1a !important;
-  font-size: 20px !important;
-  font-weight: 400 !important;
-}
-
-#allies .bottom a:hover {
-  color: #00ff00 !important;
-}
-/* =========================================================
-   V16 — BLACK ACTION BARS
-   ========================================================= */
-
-/* Breeding Requests / User Log / Attack History */
-a[href="/stud_requests.php"] > .left,
-a[href="/userlog.php"] > .left,
-a[href^="/attacks.php"] > .left {
-  padding: 11px 16px !important;
-  color: #fff !important;
-  background: #050505 !important;
-  border: 1px solid #ff00ff !important;
-  font-size: 21px !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.2px !important;
-  text-align: center !important;
-  text-shadow: none !important;
-}
-
-/* Hover: simple white inversion */
-a[href="/stud_requests.php"]:hover > .left,
-a[href="/userlog.php"]:hover > .left,
-a[href^="/attacks.php"]:hover > .left {
-  color: #000 !important;
-  background: #fff !important;
-  border-color: #fff !important;
-  text-shadow: none !important;
-}
-
-
-/* Account Settings wrapper */
-.left:has(> a[href="/account-settings.php"]) {
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
-}
-
-/* Account Settings button */
-a[href="/account-settings.php"] {
-  display: block !important;
-  width: 100% !important;
-  padding: 12px 16px !important;
-  color: #fff !important;
-  background: #050505 !important;
-  border: 1px solid #ff00ff !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.2px !important;
-  text-align: center !important;
-  text-shadow: none !important;
-}
-
-a[href="/account-settings.php"]:hover {
-  color: #000 !important;
-  background: #fff !important;
-  border-color: #fff !important;
-  text-shadow: none !important;
-}
-
-
-/* Keep Edit Your Details black with orange text */
-a[onclick*="editdetailspanel"] {
-  color: #ff6a1a !important;
-  background: #050505 !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-}
-
-
-/* View All: same scale as Edit Your Details */
-#allies .bottom {
-  padding: 10px 12px !important;
-  background: #050505 !important;
-  text-align: center !important;
-}
-
-#allies .bottom a {
-  color: #fff !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.2px !important;
-  text-shadow: none !important;
-}
-
-#allies .bottom a:hover {
-  color: #00ff00 !important;
-}
-/* =========================================================
-   V17 — BOOKMARK BUTTON FIX
-   ========================================================= */
-
-input[name="bookmark"] {
-  float: none !important;
-  width: auto !important;
-  min-width: 104px !important;
-  height: 34px !important;
-  min-height: 34px !important;
-  margin: 0 !important;
-  padding: 4px 12px !important;
-
-  color: #fff !important;
-  background: #050505 !important;
-  border: 1px solid #ff00ff !important;
-
-  font-size: 18px !important;
-  font-weight: 400 !important;
-  line-height: 24px !important;
-  letter-spacing: 0.4px !important;
-  text-align: center !important;
-  text-shadow: none !important;
-
-  box-shadow: none !important;
-}
-
-input[name="bookmark"]:hover,
-input[name="bookmark"]:focus {
-  color: #000 !important;
-  background: #fff !important;
-  border-color: #fff !important;
-  text-shadow: none !important;
-  box-shadow: none !important;
-}
-
-/* Align the button with the breadcrumb */
-#pageContainer > .floatright:has(input[name="bookmark"]) {
-  width: auto !important;
-  margin: -51px 4px 0 0 !important;
-}
-/* =========================================================
-   V18 — LARGE BOOKMARK BUTTON
-   ========================================================= */
-
-input[name="bookmark"] {
-  float: none !important;
-
-  min-width: 145px !important;
-  height: 46px !important;
-  min-height: 46px !important;
-
-  margin: 0 !important;
-  padding: 8px 18px !important;
-
-  color: #fff !important;
-  background: #050505 !important;
-  border: 2px solid #ff00ff !important;
-
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 28px !important;
-  letter-spacing: 0.6px !important;
-  text-align: center !important;
-  text-shadow: none !important;
-
-  box-shadow: none !important;
-}
-
-input[name="bookmark"]:hover,
-input[name="bookmark"]:focus {
-  color: #000 !important;
-  background: #fff !important;
-  border-color: #fff !important;
-}
-
-/* Keep it aligned with the breadcrumb */
-#pageContainer > .floatright:has(input[name="bookmark"]) {
-  width: auto !important;
-  margin: -57px 4px 0 0 !important;
-}
-/* =========================================================
-   V19 — GLOBAL GAME READABILITY
-   Enlarges compressed text, tables, controls and status UI
-   across Lioden without altering lion image layers.
-   ========================================================= */
-
-@media (min-width: 992px) {
-
-  /* Small and compressed game text */
-  #pageContainer small,
-  #pageContainer .small,
-  #pageContainer .xsmall,
-  #pageContainer .text-small,
-  #pageContainer .panel-body.small {
-    font-size: 18px !important;
-    line-height: 1.38 !important;
-    letter-spacing: 0.15px !important;
-  }
-
-  /* Tables used throughout lions, caves, hunting and game pages */
-  #pageContainer .table td,
-  #pageContainer .table th,
-  #pageContainer .inner-table td,
-  #pageContainer .inner-table th {
-    padding: 10px 12px !important;
-    font-size: 19px !
-/* =========================================================
-   V20 — RANDOM MEMBER CARDS
-   Make the brown cards black with a white outline
-   ========================================================= */
-
-#pageContainer .feature,
-#pageContainer .featured-member,
-#pageContainer .random-member,
-#pageContainer .random-pride-member {
-  background: #000 !important;
-  border: 1px solid #fff !important;
-  box-shadow: none !important;
-}
-
-#pageContainer .feature img,
-#pageContainer .featured-member img,
-#pageContainer .random-member img,
-#pageContainer .random-pride-member img {
-  border: 1px solid #fff !important;
-  background: #000 !important;
-}
-
-#pageContainer .feature a,
-#pageContainer .featured-member a,
-#pageContainer .random-member a,
-#pageContainer .random-pride-member a {
-  color: #ff6a1a !important;
-}
-
-#pageContainer .feature a:hover,
-#pageContainer .featured-member a:hover,
-#pageContainer .random-member a:hover,
-#pageContainer .random-pride-member a:hover {
-  color: #00ff00 !important;
 }
