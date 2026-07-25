@@ -1719,3 +1719,63 @@ button,
     animation: none !important;
   }
 }
+/* ==========================================
+   ORANGE TEXT LEGIBILITY FIX
+   ========================================== */
+
+a,
+a:visited,
+.liondos-command,
+.console-label,
+.console-prompt::before,
+.console-warning,
+.alert-warning {
+  color: #ff6a1a !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.15px !important;
+  line-height: 1.28 !important;
+  text-shadow: none !important;
+}
+
+/* Clickable links should not look bold or crowded */
+a,
+a:visited {
+  font-size: 0.98em !important;
+}
+
+a:hover,
+a:focus {
+  color: #00ff00 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.15px !important;
+  text-shadow: 0 0 4px rgba(0, 255, 0, 0.35) !important;
+}
+
+/* Console commands need additional vertical separation */
+.liondos-command,
+.console-line.console-prompt {
+  margin-top: 8px !important;
+  margin-bottom: 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* Orange alert and note blocks */
+.liondos-note,
+.console-warning {
+  color: #fff !important;
+  line-height: 1.4 !important;
+}
+
+.console-warning {
+  border-color: #ff6a1a !important;
+  background: rgba(255, 106, 26, 0.055) !important;
+}
+
+/* Prevent bold tags inside orange links */
+a b,
+a strong,
+.console-label b,
+.console-label strong {
+  color: inherit !important;
+  font-weight: 400 !important;
+}
