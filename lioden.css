@@ -11,18 +11,18 @@
   --ld-panel: rgba(3, 5, 5, 0.94);
   --ld-panel-soft: rgba(8, 12, 11, 0.91);
   --ld-panel-alt: rgba(15, 18, 16, 0.94);
-  --ld-text: #f1f4ef;
-  --ld-muted: #b6c2ba;
-  --ld-dim: #84938a;
-  --ld-pink: #ff20cf;
-  --ld-pink-soft: #ff76e3;
-  --ld-green: #7dff74;
-  --ld-orange: #ff8a1f;
-  --ld-cyan: #80f5ff;
+  --ld-text: #ffffff;
+  --ld-muted: #d7d7d7;
+  --ld-dim: #a9a9a9;
+  --ld-pink: #ff00ff;
+  --ld-pink-soft: #ff5ce6;
+  --ld-green: #00ff00;
+  --ld-orange: #ff5a00;
+  --ld-cyan: #ff5a00;
   --ld-red: #ff546f;
-  --ld-border: rgba(255, 32, 207, 0.78);
-  --ld-border-dim: rgba(255, 32, 207, 0.34);
-  --ld-shadow: rgba(255, 32, 207, 0.28);
+  --ld-border: rgba(255, 0, 255, 0.82);
+  --ld-border-dim: rgba(255, 0, 255, 0.38);
+  --ld-shadow: rgba(255, 0, 255, 0.30);
   --ld-font-display: "Abril Fatface", Georgia, serif;
   --ld-font-terminal: "VT323", "Courier New", monospace;
   --ld-radius: 0px;
@@ -1113,5 +1113,609 @@ img[data-layer]:hover {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+
+/* ==========================================================================
+   V11 REFINEMENT — LEGIBILITY, SIDEBAR SCALE, HIGH-SATURATION PALETTE
+   ========================================================================== */
+
+body,
+p,
+span,
+div,
+li,
+td,
+th,
+label,
+small,
+.panel-body,
+.alert,
+.breadcrumb,
+#pageSidebar,
+#pageSidebar .panel-body,
+#pageSidebar .small {
+  color: #fff !important;
+}
+
+a,
+a:visited,
+.navbar a,
+.breadcrumb a,
+.toplinks a,
+.panel a,
+.table a,
+.liondos a {
+  color: var(--ld-orange) !important;
+}
+
+a:hover,
+a:focus,
+.navbar a:hover,
+.panel a:hover,
+.table a:hover {
+  color: var(--ld-green) !important;
+  text-shadow: 0 0 7px rgba(0, 255, 0, 0.55);
+}
+
+#pageSidebar {
+  font-size: 19px !important;
+}
+
+#pageSidebar h3 {
+  margin-top: 20px !important;
+  margin-bottom: 9px !important;
+  font-size: 29px !important;
+  line-height: 1.05 !important;
+}
+
+#pageSidebar .panel {
+  margin-bottom: 22px !important;
+  min-height: 96px;
+}
+
+#pageSidebar .panel::before {
+  min-height: 33px;
+  padding: 6px 11px;
+  font-size: 19px;
+  line-height: 20px;
+}
+
+#pageSidebar .panel-body {
+  padding: 15px 14px !important;
+  font-size: 18px !important;
+  line-height: 1.34 !important;
+}
+
+#pageSidebar .panel-body a {
+  display: inline-block;
+  margin: 2px 0;
+  line-height: 1.22;
+}
+
+#pageSidebar .col-md-12,
+#pageSidebar .col-xs-12,
+#pageSidebar .col-xs-6,
+#pageSidebar .col-xs-5 {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+.progress {
+  position: relative;
+  height: 23px !important;
+  margin-bottom: 9px !important;
+  background: #050505 !important;
+  border: 1px solid var(--ld-pink) !important;
+}
+
+.progress-bar {
+  opacity: 0.82;
+  background: linear-gradient(
+    90deg,
+    var(--ld-pink) 0%,
+    var(--ld-orange) 48%,
+    var(--ld-green) 100%
+  ) !important;
+}
+
+.progress > div:not(.progress-bar),
+.progress > .progress-bar + div,
+.progress div {
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+  line-height: 21px !important;
+  text-shadow:
+    0 1px 2px #000,
+    1px 0 2px #000,
+    -1px 0 2px #000,
+    0 -1px 2px #000 !important;
+}
+
+#pageSidebar .progress {
+  min-width: 100%;
+}
+
+#pageSidebar .progress > div:last-child {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+}
+
+#pageSidebar .visible-md.visible-lg .panel-body,
+#pageSidebar .visible-xs.visible-sm .panel-body {
+  font-size: 18px !important;
+}
+
+#pageSidebar .panel-body br {
+  line-height: 1.45;
+}
+
+@media (min-width: 1200px) {
+  #pageContainer {
+    width: 78% !important;
+  }
+
+  #pageSidebar {
+    width: 22% !important;
+  }
+}
+
+.liondos {
+  font-size: 22px !important;
+}
+
+.liondos-titlebar {
+  min-height: 38px;
+  padding: 7px 13px;
+  font-size: 21px;
+}
+
+.liondos-body {
+  padding: 22px;
+}
+
+.liondos-hero {
+  padding: 30px 22px;
+}
+
+.liondos-hero h2 {
+  font-size: clamp(38px, 5vw, 64px) !important;
+  line-height: 1.05 !important;
+}
+
+.liondos-subtitle {
+  color: var(--ld-green) !important;
+  font-size: 24px;
+}
+
+.liondos-data td {
+  color: #fff !important;
+  font-size: 20px !important;
+}
+
+.liondos-data td:first-child {
+  color: var(--ld-pink-soft) !important;
+}
+
+.liondos-command {
+  color: var(--ld-orange) !important;
+}
+
+.liondos-output {
+  color: var(--ld-green) !important;
+}
+
+.liondos-muted {
+  color: #fff !important;
+  opacity: 0.82;
+}
+
+.liondos-badge {
+  color: #000 !important;
+  background: var(--ld-green);
+  border-color: var(--ld-green);
+  font-size: 18px;
+  text-shadow: none !important;
+}
+
+.liondos-note {
+  color: #fff !important;
+  background: rgba(255, 90, 0, 0.08);
+  border-left-color: var(--ld-orange);
+}
+
+.liondos-window .liondos-command,
+.liondos-window .liondos-output {
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.liondos-window:nth-child(3n+1) {
+  box-shadow:
+    0 0 16px rgba(255, 0, 255, 0.16),
+    inset 0 0 28px rgba(0, 255, 0, 0.018);
+}
+
+.liondos-window:nth-child(3n+2) .liondos-titlebar {
+  border-bottom-color: var(--ld-orange);
+}
+
+.liondos-window:nth-child(3n+3) .liondos-titlebar {
+  border-bottom-color: var(--ld-green);
+}
+
+.online,
+.status-online,
+.liondos-output,
+.liondos-subtitle,
+.liondos-titlebar,
+.footer::before {
+  color: #00ff00 !important;
+}
+
+#pageSidebar .b,
+#pageSidebar small,
+#pageSidebar .small,
+#pageSidebar .floatleft,
+#pageSidebar .floatright {
+  color: #fff !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.panel-heading {
+  color: var(--ld-pink) !important;
+}
+
+
+/* ==========================================================================
+   V12 — CONSOLE CORE
+   Larger type, denser PC-console styling, subtle CSS-only micro-animations.
+   ========================================================================== */
+
+body {
+  font-size: 20px !important;
+}
+
+#pageContainer,
+#pageSidebar,
+.table td,
+.table th,
+.panel-body,
+.alert,
+.breadcrumb,
+input,
+textarea,
+select,
+button,
+.btn {
+  font-size: 20px !important;
+}
+
+#pageSidebar .panel-body {
+  font-size: 19px !important;
+}
+
+#pageSidebar h3 {
+  font-size: 30px !important;
+}
+
+.liondos {
+  font-size: 23px !important;
+}
+
+.liondos-titlebar {
+  min-height: 40px;
+  font-size: 22px;
+}
+
+.liondos-body {
+  padding: 24px;
+}
+
+/* Console window shell */
+.console-window {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 18px;
+  background:
+    linear-gradient(180deg, rgba(6, 9, 7, 0.98), rgba(1, 2, 2, 0.99));
+  border: 1px solid var(--ld-pink);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.9),
+    0 0 18px rgba(255, 0, 255, 0.14),
+    inset 0 0 28px rgba(0, 255, 0, 0.018);
+}
+
+.console-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(0, 255, 0, 0.04) 4px
+    );
+}
+
+.console-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 40px;
+  padding: 7px 13px;
+  color: var(--ld-green);
+  background:
+    linear-gradient(90deg, #040604, #090209 65%, #040604);
+  border-bottom: 1px solid var(--ld-pink);
+  font-size: 21px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.console-lights {
+  color: var(--ld-pink);
+  letter-spacing: 4px;
+}
+
+.console-body {
+  position: relative;
+  z-index: 2;
+  padding: 22px;
+  color: #fff;
+}
+
+.console-line {
+  margin: 0 0 10px;
+  color: #fff;
+  line-height: 1.35;
+}
+
+.console-label {
+  color: var(--ld-orange);
+}
+
+.console-value {
+  color: var(--ld-green);
+}
+
+.console-dim {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.console-prompt::before {
+  content: "C:\\LIONDOS\\PRIDE> ";
+  color: var(--ld-orange);
+}
+
+.console-cursor::after {
+  content: "█";
+  margin-left: 5px;
+  color: var(--ld-green);
+  animation: console-blink 1s steps(2, end) infinite;
+}
+
+.console-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.console-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.console-meter {
+  height: 18px;
+  margin: 7px 0 14px;
+  overflow: hidden;
+  background: #050505;
+  border: 1px solid var(--ld-pink);
+}
+
+.console-meter > span {
+  display: block;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--ld-green) 0 14px,
+      #050505 14px 17px
+    );
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.28);
+}
+
+.console-card {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(255, 0, 255, 0.35);
+}
+
+.console-card-title {
+  margin-bottom: 9px;
+  color: var(--ld-pink);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.console-rule {
+  height: 1px;
+  margin: 16px 0;
+  background:
+    linear-gradient(90deg, transparent, var(--ld-orange), var(--ld-green), transparent);
+}
+
+.console-chip {
+  display: inline-block;
+  margin: 3px 5px 3px 0;
+  padding: 4px 8px;
+  color: #000;
+  background: var(--ld-green);
+  border: 1px solid var(--ld-green);
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.console-chip.orange {
+  background: var(--ld-orange);
+  border-color: var(--ld-orange);
+}
+
+.console-chip.pink {
+  background: var(--ld-pink);
+  border-color: var(--ld-pink);
+}
+
+.console-log {
+  max-height: 260px;
+  overflow: auto;
+  padding: 14px;
+  background: #020302;
+  border-left: 3px solid var(--ld-orange);
+}
+
+.console-warning {
+  padding: 12px 14px;
+  color: #fff;
+  background: rgba(255, 90, 0, 0.08);
+  border: 1px dashed var(--ld-orange);
+}
+
+/* CSS-only micro graphics inspired by old web badges */
+.console-glyph-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.console-glyph {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 31px;
+  color: #fff;
+  background: #000;
+  border: 1px solid var(--ld-pink);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 8px rgba(255, 0, 255, 0.14);
+}
+
+.console-glyph::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  pointer-events: none;
+  border: 1px dashed rgba(0, 255, 0, 0.55);
+}
+
+.console-glyph.signal {
+  animation: console-signal 1.8s steps(2, end) infinite;
+}
+
+.console-glyph.scan::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+  height: 2px;
+  background: var(--ld-green);
+  box-shadow: 0 0 6px var(--ld-green);
+  animation: console-scan 2.4s linear infinite;
+}
+
+.console-orbit {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  margin-right: 6px;
+  border: 2px solid var(--ld-green);
+  border-radius: 50%;
+}
+
+.console-orbit::before,
+.console-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.console-orbit::before {
+  inset: 6px;
+  background: var(--ld-pink);
+}
+
+.console-orbit::after {
+  width: 5px;
+  height: 5px;
+  left: 9px;
+  top: -4px;
+  background: var(--ld-orange);
+  transform-origin: 3px 17px;
+  animation: console-orbit 2.8s linear infinite;
+}
+
+@keyframes console-blink {
+  50% { opacity: 0; }
+}
+
+@keyframes console-signal {
+  50% {
+    color: #000;
+    background: var(--ld-green);
+    border-color: var(--ld-green);
+  }
+}
+
+@keyframes console-scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(21px); }
+}
+
+@keyframes console-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .console-grid,
+  .console-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .console-cursor::after,
+  .console-glyph.signal,
+  .console-glyph.scan::after,
+  .console-orbit::after {
+    animation: none !important;
   }
 }
