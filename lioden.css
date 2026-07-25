@@ -1,1525 +1,1117 @@
-/*==========================================================
-        ██╗     ██╗ ██████╗ ███╗   ██╗██████╗  ██████╗ ███████╗
-        ██║     ██║██╔═══██╗████╗  ██║██╔══██╗██╔═══██╗██╔════╝
-        ██║     ██║██║   ██║██╔██╗ ██║██║  ██║██║   ██║███████╗
-        ██║     ██║██║   ██║██║╚██╗██║██║  ██║██║   ██║╚════██║
-        ███████╗██║╚██████╔╝██║ ╚████║██████╔╝╚██████╔╝███████║
-        ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚══════╝
+/* ==========================================================================
+   LIONDOS // MULTIPLIED NEGATIVITY
+   Full Lioden theme — clean replacement stylesheet
+   Background: Nigel's Revolution Carrd asset
+   ========================================================================== */
 
-                    VERSION 3.1
-==========================================================*/
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=VT323&display=swap");
 
-
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=VT323&display=swap');
-
-
-:root{
-
---bg:#050505;
-
---panel:rgba(0,0,0,.84);
-
---panel-light:rgba(12,12,12,.90);
-
---magenta:#ff00cc;
-
---green:#67ff67;
-
---orange:#ff7a00;
-
---text:#d7d7d7;
-
---border:#ff00cc;
-
---shadow:rgba(255,0,204,.35);
-
+:root {
+  --ld-bg: #020303;
+  --ld-panel: rgba(3, 5, 5, 0.94);
+  --ld-panel-soft: rgba(8, 12, 11, 0.91);
+  --ld-panel-alt: rgba(15, 18, 16, 0.94);
+  --ld-text: #f1f4ef;
+  --ld-muted: #b6c2ba;
+  --ld-dim: #84938a;
+  --ld-pink: #ff20cf;
+  --ld-pink-soft: #ff76e3;
+  --ld-green: #7dff74;
+  --ld-orange: #ff8a1f;
+  --ld-cyan: #80f5ff;
+  --ld-red: #ff546f;
+  --ld-border: rgba(255, 32, 207, 0.78);
+  --ld-border-dim: rgba(255, 32, 207, 0.34);
+  --ld-shadow: rgba(255, 32, 207, 0.28);
+  --ld-font-display: "Abril Fatface", Georgia, serif;
+  --ld-font-terminal: "VT323", "Courier New", monospace;
+  --ld-radius: 0px;
 }
 
+/* ==========================================================================
+   RESET AND READABILITY
+   ========================================================================== */
 
-/*************************************************
-BODY
-*************************************************/
-
-html{
-
-background:#000;
-
+html {
+  background: #000;
+  min-height: 100%;
 }
 
-body{
-
-background:
-
-linear-gradient(
-
-rgba(0,0,0,.45),
-
-rgba(0,0,0,.82)
-
-),
-
-url("https://ihatecinemapolicies.carrd.co/assets/images/bg.jpg?v47970992911951")
-
-center center fixed;
-
-background-size:cover;
-
-font-family:'VT323',monospace;
-
-font-size:22px;
-
-letter-spacing:.4px;
-
-color:var(--text);
-
+body {
+  min-height: 100%;
+  margin: 0;
+  color: var(--ld-text) !important;
+  font-family: var(--ld-font-terminal) !important;
+  font-size: 19px !important;
+  line-height: 1.34 !important;
+  letter-spacing: 0.25px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.74)),
+    url("https://ihatecinemapolicies.carrd.co/assets/images/bg.jpg?v47970992911951")
+      center center / cover fixed no-repeat !important;
+  text-rendering: optimizeLegibility;
 }
 
-
-/*************************************************
-SCANLINES
-*************************************************/
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-background:
-
-repeating-linear-gradient(
-
-180deg,
-
-rgba(255,255,255,.02) 0,
-
-rgba(255,255,255,.02) 1px,
-
-transparent 2px,
-
-transparent 4px
-
-);
-
-opacity:.28;
-
-z-index:9999;
-
-}
-
-
-/*************************************************
-CRT
-*************************************************/
-
-@keyframes crt{
-
-0%{
-
-opacity:.985;
-
-}
-
-50%{
-
-opacity:1;
-
-}
-
-100%{
-
-opacity:.99;
-
-}
-
-}
-
-body{
-
-animation:crt .22s infinite;
-
-}
-
-
-/*************************************************
-TYPOGRAPHY
-*************************************************/
-
-h1,h2,h3,h4{
-
-font-family:'Abril Fatface',serif;
-
-text-transform:uppercase;
-
-letter-spacing:3px;
-
-color:var(--magenta);
-
-text-shadow:
-
-0 0 8px var(--magenta),
-
-0 0 20px rgba(255,0,204,.45);
-
+body,
+input,
+button,
+select,
+textarea,
+table {
+  font-family: var(--ld-font-terminal) !important;
 }
 
 p,
-span,
+li,
 td,
 th,
-div,
-li{
-
-font-family:'VT323',monospace;
-
+label,
+small,
+.panel-body,
+.alert,
+.breadcrumb {
+  color: var(--ld-text);
 }
 
-
-/*************************************************
-LINKS
-*************************************************/
-
-a{
-
-color:var(--orange);
-
-transition:.25s;
-
-text-decoration:none;
-
+small,
+.text-muted {
+  color: var(--ld-muted) !important;
 }
 
-a:hover{
-
-color:var(--green);
-
-text-shadow:
-
-0 0 8px var(--green);
-
+b,
+strong,
+.b {
+  color: #fff !important;
+  font-weight: normal !important;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.18);
 }
 
-
-/*************************************************
-GENERAL PANELS
-*************************************************/
-
-.panel,
-.feature,
-.boxcontainer{
-
-background:var(--panel)!important;
-
-border:2px solid var(--border)!important;
-
-box-shadow:
-
-0 0 12px var(--shadow);
-
-border-radius:0!important;
-
+::selection {
+  color: #050505;
+  background: var(--ld-green);
 }
 
-
-/*************************************************
-WINDOW BAR
-*************************************************/
-
-.feature{
-
-position:relative;
-
-padding-top:36px!important;
-
-overflow:hidden;
-
+/* Soft scanlines. Kept subtle so text remains readable. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.13;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.045) 0,
+    rgba(255, 255, 255, 0.045) 1px,
+    transparent 1px,
+    transparent 4px
+  );
 }
 
-.feature::before{
-
-content:" ●  ●  ●";
-
-position:absolute;
-
-left:0;
-
-right:0;
-
-top:0;
-
-height:28px;
-
-background:#090009;
-
-border-bottom:2px solid var(--magenta);
-
-padding-left:14px;
-
-line-height:28px;
-
-font-family:'VT323';
-
-color:#ff5555;
-
+/* Gentle vignette, not a screen-darkening overlay. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  box-shadow: inset 0 0 130px rgba(0, 0, 0, 0.48);
 }
 
-
-/*************************************************
-HEADERS
-*************************************************/
-
-.feature h2:first-child::before{
-
-content:"LIONDOS.EXE";
-
-display:block;
-
-font-size:16px;
-
-letter-spacing:2px;
-
-margin-bottom:8px;
-
-color:var(--green);
-
-opacity:.7;
-
-}
-
-
-/*************************************************
-IMAGES
-*************************************************/
-
-img{
-
-border:2px solid var(--magenta);
-
-background:#000;
-
-padding:2px;
-
-transition:.25s;
-
-}
-
-img:hover{
-
-transform:scale(1.02);
-
-box-shadow:
-
-0 0 20px rgba(255,0,204,.65);
-
-}
-/*=========================================================
-PART 2
-LAYOUT + NAVIGATION
-=========================================================*/
-
-
-/*************************************************
-MAIN LAYOUT
-*************************************************/
+/* ==========================================================================
+   PAGE WIDTH — LARGER GAMEPLAY / INTERACTION UI
+   ========================================================================== */
 
 .container,
 .container.main,
-.inner-layout,
-.center{
-
-background:transparent!important;
-
+.container.topbar,
+.container.footer {
+  width: min(1480px, calc(100vw - 28px)) !important;
+  max-width: none !important;
 }
 
-.col-md-9{
-
-background:rgba(0,0,0,.68)!important;
-
-padding:20px;
-
+.container.main {
+  background: rgba(4, 7, 7, 0.74) !important;
+  border-left: 1px solid var(--ld-border-dim);
+  border-right: 1px solid var(--ld-border-dim);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.78);
 }
 
-.col-md-3{
-
-background:transparent!important;
-
+#pageContainer {
+  width: 80% !important;
+  padding: 18px 22px 36px !important;
+  background:
+    linear-gradient(rgba(3, 5, 5, 0.90), rgba(3, 5, 5, 0.96)) !important;
+  border-right: 1px solid var(--ld-border-dim);
+  min-height: 800px;
 }
 
-
-/*************************************************
-SIDEBAR
-*************************************************/
-
-.col-md-3 .panel,
-.col-md-3 .feature,
-.col-md-3 .boxcontainer{
-
-background:rgba(0,0,0,.88)!important;
-
-margin-bottom:18px;
-
+#pageSidebar {
+  width: 20% !important;
+  padding: 15px 12px 28px !important;
+  background: rgba(4, 7, 6, 0.89) !important;
 }
 
+/* Let gameplay modules consume the expanded center column. */
+#pageContainer > center,
+#pageContainer > form,
+#pageContainer > table,
+#pageContainer .table,
+#pageContainer .inner-table {
+  max-width: 100% !important;
+}
 
-/*************************************************
-TOP BAR
-*************************************************/
+#pageContainer center {
+  width: 100%;
+}
 
-.topbar,
+/* Common large interaction containers. */
+#explore,
+.explore,
+#fraExplore,
+#battle,
+.battle,
+#fraBattle,
+#hunting,
+.hunting,
+#patrol,
+.patrol,
+#event,
+.event,
+.interaction,
+.game-interaction {
+  width: min(100%, 980px) !important;
+  max-width: 980px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Expand large scene artwork without touching layered lions. */
+#pageContainer img[src*="explore"],
+#pageContainer img[src*="battle"],
+#pageContainer img[src*="hunting"],
+#pageContainer img[src*="patrol"],
+#pageContainer img[src*="event"],
+#pageContainer img[src*="encounter"],
+#pageContainer img[src*="zone"] {
+  width: min(100%, 980px) !important;
+  max-width: 980px !important;
+  height: auto !important;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   TOP BAR
+   ========================================================================== */
+
+.container.topbar {
+  min-height: 38px;
+  background: rgba(2, 3, 3, 0.96) !important;
+  border: 1px solid var(--ld-border);
+  border-top: 0;
+  color: var(--ld-text) !important;
+  box-shadow: 0 0 12px var(--ld-shadow);
+}
+
+.welcomeback,
+.toplinks,
+.toplinks li,
+.toplinks a {
+  color: var(--ld-text) !important;
+  font-size: 16px !important;
+  letter-spacing: 0.6px;
+}
+
+.toplinks a:hover,
+.welcomeback a:hover {
+  color: var(--ld-green) !important;
+}
+
+/* Currency icons need no decorative frame. */
+.topbar img,
+.toplinks img,
+img.icon {
+  border: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
 .navbar,
-.navbar-default{
-
-background:#050505!important;
-
-border:none!important;
-
-border-bottom:2px solid var(--magenta)!important;
-
-box-shadow:
-
-0 0 18px rgba(255,0,204,.25);
-
+.navbar-default {
+  min-height: 68px !important;
+  margin-bottom: 0 !important;
+  background:
+    linear-gradient(to bottom, #090909, #020202) !important;
+  border: 1px solid var(--ld-border) !important;
+  border-radius: var(--ld-radius) !important;
+  box-shadow:
+    0 0 16px var(--ld-shadow),
+    inset 0 -1px 0 rgba(125, 255, 116, 0.18);
 }
 
-
-/*************************************************
-NAV LINKS
-*************************************************/
-
-.navbar a,
-.navbar-default a,
-.navbar-default .navbar-nav>li>a{
-
-font-family:'VT323',monospace!important;
-
-font-size:22px!important;
-
-color:var(--magenta)!important;
-
-transition:.25s;
-
+.navbar-brand {
+  height: 68px !important;
+  padding: 0 12px !important;
 }
 
-.navbar a:hover,
-.navbar-default a:hover,
-.navbar-default .navbar-nav>li>a:hover{
-
-background:#150015!important;
-
-color:var(--green)!important;
-
+.navbar-brand img {
+  max-height: 94px !important;
+  margin-top: -15px;
+  border: 1px solid var(--ld-border) !important;
+  padding: 0 !important;
+  background: #000 !important;
+  box-shadow: 0 0 12px var(--ld-shadow) !important;
 }
 
-
-/*************************************************
-DROPDOWNS
-*************************************************/
-
-.dropdown-menu{
-
-background:#050505!important;
-
-border:2px solid var(--magenta)!important;
-
-border-radius:0!important;
-
+.navbar-default .navbar-nav > li > a,
+.navbar a {
+  min-height: 66px;
+  padding: 23px 22px !important;
+  color: var(--ld-pink) !important;
+  font-size: 21px !important;
+  line-height: 20px !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 32, 207, 0.5);
+  transition: color 0.16s ease, background 0.16s ease;
 }
 
-.dropdown-menu>li>a{
-
-font-family:'VT323',monospace!important;
-
-font-size:22px!important;
-
-color:var(--orange)!important;
-
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #071007 !important;
+  background: var(--ld-green) !important;
+  text-shadow: none;
 }
 
-.dropdown-menu>li>a:hover{
-
-background:#120012!important;
-
-color:var(--green)!important;
-
+.navbar-toggle {
+  border: 1px solid var(--ld-pink) !important;
+  background: #000 !important;
 }
 
-
-/*************************************************
-BREADCRUMBS
-*************************************************/
-
-.breadcrumb{
-
-background:#000!important;
-
-border:2px solid var(--magenta)!important;
-
-border-radius:0!important;
-
+.navbar-toggle .icon-bar {
+  background: var(--ld-green) !important;
 }
 
-.breadcrumb>li{
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
 
-font-family:'VT323',monospace!important;
-
-font-size:21px;
-
+a {
+  color: var(--ld-cyan) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
-.breadcrumb a{
-
-color:var(--orange)!important;
-
+a:hover,
+a:focus {
+  color: var(--ld-green) !important;
+  text-shadow: 0 0 6px rgba(125, 255, 116, 0.5);
+  text-decoration: none !important;
 }
 
-.breadcrumb a:hover{
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
 
-color:var(--green)!important;
-
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4 {
+  color: var(--ld-pink) !important;
+  font-family: var(--ld-font-display) !important;
+  font-weight: 400 !important;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 5px rgba(255, 32, 207, 0.75),
+    0 0 16px rgba(255, 32, 207, 0.24);
 }
 
-
-/*************************************************
-PANEL HEADERS
-*************************************************/
-
-.panel-heading{
-
-background:#120012!important;
-
-border-bottom:2px solid var(--magenta)!important;
-
-font-family:'Abril Fatface',serif!important;
-
-font-size:26px!important;
-
-color:var(--magenta)!important;
-
+h1 {
+  margin: 24px 0 22px !important;
+  font-size: clamp(34px, 4vw, 53px) !important;
+  line-height: 1.05 !important;
 }
 
-
-/*************************************************
-FOOTER
-*************************************************/
-
-footer,
-.footer{
-
-background:#050505!important;
-
-border-top:2px solid var(--magenta)!important;
-
-padding:20px;
-
-}
-/*=========================================================
-PART 3
-BUTTONS + TABLES + FORMS
-=========================================================*/
-
-
-/*************************************************
-BUTTONS
-*************************************************/
-
-.btn,
-button,
-input[type=submit],
-input[type=button]{
-
-background:#000!important;
-
-color:var(--magenta)!important;
-
-border:2px solid var(--magenta)!important;
-
-border-radius:0!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:22px!important;
-
-text-transform:uppercase;
-
-transition:all .25s ease;
-
+h2 {
+  font-size: 32px !important;
 }
 
-.btn:hover,
-button:hover,
-input[type=submit]:hover,
-input[type=button]:hover{
-
-background:var(--magenta)!important;
-
-color:#000!important;
-
-box-shadow:
-
-0 0 15px rgba(255,0,204,.6);
-
+h3,
+.h3 {
+  font-size: 25px !important;
 }
 
+#pageSidebar h3 {
+  margin: 14px 0 7px !important;
+  color: var(--ld-pink-soft) !important;
+  font-family: var(--ld-font-terminal) !important;
+  font-size: 24px !important;
+  letter-spacing: 1px;
+  text-shadow: 0 0 7px rgba(255, 32, 207, 0.38);
+}
 
-/*************************************************
-TEXT INPUTS
-*************************************************/
+/* ==========================================================================
+   BREADCRUMBS AND ALERTS
+   ========================================================================== */
+
+.breadcrumb {
+  margin: 0 0 16px !important;
+  padding: 9px 13px !important;
+  background: #030505 !important;
+  border: 1px solid var(--ld-border) !important;
+  border-radius: 0 !important;
+  font-size: 18px !important;
+}
+
+.breadcrumb > .active {
+  color: var(--ld-green) !important;
+}
+
+.alert {
+  padding: 11px 14px !important;
+  color: #fff !important;
+  background: rgba(5, 8, 7, 0.97) !important;
+  border: 1px solid var(--ld-orange) !important;
+  border-radius: 0 !important;
+  font-size: 19px !important;
+  box-shadow: inset 4px 0 0 var(--ld-orange);
+}
+
+.alert-success {
+  border-color: var(--ld-green) !important;
+  box-shadow: inset 4px 0 0 var(--ld-green);
+}
+
+.alert-warning {
+  border-color: var(--ld-orange) !important;
+  box-shadow: inset 4px 0 0 var(--ld-orange);
+}
+
+.alert-danger {
+  border-color: var(--ld-red) !important;
+  box-shadow: inset 4px 0 0 var(--ld-red);
+}
+
+/* ==========================================================================
+   PANELS / SIDEBAR WINDOWS
+   ========================================================================== */
+
+.panel,
+.panel-default {
+  position: relative;
+  margin-bottom: 15px !important;
+  color: var(--ld-text) !important;
+  background: var(--ld-panel) !important;
+  border: 1px solid var(--ld-border) !important;
+  border-radius: 0 !important;
+  box-shadow:
+    0 0 11px rgba(255, 32, 207, 0.13),
+    inset 0 0 20px rgba(255, 255, 255, 0.015);
+}
+
+#pageSidebar .panel::before {
+  content: "●  ●  ●  LIONDOS.EXE";
+  display: block;
+  height: 28px;
+  padding: 4px 9px;
+  color: var(--ld-green);
+  background: #050706;
+  border-bottom: 1px solid var(--ld-border);
+  font-size: 17px;
+  line-height: 19px;
+  letter-spacing: 0.8px;
+}
+
+.panel-heading {
+  color: var(--ld-pink) !important;
+  background: #10030d !important;
+  border-bottom: 1px solid var(--ld-border) !important;
+  border-radius: 0 !important;
+  font-family: var(--ld-font-terminal) !important;
+  font-size: 22px !important;
+}
+
+.panel-body {
+  padding: 12px !important;
+  color: var(--ld-text) !important;
+  background: transparent !important;
+  font-size: 17px !important;
+  line-height: 1.25 !important;
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+.table,
+table.table {
+  width: 100% !important;
+  margin-bottom: 18px !important;
+  color: var(--ld-text) !important;
+  background: rgba(2, 4, 4, 0.96) !important;
+  border: 1px solid var(--ld-border) !important;
+  border-collapse: collapse !important;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.42);
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td,
+table.table th,
+table.table td {
+  padding: 9px 11px !important;
+  color: var(--ld-text) !important;
+  background: rgba(5, 7, 7, 0.93) !important;
+  border: 1px solid rgba(255, 32, 207, 0.27) !important;
+  font-size: 18px !important;
+  line-height: 1.22 !important;
+  vertical-align: middle !important;
+}
+
+.table .top,
+.table th,
+table.table th {
+  color: #fff !important;
+  background:
+    linear-gradient(to right, rgba(255, 32, 207, 0.19), rgba(125, 255, 116, 0.06)) !important;
+  font-size: 20px !important;
+  letter-spacing: 0.7px;
+}
+
+.table .bottom {
+  background: rgba(9, 12, 11, 0.97) !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td,
+.table-striped > tbody > tr:nth-of-type(odd) > th,
+.table > tbody > tr:nth-child(odd) > td {
+  background: rgba(9, 13, 12, 0.96) !important;
+}
+
+.table > tbody > tr:hover > td {
+  color: #fff !important;
+  background: rgba(125, 255, 116, 0.09) !important;
+}
+
+.inner-table {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.inner-table td,
+.inner-table th {
+  border-color: rgba(255, 32, 207, 0.18) !important;
+}
+
+td.left,
+th.left {
+  color: var(--ld-pink-soft) !important;
+}
+
+td.right,
+th.right {
+  color: var(--ld-text) !important;
+}
+
+/* ==========================================================================
+   FORMS AND BUTTONS
+   ========================================================================== */
 
 input,
 textarea,
-select{
+select,
+.form-control {
+  color: var(--ld-text) !important;
+  background: #030505 !important;
+  border: 1px solid var(--ld-border) !important;
+  border-radius: 0 !important;
+  box-shadow: inset 0 0 7px rgba(255, 32, 207, 0.07);
+  font-size: 19px !important;
+}
 
-background:#040404!important;
-
-border:2px solid var(--magenta)!important;
-
-border-radius:0!important;
-
-color:var(--green)!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:22px!important;
-
+input::placeholder,
+textarea::placeholder {
+  color: #a8b4ac !important;
+  opacity: 1;
 }
 
 input:focus,
 textarea:focus,
-select:focus{
-
-outline:none!important;
-
-box-shadow:
-
-0 0 12px rgba(255,0,204,.5);
-
-}
-
-
-/*************************************************
-TABLES
-*************************************************/
-
-table{
-
-background:#050505!important;
-
-border:2px solid var(--magenta)!important;
-
-border-collapse:collapse!important;
-
-}
-
-th{
-
-background:#130013!important;
-
-color:var(--magenta)!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:24px!important;
-
-text-transform:uppercase;
-
-border:1px solid #320032!important;
-
-}
-
-td{
-
-background:rgba(0,0,0,.88)!important;
-
-color:var(--text)!important;
-
-border:1px solid #320032!important;
-
-font-size:22px!important;
-
-padding:8px;
-
-}
-
-tr:nth-child(even){
-
-background:rgba(255,0,204,.04)!important;
-
-}
-
-tr:hover{
-
-background:rgba(103,255,103,.08)!important;
-
-}
-
-
-/*************************************************
-PROFILE IMAGES
-*************************************************/
-
-img{
-
-border:2px solid var(--magenta)!important;
-
-background:#000!important;
-
-padding:2px;
-
-transition:
-
-transform .25s,
-
-box-shadow .25s,
-
-filter .25s;
-
-}
-
-img:hover{
-
-transform:scale(1.015);
-
-filter:brightness(1.05);
-
-box-shadow:
-
-0 0 20px rgba(255,0,204,.7);
-
-}
-
-
-/*************************************************
-FEATURE BOXES
-*************************************************/
-
-.feature{
-
-transition:
-
-transform .2s,
-
-box-shadow .25s;
-
-}
-
-.feature:hover{
-
-transform:translateY(-2px);
-
-box-shadow:
-
-0 0 20px rgba(255,0,204,.55);
-
-}
-
-
-/*************************************************
-COMMENTS
-*************************************************/
-
-.comment{
-
-background:#060606!important;
-
-border-left:4px solid var(--orange)!important;
-
-padding:16px;
-
-margin-bottom:15px;
-
-}
-
-.comment:nth-child(even){
-
-border-left-color:var(--green)!important;
-
-}
-
-
-/*************************************************
-ALERTS
-*************************************************/
-
-.alert{
-
-background:#050505!important;
-
-border:2px solid var(--orange)!important;
-
-color:var(--orange)!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:22px;
-
-}
-
-
-/*************************************************
-PROGRESS BARS
-*************************************************/
-
-.progress{
-
-background:#111!important;
-
-border:1px solid var(--magenta)!important;
-
-height:18px!important;
-
-border-radius:0!important;
-
-}
-
-.progress-bar{
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#ff00cc,
-
-#ff6600,
-
-#67ff67
-
-)!important;
-
-}
-
-
-/*************************************************
-PAGINATION
-*************************************************/
-
-.pagination>li>a{
-
-background:#000!important;
-
-border:1px solid var(--magenta)!important;
-
-color:var(--orange)!important;
-
-}
-
-.pagination>li>a:hover{
-
-background:var(--magenta)!important;
-
-color:#000!important;
-
-}
-
-
-/*************************************************
-BADGES
-*************************************************/
-
-.badge{
-
-background:#000!important;
-
-border:1px solid var(--magenta)!important;
-
-color:var(--magenta)!important;
-
-font-weight:normal;
-
-}
-
-
-/*************************************************
-HORIZONTAL RULES
-*************************************************/
-
-hr{
-
-border:none;
-
-border-top:2px solid rgba(255,0,204,.45);
-
-margin:20px 0;
-
-}
-/*=========================================================
-PART 5
-LIONDOS WINDOWS
-=========================================================*/
-
-
-/*************************************************
-FEATURE WINDOWS
-*************************************************/
-
-.feature,
-.boxcontainer,
-.panel{
-
-position:relative;
-
-background:rgba(5,5,5,.90)!important;
-
-border:2px solid var(--magenta)!important;
-
-overflow:hidden;
-
-}
-
-
-/*************************************************
-TITLE BAR
-*************************************************/
-
-.feature::before,
-.boxcontainer::before,
-.panel::before{
-
-content:" ●  ●  ●      LIONDOS.EXE";
-
-display:block;
-
-height:30px;
-
-line-height:30px;
-
-padding-left:14px;
-
-background:#090009;
-
-border-bottom:2px solid var(--magenta);
-
-font-family:'VT323',monospace;
-
-font-size:18px;
-
-letter-spacing:1px;
-
-color:var(--green);
-
-}
-
-
-/*************************************************
-CONTENT
-*************************************************/
-
-.feature>*,
-.boxcontainer>*,
-.panel>*{
-
-position:relative;
-
-z-index:5;
-
-}
-
-.feature{
-
-padding-top:34px!important;
-
-}
-
-.boxcontainer{
-
-padding-top:34px!important;
-
-}
-
-
-/*************************************************
-PANEL SHADOW
-*************************************************/
-
-.feature:hover,
-.boxcontainer:hover,
-.panel:hover{
-
-box-shadow:
-
-0 0 10px rgba(255,0,204,.45),
-
-0 0 30px rgba(255,0,204,.25),
-
-inset 0 0 30px rgba(255,255,255,.02);
-
-}
-
-
-/*************************************************
-HEADER TEXT
-*************************************************/
-
-.panel-heading{
-
-background:#120012!important;
-
-font-family:'Abril Fatface',serif!important;
-
-color:var(--magenta)!important;
-
-text-transform:uppercase;
-
-letter-spacing:3px;
-
-}
-
-
-/*************************************************
-SECTION TITLES
-*************************************************/
-
-h2{
-
-position:relative;
-
-}
-
-h2::after{
-
-content:"═══════════════════════════════";
-
-display:block;
-
-margin-top:8px;
-
-font-size:13px;
-
-letter-spacing:2px;
-
-color:var(--green);
-
-opacity:.7;
-
-}
-
-
-/*************************************************
-TEXT
-*************************************************/
-
-.feature p,
-.boxcontainer p,
-.panel p{
-
-font-size:23px;
-
-line-height:1.35em;
-
-}
-
-
-/*************************************************
-ICONS
-*************************************************/
-
-img[src*="icon"]{
-
-filter:
-
-drop-shadow(0 0 5px #ff00cc)
-
-brightness(1.08);
-
-}
-
-
-/*************************************************
-PROFILE IMAGE
-*************************************************/
-
-.feature img{
-
-border:2px solid var(--magenta);
-
-padding:3px;
-
-background:#000;
-
-}
-
-
-/*************************************************
-TABLE CELLS
-*************************************************/
-
-td{
-
-vertical-align:middle!important;
-
-}
-
-
-/*************************************************
-KING NAME
-*************************************************/
-
-h1{
-
-font-size:44px!important;
-
+select:focus,
+.form-control:focus {
+  border-color: var(--ld-green) !important;
+  outline: none !important;
+  box-shadow:
+    0 0 0 1px var(--ld-green),
+    0 0 11px rgba(125, 255, 116, 0.23) !important;
 }
 
-
-/*************************************************
-SMALL TEXT
-*************************************************/
-
-small{
-
-color:#7dff7d!important;
-
-font-size:18px!important;
-
-}
-
-
-/*************************************************
-LABELS
-*************************************************/
-
-label{
-
-color:var(--green)!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:22px;
-
-}
-
-
-/*************************************************
-STATUS
-*************************************************/
-
-.status-online{
-
-color:#67ff67;
-
-}
-
-.status-warning{
-
-color:#ff8800;
-
-}
-
-.status-error{
-
-color:#ff4b82;
-
-}
-
-
-/*************************************************
-ASCII CLASS
-*************************************************/
-
-.ascii{
-
-font-family:'VT323',monospace;
-
-white-space:pre-wrap;
-
-color:var(--green);
-
-line-height:1.15em;
-
-}
-
-
-/*************************************************
-TERMINAL PROMPT
-*************************************************/
-
-.prompt::before{
-
-content:"C:\\LIONDOS\\> ";
-
-color:var(--orange);
-
-}
-
-
-/*************************************************
-OUTPUT
-*************************************************/
-
-.output{
-
-color:var(--green);
-
-}
-
-
-/*************************************************
-COMMAND
-*************************************************/
-
-.command{
-
-color:var(--magenta);
-
-}
-
-
-/*************************************************
-END PART 5
-*************************************************/
-/*=========================================================
-PART 6
-LIODEN POLISH
-=========================================================*/
-
-
-/*************************************************
-CONTENT BOXES
-*************************************************/
-
-.panel-body,
-.box-body,
-.feature,
-.boxcontainer{
-
-background:rgba(0,0,0,.88)!important;
-
-}
-
-
-/*************************************************
-TABLE STRIPES
-*************************************************/
-
-.table-striped>tbody>tr:nth-child(odd){
-
-background:rgba(255,0,204,.03)!important;
-
-}
-
-.table-striped>tbody>tr:nth-child(even){
-
-background:rgba(0,0,0,.55)!important;
-
-}
-
-
-/*************************************************
-HOVER ROW
-*************************************************/
-
-.table tbody tr:hover{
-
-background:rgba(103,255,103,.08)!important;
-
-}
-
-
-/*************************************************
-BREADCRUMB CURRENT PAGE
-*************************************************/
-
-.breadcrumb>.active{
-
-color:var(--green)!important;
-
-}
-
-
-/*************************************************
-NAV TABS
-*************************************************/
-
-.nav-tabs{
-
-border-bottom:2px solid var(--magenta)!important;
-
-}
-
-.nav-tabs>li>a{
-
-background:#070707!important;
-
-color:var(--orange)!important;
-
-border:1px solid var(--magenta)!important;
-
-border-radius:0!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:21px!important;
-
-}
-
-.nav-tabs>li.active>a{
-
-background:#180018!important;
-
-color:var(--green)!important;
-
-}
-
-
-/*************************************************
-PAGINATION
-*************************************************/
-
-.pagination>li>a,
-.pagination>li>span{
-
-background:#050505!important;
-
-border:1px solid var(--magenta)!important;
-
-color:var(--orange)!important;
-
-}
-
-.pagination>.active>a{
-
-background:var(--magenta)!important;
-
-color:#000!important;
-
-}
-
-
-/*************************************************
-FORUM POSTS
-*************************************************/
-
-.comment{
-
-background:#080808!important;
-
-border-left:4px solid var(--orange)!important;
-
-padding:18px;
-
-box-shadow:
-
-0 0 8px rgba(255,0,204,.15);
-
-}
-
-
-/*************************************************
-PROFILE SIDEBAR
-*************************************************/
-
-.col-md-3 .panel{
-
-margin-bottom:20px;
-
-}
-
-
-/*************************************************
-KING IMAGE
-*************************************************/
-
-.feature img{
-
-transition:
-
-transform .25s,
-
-box-shadow .25s,
-
-filter .25s;
-
-}
-
-.feature img:hover{
-
-transform:scale(1.03);
-
-filter:brightness(1.08);
-
-box-shadow:
-
-0 0 22px rgba(255,0,204,.55);
-
-}
-
-
-/*************************************************
-LINKS
-*************************************************/
-
-a{
-
-text-decoration:none!important;
-
-}
-
-a:hover{
-
-text-decoration:none!important;
-
-}
-
-
-/*************************************************
-SELECTION
-*************************************************/
-
-::selection{
-
-background:#ff00cc;
-
-color:#000;
-
-}
-
-
-/*************************************************
-SCROLLBAR
-*************************************************/
-
-::-webkit-scrollbar{
-
-width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#050505;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:var(--magenta);
-
-border:2px solid #050505;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:var(--green);
-
-}
-
-
-/*************************************************
-LOADING BAR
-*************************************************/
-
-.progress{
-
-overflow:hidden;
-
-}
-
-.progress-bar{
-
-background-size:200% 100%;
-
-animation:terminalLoad 3s linear infinite;
-
-}
-
-@keyframes terminalLoad{
-
-0%{
-
-background-position:0%;
-
-}
-
-100%{
-
-background-position:200%;
-
-}
-
-}
-
-
-/*************************************************
-TERMINAL TEXT HELPERS
-*************************************************/
-
-.green{
-
-color:var(--green)!important;
-
-}
-
-.orange{
-
-color:var(--orange)!important;
-
-}
-
-.magenta{
-
-color:var(--magenta)!important;
-
-}
-
-.dim{
-
-opacity:.7;
-
-}
-
-
-/*************************************************
-ASCII BOX
-*************************************************/
-
-.ascii-box{
-
-background:#000;
-
-border:2px solid var(--magenta);
-
-padding:16px;
-
-font-family:'VT323',monospace;
-
-white-space:pre-wrap;
-
-color:var(--green);
-
-line-height:1.2em;
-
-}
-
-
-/*************************************************
-CRT BORDER
-*************************************************/
-
-.feature::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-pointer-events:none;
-
-box-shadow:
-
-inset 0 0 30px rgba(255,255,255,.02),
-
-inset 0 0 80px rgba(0,0,0,.55);
-
+textarea {
+  line-height: 1.3 !important;
+}
+
+.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  min-height: 34px;
+  padding: 5px 13px !important;
+  color: #fff !important;
+  background: #09030a !important;
+  border: 1px solid var(--ld-pink) !important;
+  border-radius: 0 !important;
+  font-size: 19px !important;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(255, 32, 207, 0.35);
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  color: #030503 !important;
+  background: var(--ld-green) !important;
+  border-color: var(--ld-green) !important;
+  text-shadow: none;
+  box-shadow: 0 0 11px rgba(125, 255, 116, 0.32);
+}
+
+/* ==========================================================================
+   PROGRESS BARS
+   ========================================================================== */
+
+.progress {
+  height: 18px !important;
+  margin-bottom: 7px !important;
+  overflow: hidden;
+  color: #fff !important;
+  background: #101412 !important;
+  border: 1px solid var(--ld-border-dim);
+  border-radius: 0 !important;
+}
+
+.progress-bar {
+  color: #030303 !important;
+  background:
+    linear-gradient(90deg, var(--ld-pink), var(--ld-orange), var(--ld-green)) !important;
+  box-shadow: none !important;
+}
+
+.progress > div:not(.progress-bar) {
+  position: relative;
+  z-index: 3;
+  color: #fff !important;
+  text-shadow: 0 1px 2px #000;
+}
+
+/* ==========================================================================
+   COMMENT BOX
+   ========================================================================== */
+
+#commentBox {
+  height: 330px !important;
+  color: var(--ld-text) !important;
+  background: rgba(2, 4, 4, 0.91) !important;
+  border: 1px solid var(--ld-border) !important;
+  border-radius: 0 !important;
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.56);
+}
+
+.comment {
+  color: var(--ld-text) !important;
+  background: rgba(5, 8, 7, 0.96) !important;
+  border-left: 3px solid var(--ld-orange);
+  font-size: 18px !important;
+}
+
+.comment:nth-child(even) {
+  background: rgba(11, 16, 14, 0.96) !important;
+  border-left-color: var(--ld-green);
+}
+
+#makeComment {
+  display: flex;
+  gap: 8px;
+}
+
+#comment {
+  flex: 1;
+  width: auto !important;
+}
+
+/* ==========================================================================
+   CAVES, MOUNDS, DYNASTY CARDS
+   ========================================================================== */
+
+.cave-grid,
+.mound-grid,
+.dynastylist .left,
+#fraOrganizationBlock .left {
+  min-height: 100%;
+  padding: 9px !important;
+  color: var(--ld-text) !important;
+  background: rgba(3, 5, 5, 0.94) !important;
+  border: 1px solid var(--ld-border) !important;
+  box-shadow: 0 0 10px rgba(255, 32, 207, 0.10);
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.cave-grid:hover,
+.mound-grid:hover,
+.dynastylist .left:hover {
+  background: rgba(125, 255, 116, 0.075) !important;
+  border-color: var(--ld-green) !important;
+}
+
+.cave-grid img,
+.mound-grid img,
+.dynastylist img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 7px;
+  border: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   IMAGE SAFETY
+   Never globally transform or pad Lioden's functional images.
+   ========================================================================== */
+
+img {
+  max-width: 100%;
+}
+
+/* Decorative framing only for safe standalone profile art. */
+#player > tbody > tr > td:last-child > img,
+.frame-image {
+  padding: 3px !important;
+  background: #000 !important;
+  border: 1px solid var(--ld-border) !important;
+  box-shadow: 0 0 11px var(--ld-shadow) !important;
+}
+
+/* Preserve UI icons, social buttons, arrows, currencies and game controls. */
+.topbar img,
+.navbar img,
+.panel img,
+.progress img,
+a > img,
+img.icon,
+img[src*="icon"],
+img[src*="arrow"],
+img[src*="button"],
+img[src*="layout"],
+img[src*="social"],
+img[src*="FB"],
+img[src*="Twit"],
+img[src*="Insta"] {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* ==========================================================================
+   LION / CUB / DECOR LAYER PROTECTION
+   ========================================================================== */
+
+#lion_image,
+.lion-image-block {
+  position: relative !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+#lion_image img,
+.lion-image-block img,
+.lion-image-block > img,
+.lion-image-block img[data-fixed="true"],
+.lion-image-block img[data-type],
+img[data-layer] {
+  position: absolute !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+#lion_image img:hover,
+.lion-image-block img:hover,
+.lion-image-block > img:hover,
+img[data-layer]:hover {
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   CAVE FEATURED LION / LARGE GAME ART
+   ========================================================================== */
+
+/* Allow cave featured-lion canvases and interaction images to stay large. */
+#pageContainer > center > img,
+#pageContainer center > a > img {
+  height: auto;
+}
+
+/* Do not add frames to assembled cave art or interactive click maps. */
+#pageContainer img[usemap],
+#pageContainer img[src*="battleLion"],
+#pageContainer img[src*="battleDecors"],
+#pageContainer img[src*="explore"],
+#pageContainer img[src*="hunting"],
+#pageContainer img[src*="patrol"],
+#pageContainer img[src*="event"] {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   GAMEPLAY INTERACTION ENLARGEMENT
+   ========================================================================== */
+
+@media (min-width: 1100px) {
+  /* Known or likely Explore/Battle/Hunting module wrappers. */
+  #explore,
+  .explore,
+  #fraExplore,
+  #battle,
+  .battle,
+  #fraBattle,
+  #hunting,
+  .hunting,
+  #patrol,
+  .patrol,
+  #event,
+  .event,
+  .interaction,
+  .game-interaction {
+    width: min(100%, 1040px) !important;
+    max-width: 1040px !important;
+    margin-inline: auto !important;
+  }
+
+  /* Scene images and click maps can use the wider center column. */
+  #pageContainer img[usemap],
+  #pageContainer img[src*="explore"],
+  #pageContainer img[src*="battle"],
+  #pageContainer img[src*="hunting"],
+  #pageContainer img[src*="patrol"],
+  #pageContainer img[src*="event"],
+  #pageContainer img[src*="encounter"],
+  #pageContainer img[src*="zone"] {
+    width: min(100%, 1040px) !important;
+    max-width: 1040px !important;
+    height: auto !important;
+  }
+}
+
+/* ==========================================================================
+   CUSTOM TERRITORY DESCRIPTION — LIONDOS CLASSES
+   ========================================================================== */
+
+.liondos {
+  width: 100%;
+  margin: 10px auto 22px;
+  color: var(--ld-text);
+  font-size: 20px;
+  text-align: left;
+}
+
+.liondos-window {
+  margin: 0 0 15px;
+  background:
+    linear-gradient(rgba(4, 7, 6, 0.96), rgba(1, 3, 3, 0.98));
+  border: 1px solid var(--ld-border);
+  box-shadow:
+    0 0 15px rgba(255, 32, 207, 0.15),
+    inset 0 0 35px rgba(125, 255, 116, 0.015);
+}
+
+.liondos-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 33px;
+  padding: 5px 11px;
+  color: var(--ld-green);
+  background: #060806;
+  border-bottom: 1px solid var(--ld-border);
+  font-size: 19px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.liondos-lights {
+  color: var(--ld-pink);
+  letter-spacing: 3px;
+}
+
+.liondos-body {
+  padding: 18px;
+}
+
+.liondos-hero {
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.liondos-hero h2 {
+  margin: 0 0 9px !important;
+  color: var(--ld-pink) !important;
+  font-size: clamp(34px, 5vw, 58px) !important;
+}
+
+.liondos-subtitle {
+  color: var(--ld-green);
+  font-size: 21px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.liondos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.liondos-data {
+  width: 100%;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.liondos-data td {
+  padding: 5px 7px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px dotted rgba(255, 32, 207, 0.35) !important;
+}
+
+.liondos-data td:first-child {
+  width: 42%;
+  color: var(--ld-pink-soft) !important;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.liondos-command {
+  color: var(--ld-orange);
+}
+
+.liondos-output {
+  color: var(--ld-green);
+}
+
+.liondos-muted {
+  color: var(--ld-muted);
+}
+
+.liondos-divider {
+  height: 1px;
+  margin: 15px 0;
+  background:
+    linear-gradient(90deg, transparent, var(--ld-pink), var(--ld-green), transparent);
+}
+
+.liondos-badge {
+  display: inline-block;
+  margin: 3px 4px 3px 0;
+  padding: 3px 8px;
+  color: var(--ld-green);
+  background: rgba(125, 255, 116, 0.04);
+  border: 1px solid rgba(125, 255, 116, 0.56);
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.liondos-note {
+  padding: 10px 12px;
+  color: var(--ld-text);
+  background: rgba(255, 138, 31, 0.06);
+  border-left: 3px solid var(--ld-orange);
+}
+
+.liondos-cursor::after {
+  content: "█";
+  margin-left: 4px;
+  color: var(--ld-green);
+  animation: liondos-blink 1.05s steps(2, end) infinite;
+}
+
+@keyframes liondos-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.container.footer,
+.footer {
+  padding: 18px 24px !important;
+  color: var(--ld-muted) !important;
+  background: rgba(2, 3, 3, 0.96) !important;
+  border: 1px solid var(--ld-border-dim);
+  border-top-color: var(--ld-border);
+  font-size: 16px !important;
+}
+
+.footer::before {
+  content: "LIONDOS // MULTIPLIED NEGATIVITY // TERMINAL STABLE";
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ld-green);
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ld-pink);
+  border: 2px solid #020303;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ld-green);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .container,
+  .container.main,
+  .container.topbar,
+  .container.footer {
+    width: calc(100vw - 18px) !important;
+  }
+
+  #pageContainer {
+    width: 77% !important;
+  }
+
+  #pageSidebar {
+    width: 23% !important;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    padding-inline: 14px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  body {
+    font-size: 18px !important;
+    background-attachment: scroll !important;
+  }
+
+  #pageContainer,
+  #pageSidebar {
+    width: 100% !important;
+    border-right: 0;
+  }
+
+  #pageSidebar {
+    border-top: 1px solid var(--ld-border);
+  }
+
+  .liondos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-brand img {
+    max-height: 68px !important;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .container,
+  .container.main,
+  .container.topbar,
+  .container.footer {
+    width: 100% !important;
+  }
+
+  #pageContainer {
+    padding: 12px 10px 26px !important;
+  }
+
+  h1 {
+    font-size: 34px !important;
+  }
+
+  .table > tbody > tr > td,
+  .table > thead > tr > th {
+    padding: 7px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY / PERFORMANCE
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
-
-
-/*************************************************
-END PART 6
-*************************************************/
