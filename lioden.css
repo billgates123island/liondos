@@ -2079,3 +2079,29 @@ input[name="bookmark"]:focus {
   width: auto !important;
   margin: -57px 4px 0 0 !important;
 }
+/* =========================================================
+   V19 — GLOBAL GAME READABILITY
+   Enlarges compressed text, tables, controls and status UI
+   across Lioden without altering lion image layers.
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+  /* Small and compressed game text */
+  #pageContainer small,
+  #pageContainer .small,
+  #pageContainer .xsmall,
+  #pageContainer .text-small,
+  #pageContainer .panel-body.small {
+    font-size: 18px !important;
+    line-height: 1.38 !important;
+    letter-spacing: 0.15px !important;
+  }
+
+  /* Tables used throughout lions, caves, hunting and game pages */
+  #pageContainer .table td,
+  #pageContainer .table th,
+  #pageContainer .inner-table td,
+  #pageContainer .inner-table th {
+    padding: 10px 12px !important;
+    font-size: 19px !
