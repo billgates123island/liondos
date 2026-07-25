@@ -1,51 +1,50 @@
-/*======================================================
+/*==========================================================
+        ██╗     ██╗ ██████╗ ███╗   ██╗██████╗  ██████╗ ███████╗
+        ██║     ██║██╔═══██╗████╗  ██║██╔══██╗██╔═══██╗██╔════╝
+        ██║     ██║██║   ██║██╔██╗ ██║██║  ██║██║   ██║███████╗
+        ██║     ██║██║   ██║██║╚██╗██║██║  ██║██║   ██║╚════██║
+        ███████╗██║╚██████╔╝██║ ╚████║██████╔╝╚██████╔╝███████║
+        ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚══════╝
 
-                LIONDOS v3.1
-        Nigel's Revolution Inspired Theme
-      Designed for Lioden Territory Pages
+                    VERSION 3.1
+==========================================================*/
 
-=======================================================*/
-
-
-/*------------------------------------------------------
-GOOGLE FONTS
-------------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=VT323&display=swap');
 
 
-/*------------------------------------------------------
-COLOR VARIABLES
-------------------------------------------------------*/
-
 :root{
 
---bg:#000000;
+--bg:#050505;
 
---panel:rgba(0,0,0,.82);
+--panel:rgba(0,0,0,.84);
 
---panel2:rgba(8,8,8,.90);
-
---text:#d9d9d9;
+--panel-light:rgba(12,12,12,.90);
 
 --magenta:#ff00cc;
 
---orange:#ff6600;
+--green:#67ff67;
 
---green:#65ff66;
+--orange:#ff7a00;
+
+--text:#d7d7d7;
 
 --border:#ff00cc;
 
---shadow:#ff00cc55;
-
---hover:#74ff00;
+--shadow:rgba(255,0,204,.35);
 
 }
 
 
-/*------------------------------------------------------
+/*************************************************
 BODY
-------------------------------------------------------*/
+*************************************************/
+
+html{
+
+background:#000;
+
+}
 
 body{
 
@@ -53,9 +52,9 @@ background:
 
 linear-gradient(
 
-rgba(0,0,0,.55),
+rgba(0,0,0,.45),
 
-rgba(0,0,0,.80)
+rgba(0,0,0,.82)
 
 ),
 
@@ -65,34 +64,28 @@ center center fixed;
 
 background-size:cover;
 
-color:var(--text);
-
 font-family:'VT323',monospace;
 
 font-size:22px;
 
 letter-spacing:.4px;
 
+color:var(--text);
+
 }
 
 
-/*------------------------------------------------------
+/*************************************************
 SCANLINES
-------------------------------------------------------*/
+*************************************************/
 
-body:before{
+body::before{
 
 content:"";
 
 position:fixed;
 
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
+inset:0;
 
 pointer-events:none;
 
@@ -102,7 +95,7 @@ repeating-linear-gradient(
 
 180deg,
 
-rgba(255,255,255,.02) 0px,
+rgba(255,255,255,.02) 0,
 
 rgba(255,255,255,.02) 1px,
 
@@ -112,24 +105,22 @@ transparent 4px
 
 );
 
-mix-blend-mode:soft-light;
-
-opacity:.35;
+opacity:.28;
 
 z-index:9999;
 
 }
 
 
-/*------------------------------------------------------
-CRT FLICKER
-------------------------------------------------------*/
+/*************************************************
+CRT
+*************************************************/
 
 @keyframes crt{
 
 0%{
 
-opacity:.97;
+opacity:.985;
 
 }
 
@@ -141,7 +132,7 @@ opacity:1;
 
 100%{
 
-opacity:.985;
+opacity:.99;
 
 }
 
@@ -149,120 +140,52 @@ opacity:.985;
 
 body{
 
-animation:crt .18s infinite;
+animation:crt .22s infinite;
 
 }
 
 
-/*------------------------------------------------------
-MAIN CONTAINERS
-------------------------------------------------------*/
+/*************************************************
+TYPOGRAPHY
+*************************************************/
 
-.container,
+h1,h2,h3,h4{
 
-.container.main,
-
-.center,
-
-.col-md-9,
-
-.col-md-3{
-
-background:transparent!important;
-
-}
-
-
-/*------------------------------------------------------
-PANELS
-------------------------------------------------------*/
-
-.panel,
-
-.box,
-
-.table,
-
-.table-striped,
-
-.card{
-
-background:var(--panel)!important;
-
-border:2px solid var(--border)!important;
-
-box-shadow:
-
-0 0 10px var(--shadow),
-
-0 0 20px rgba(255,0,204,.20);
-
-border-radius:0!important;
-
-}
-
-
-/*------------------------------------------------------
-HEADERS
-------------------------------------------------------*/
-
-h1,
-
-h2,
-
-h3,
-
-h4,
-
-.panel-heading{
-
-font-family:'Abril Fatface',serif!important;
-
-color:var(--magenta)!important;
+font-family:'Abril Fatface',serif;
 
 text-transform:uppercase;
 
 letter-spacing:3px;
 
+color:var(--magenta);
+
 text-shadow:
 
-0 0 10px #ff00cc,
+0 0 8px var(--magenta),
 
-0 0 25px #ff00cc66;
+0 0 20px rgba(255,0,204,.45);
 
 }
-
-
-/*------------------------------------------------------
-TEXT
-------------------------------------------------------*/
 
 p,
-
 span,
-
-div,
-
 td,
-
 th,
-
+div,
 li{
 
-font-family:'VT323',monospace!important;
-
-color:var(--text);
+font-family:'VT323',monospace;
 
 }
 
 
-/*------------------------------------------------------
+/*************************************************
 LINKS
-------------------------------------------------------*/
+*************************************************/
 
 a{
 
-color:var(--orange)!important;
+color:var(--orange);
 
 transition:.25s;
 
@@ -272,159 +195,179 @@ text-decoration:none;
 
 a:hover{
 
-color:var(--hover)!important;
+color:var(--green);
 
 text-shadow:
 
-0 0 8px var(--hover);
+0 0 8px var(--green);
 
 }
 
 
-/*------------------------------------------------------
-BUTTONS
-------------------------------------------------------*/
+/*************************************************
+GENERAL PANELS
+*************************************************/
 
-.btn,
-
-button,
-
-input[type=submit]{
-
-background:#000!important;
-
-border:2px solid var(--magenta)!important;
-
-color:var(--magenta)!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:22px!important;
-
-transition:.25s;
-
-border-radius:0!important;
-
-}
-
-.btn:hover,
-
-button:hover,
-
-input[type=submit]:hover{
-
-background:var(--magenta)!important;
-
-color:#000!important;
-
-box-shadow:
-
-0 0 15px var(--magenta);
-
-}
-
-
-/*------------------------------------------------------
-TABLES
-------------------------------------------------------*/
-
-table{
+.panel,
+.feature,
+.boxcontainer{
 
 background:var(--panel)!important;
 
 border:2px solid var(--border)!important;
 
-}
+box-shadow:
 
-th{
+0 0 12px var(--shadow);
 
-background:#120012!important;
-
-color:var(--magenta)!important;
-
-font-size:24px;
-
-}
-
-td{
-
-border-color:#3d003d!important;
+border-radius:0!important;
 
 }
 
 
-/*------------------------------------------------------
-INPUTS
-------------------------------------------------------*/
+/*************************************************
+WINDOW BAR
+*************************************************/
 
-input,
+.feature{
 
-textarea,
+position:relative;
 
-select{
+padding-top:36px!important;
 
-background:#050505!important;
+overflow:hidden;
 
-color:var(--green)!important;
+}
 
-border:1px solid var(--magenta)!important;
+.feature::before{
 
-font-family:'VT323',monospace!important;
+content:" ●  ●  ●";
 
-font-size:22px!important;
+position:absolute;
+
+left:0;
+
+right:0;
+
+top:0;
+
+height:28px;
+
+background:#090009;
+
+border-bottom:2px solid var(--magenta);
+
+padding-left:14px;
+
+line-height:28px;
+
+font-family:'VT323';
+
+color:#ff5555;
 
 }
 
 
-/*------------------------------------------------------
-SELECTION
-------------------------------------------------------*/
+/*************************************************
+HEADERS
+*************************************************/
 
-::selection{
+.feature h2:first-child::before{
 
-background:var(--magenta);
+content:"LIONDOS.EXE";
 
-color:#000;
+display:block;
 
-}
+font-size:16px;
 
+letter-spacing:2px;
 
-/*------------------------------------------------------
-SCROLLBAR
-------------------------------------------------------*/
+margin-bottom:8px;
 
-::-webkit-scrollbar{
+color:var(--green);
 
-width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#050505;
+opacity:.7;
 
 }
 
-::-webkit-scrollbar-thumb{
 
-background:var(--magenta);
+/*************************************************
+IMAGES
+*************************************************/
+
+img{
+
+border:2px solid var(--magenta);
+
+background:#000;
+
+padding:2px;
+
+transition:.25s;
 
 }
 
-::-webkit-scrollbar-thumb:hover{
+img:hover{
 
-background:var(--hover);
+transform:scale(1.02);
+
+box-shadow:
+
+0 0 20px rgba(255,0,204,.65);
 
 }
 /*=========================================================
-LIONDOS v2
-REAL LIODEN LAYOUT
+PART 2
+LAYOUT + NAVIGATION
 =========================================================*/
 
 
-/* ===========================
+/*************************************************
+MAIN LAYOUT
+*************************************************/
+
+.container,
+.container.main,
+.inner-layout,
+.center{
+
+background:transparent!important;
+
+}
+
+.col-md-9{
+
+background:rgba(0,0,0,.68)!important;
+
+padding:20px;
+
+}
+
+.col-md-3{
+
+background:transparent!important;
+
+}
+
+
+/*************************************************
+SIDEBAR
+*************************************************/
+
+.col-md-3 .panel,
+.col-md-3 .feature,
+.col-md-3 .boxcontainer{
+
+background:rgba(0,0,0,.88)!important;
+
+margin-bottom:18px;
+
+}
+
+
+/*************************************************
 TOP BAR
-=========================== */
+*************************************************/
 
 .topbar,
 .navbar,
@@ -432,254 +375,28 @@ TOP BAR
 
 background:#050505!important;
 
-border-bottom:2px solid var(--magenta)!important;
-
-box-shadow:
-0 0 12px rgba(255,0,204,.35);
-
-}
-
-
-/* ===========================
-MAIN PAGE
-=========================== */
-
-.inner-layout{
-
-background:transparent!important;
-
-}
-
-
-/* ===========================
-FEATURE BOXES
-=========================== */
-
-.feature{
-
-background:rgba(0,0,0,.84)!important;
-
-border:2px solid var(--magenta)!important;
-
-padding:14px;
-
-box-shadow:
-
-0 0 15px rgba(255,0,204,.20);
-
-transition:.25s;
-
-}
-
-.feature:hover{
-
-box-shadow:
-
-0 0 25px rgba(255,0,204,.55);
-
-}
-
-
-/* ===========================
-BOX CONTAINERS
-=========================== */
-
-.boxcontainer{
-
-background:rgba(0,0,0,.82)!important;
-
-border:2px solid var(--magenta)!important;
-
-padding:15px;
-
-}
-
-
-/* ===========================
-COMMENTS
-=========================== */
-
-.comment{
-
-background:#090909!important;
-
-border-left:4px solid var(--orange)!important;
-
-margin-bottom:12px;
-
-}
-
-
-/* ===========================
-KING INFORMATION
-=========================== */
-
-.feature h2,
-.feature h3{
-
-font-family:'Abril Fatface',serif!important;
-
-color:var(--magenta)!important;
-
-text-transform:uppercase;
-
-letter-spacing:3px;
-
-}
-
-
-/* ===========================
-TEXT
-=========================== */
-
-.feature p,
-.comment p,
-.boxcontainer p{
-
-font-family:'VT323',monospace!important;
-
-font-size:23px;
-
-line-height:1.3em;
-
-}
-
-
-/* ===========================
-IMAGES
-=========================== */
-
-.feature img{
-
-border:2px solid var(--magenta)!important;
-
-padding:2px;
-
-background:#000;
-
-}
-
-
-/* ===========================
-HOVER
-=========================== */
-
-.feature img:hover{
-
-transform:scale(1.02);
-
-transition:.3s;
-
-}
-
-
-/* ===========================
-TABLES
-=========================== */
-
-.feature table{
-
-background:#050505!important;
-
-border:2px solid var(--magenta)!important;
-
-}
-
-.feature th{
-
-background:#120012!important;
-
-}
-
-.feature td{
-
-background:#000!important;
-
-}
-
-
-/* ===========================
-LINKS
-=========================== */
-
-.feature a{
-
-color:var(--orange)!important;
-
-}
-
-.feature a:hover{
-
-color:var(--green)!important;
-
-}
-
-
-/* ===========================
-FOOTER
-=========================== */
-
-.footer{
-
-background:#050505!important;
-
-border-top:2px solid var(--magenta)!important;
-
-}
-
-
-/* ===========================
-SMALL LABELS
-=========================== */
-
-small{
-
-color:#8cff8c!important;
-
-}
-
-
-/* ===========================
-DIVIDERS
-=========================== */
-
-hr{
-
-border-top:2px solid var(--magenta)!important;
-
-opacity:.4;
-
-}
-/*=========================================================
-PART 3
-REAL LIODEN COMPONENTS
-=========================================================*/
-
-
-/* ==========================================
-TOP NAVIGATION
-========================================== */
-
-.navbar-default{
-
-background:#040404!important;
-
 border:none!important;
 
 border-bottom:2px solid var(--magenta)!important;
 
 box-shadow:
-0 0 20px rgba(255,0,204,.20);
+
+0 0 18px rgba(255,0,204,.25);
 
 }
 
+
+/*************************************************
+NAV LINKS
+*************************************************/
+
+.navbar a,
+.navbar-default a,
 .navbar-default .navbar-nav>li>a{
 
 font-family:'VT323',monospace!important;
 
-font-size:24px!important;
-
-letter-spacing:1px;
+font-size:22px!important;
 
 color:var(--magenta)!important;
 
@@ -687,18 +404,20 @@ transition:.25s;
 
 }
 
+.navbar a:hover,
+.navbar-default a:hover,
 .navbar-default .navbar-nav>li>a:hover{
 
-color:var(--green)!important;
+background:#150015!important;
 
-background:#120012!important;
+color:var(--green)!important;
 
 }
 
 
-/* ==========================================
+/*************************************************
 DROPDOWNS
-========================================== */
+*************************************************/
 
 .dropdown-menu{
 
@@ -722,147 +441,149 @@ color:var(--orange)!important;
 
 .dropdown-menu>li>a:hover{
 
-background:#150015!important;
+background:#120012!important;
 
 color:var(--green)!important;
 
 }
 
 
-/* ==========================================
-FEATURE TITLES
-========================================== */
+/*************************************************
+BREADCRUMBS
+*************************************************/
 
-.feature h1,
-.feature h2,
-.feature h3,
-.feature h4{
+.breadcrumb{
 
-margin-top:0;
-
-padding-bottom:12px;
-
-position:relative;
-
-}
-
-.feature h1::after,
-.feature h2::after,
-.feature h3::after,
-.feature h4::after{
-
-content:"════════════════════════════";
-
-display:block;
-
-margin-top:8px;
-
-font-size:13px;
-
-letter-spacing:2px;
-
-color:var(--green);
-
-opacity:.8;
-
-}
-
-
-/* ==========================================
-TABLES
-========================================== */
-
-.table{
-
-background:#050505!important;
+background:#000!important;
 
 border:2px solid var(--magenta)!important;
 
-}
-
-.table thead{
-
-background:#110011!important;
+border-radius:0!important;
 
 }
 
-.table th{
+.breadcrumb>li{
 
 font-family:'VT323',monospace!important;
 
-font-size:24px!important;
+font-size:21px;
+
+}
+
+.breadcrumb a{
+
+color:var(--orange)!important;
+
+}
+
+.breadcrumb a:hover{
+
+color:var(--green)!important;
+
+}
+
+
+/*************************************************
+PANEL HEADERS
+*************************************************/
+
+.panel-heading{
+
+background:#120012!important;
+
+border-bottom:2px solid var(--magenta)!important;
+
+font-family:'Abril Fatface',serif!important;
+
+font-size:26px!important;
 
 color:var(--magenta)!important;
 
-text-transform:uppercase;
-
 }
 
-.table td{
+
+/*************************************************
+FOOTER
+*************************************************/
+
+footer,
+.footer{
+
+background:#050505!important;
+
+border-top:2px solid var(--magenta)!important;
+
+padding:20px;
+
+}
+/*=========================================================
+PART 3
+BUTTONS + TABLES + FORMS
+=========================================================*/
+
+
+/*************************************************
+BUTTONS
+*************************************************/
+
+.btn,
+button,
+input[type=submit],
+input[type=button]{
+
+background:#000!important;
+
+color:var(--magenta)!important;
+
+border:2px solid var(--magenta)!important;
+
+border-radius:0!important;
+
+font-family:'VT323',monospace!important;
 
 font-size:22px!important;
 
-background:rgba(0,0,0,.85)!important;
+text-transform:uppercase;
+
+transition:all .25s ease;
 
 }
 
-.table tbody tr:hover{
+.btn:hover,
+button:hover,
+input[type=submit]:hover,
+input[type=button]:hover{
 
-background:rgba(255,0,204,.08)!important;
+background:var(--magenta)!important;
 
-}
-
-
-/* ==========================================
-KING IMAGE
-========================================== */
-
-.feature img,
-img{
-
-transition:
-
-transform .3s,
-
-box-shadow .3s,
-
-filter .3s;
-
-}
-
-.feature img:hover,
-img:hover{
-
-transform:scale(1.02);
-
-filter:brightness(1.08);
+color:#000!important;
 
 box-shadow:
 
-0 0 25px rgba(255,0,204,.7);
+0 0 15px rgba(255,0,204,.6);
 
 }
 
 
-/* ==========================================
-INPUTS
-========================================== */
+/*************************************************
+TEXT INPUTS
+*************************************************/
 
 input,
 textarea,
 select{
 
-background:#050505!important;
-
-color:var(--green)!important;
+background:#040404!important;
 
 border:2px solid var(--magenta)!important;
+
+border-radius:0!important;
+
+color:var(--green)!important;
 
 font-family:'VT323',monospace!important;
 
 font-size:22px!important;
-
-border-radius:0!important;
 
 }
 
@@ -874,57 +595,139 @@ outline:none!important;
 
 box-shadow:
 
-0 0 10px rgba(255,0,204,.55);
+0 0 12px rgba(255,0,204,.5);
 
 }
 
 
-/* ==========================================
-BUTTONS
-========================================== */
+/*************************************************
+TABLES
+*************************************************/
 
-.btn{
-
-background:#000!important;
-
-color:var(--magenta)!important;
-
-border:2px solid var(--magenta)!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:22px!important;
-
-text-transform:uppercase;
-
-transition:.25s;
-
-}
-
-.btn:hover{
-
-background:var(--magenta)!important;
-
-color:#000!important;
-
-box-shadow:
-
-0 0 18px rgba(255,0,204,.6);
-
-}
-
-
-/* ==========================================
-COMMENTS
-========================================== */
-
-.comment{
+table{
 
 background:#050505!important;
 
-padding:18px;
+border:2px solid var(--magenta)!important;
+
+border-collapse:collapse!important;
+
+}
+
+th{
+
+background:#130013!important;
+
+color:var(--magenta)!important;
+
+font-family:'VT323',monospace!important;
+
+font-size:24px!important;
+
+text-transform:uppercase;
+
+border:1px solid #320032!important;
+
+}
+
+td{
+
+background:rgba(0,0,0,.88)!important;
+
+color:var(--text)!important;
+
+border:1px solid #320032!important;
+
+font-size:22px!important;
+
+padding:8px;
+
+}
+
+tr:nth-child(even){
+
+background:rgba(255,0,204,.04)!important;
+
+}
+
+tr:hover{
+
+background:rgba(103,255,103,.08)!important;
+
+}
+
+
+/*************************************************
+PROFILE IMAGES
+*************************************************/
+
+img{
+
+border:2px solid var(--magenta)!important;
+
+background:#000!important;
+
+padding:2px;
+
+transition:
+
+transform .25s,
+
+box-shadow .25s,
+
+filter .25s;
+
+}
+
+img:hover{
+
+transform:scale(1.015);
+
+filter:brightness(1.05);
+
+box-shadow:
+
+0 0 20px rgba(255,0,204,.7);
+
+}
+
+
+/*************************************************
+FEATURE BOXES
+*************************************************/
+
+.feature{
+
+transition:
+
+transform .2s,
+
+box-shadow .25s;
+
+}
+
+.feature:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+
+0 0 20px rgba(255,0,204,.55);
+
+}
+
+
+/*************************************************
+COMMENTS
+*************************************************/
+
+.comment{
+
+background:#060606!important;
 
 border-left:4px solid var(--orange)!important;
+
+padding:16px;
 
 margin-bottom:15px;
 
@@ -937,37 +740,28 @@ border-left-color:var(--green)!important;
 }
 
 
-/* ==========================================
-SIDEBAR PANELS
-========================================== */
+/*************************************************
+ALERTS
+*************************************************/
 
-.col-md-3 .feature{
+.alert{
 
-margin-bottom:18px;
+background:#050505!important;
 
-}
+border:2px solid var(--orange)!important;
 
+color:var(--orange)!important;
 
-/* ==========================================
-HEADERS
-========================================== */
+font-family:'VT323',monospace!important;
 
-.panel-heading{
-
-background:#120012!important;
-
-border-bottom:2px solid var(--magenta)!important;
-
-font-family:'Abril Fatface',serif!important;
-
-font-size:28px!important;
+font-size:22px;
 
 }
 
 
-/* ==========================================
+/*************************************************
 PROGRESS BARS
-========================================== */
+*************************************************/
 
 .progress{
 
@@ -993,662 +787,16 @@ linear-gradient(
 
 #ff6600,
 
-#65ff66
+#67ff67
 
 )!important;
 
 }
 
 
-/* ==========================================
-SCROLLBAR
-========================================== */
-
-::-webkit-scrollbar{
-
-width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#050505;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:var(--magenta);
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:var(--green);
-
-}
-
-
-/* ==========================================
-SELECTION
-========================================== */
-
-::selection{
-
-background:#ff00cc;
-
-color:#000;
-
-}
-
-
-/* ==========================================
-TERMINAL TEXT
-========================================== */
-
-.terminal{
-
-background:#000;
-
-border:2px solid var(--magenta);
-
-padding:18px;
-
-font-family:'VT323',monospace;
-
-font-size:23px;
-
-color:var(--green);
-
-box-shadow:
-
-0 0 18px rgba(255,0,204,.3);
-
-}
-/*=========================================================
-PART 4
-CRT EFFECTS + LIODEN POLISH
-=========================================================*/
-
-
-/* ==========================================
-CRT OVERLAY
-========================================== */
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-pointer-events:none;
-
-background:
-
-radial-gradient(circle at center,
-rgba(255,255,255,.03),
-rgba(0,0,0,.35));
-
-mix-blend-mode:screen;
-
-opacity:.45;
-
-z-index:9998;
-
-}
-
-
-/* ==========================================
-SCREEN FLICKER
-========================================== */
-
-@keyframes screenFlicker{
-
-0%{opacity:.985;}
-
-5%{opacity:.97;}
-
-10%{opacity:1;}
-
-25%{opacity:.985;}
-
-50%{opacity:.99;}
-
-75%{opacity:.975;}
-
-100%{opacity:.99;}
-
-}
-
-html{
-
-animation:screenFlicker .22s infinite;
-
-}
-
-
-/* ==========================================
-WINDOW EFFECT
-========================================== */
-
-.feature,
-.boxcontainer{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.feature::before,
-.boxcontainer::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:0;
-
-right:0;
-
-height:2px;
-
-background:
-
-linear-gradient(
-90deg,
-transparent,
-#ff00cc,
-transparent
-);
-
-opacity:.7;
-
-}
-
-
-/* ==========================================
-SOFT NOISE
-========================================== */
-
-.feature::after,
-.boxcontainer::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-pointer-events:none;
-
-background-image:
-
-linear-gradient(
-rgba(255,255,255,.015),
-rgba(255,255,255,.015));
-
-opacity:.25;
-
-}
-
-
-/* ==========================================
-HEADINGS
-========================================== */
-
-.feature h1,
-.feature h2,
-.feature h3,
-.panel-heading{
-
-text-shadow:
-
-0 0 6px #ff00cc,
-
-0 0 18px rgba(255,0,204,.45);
-
-}
-
-
-/* ==========================================
-LINKS
-========================================== */
-
-a{
-
-transition:
-
-color .25s,
-
-text-shadow .25s,
-
-letter-spacing .25s;
-
-}
-
-a:hover{
-
-letter-spacing:1px;
-
-}
-
-
-/* ==========================================
-LISTS
-========================================== */
-
-ul{
-
-list-style:square;
-
-}
-
-li::marker{
-
-color:var(--magenta);
-
-}
-
-
-/* ==========================================
-CODE
-========================================== */
-
-code,
-pre{
-
-background:#050505!important;
-
-border:1px solid var(--magenta)!important;
-
-color:var(--green)!important;
-
-font-family:'VT323',monospace!important;
-
-}
-
-
-/* ==========================================
-BLOCKQUOTE
-========================================== */
-
-blockquote{
-
-background:#050505;
-
-border-left:4px solid var(--orange);
-
-padding:16px;
-
-font-style:normal;
-
-}
-
-
-/* ==========================================
-BADGES
-========================================== */
-
-.badge{
-
-background:#000!important;
-
-border:1px solid var(--magenta)!important;
-
-color:var(--magenta)!important;
-
-}
-
-
-/* ==========================================
-ALERTS
-========================================== */
-
-.alert{
-
-background:#050505!important;
-
-border:2px solid var(--orange)!important;
-
-color:var(--orange)!important;
-
-}
-
-
-/* ==========================================
-TOOLTIPS
-========================================== */
-
-.tooltip-inner{
-
-background:#000!important;
-
-color:var(--green)!important;
-
-border:1px solid var(--magenta);
-
-}
-
-
-/* ==========================================
-MODALS
-========================================== */
-
-.modal-content{
-
-background:#050505!important;
-
-border:2px solid var(--magenta)!important;
-
-}
-
-.modal-header{
-
-border-bottom:2px solid var(--magenta)!important;
-
-}
-
-.modal-footer{
-
-border-top:2px solid var(--magenta)!important;
-
-}
-
-
-/* ==========================================
-TRANSITIONS
-========================================== */
-
-.feature,
-.boxcontainer,
-.btn,
-img{
-
-transition:all .25s ease;
-
-}
-
-
-/* ==========================================
-IMAGE FRAME
-========================================== */
-
-.feature img{
-
-padding:3px;
-
-background:#000;
-
-}
-
-
-/* ==========================================
-TERMINAL SEPARATOR
-========================================== */
-
-hr{
-
-border:none;
-
-border-top:2px solid rgba(255,0,204,.5);
-
-}
-
-
-/* ==========================================
-ASCII DIVIDER
-========================================== */
-
-.ascii-divider{
-
-font-family:'VT323',monospace;
-
-color:var(--green);
-
-text-align:center;
-
-letter-spacing:2px;
-
-}
-
-
-/* ==========================================
-BOOT CURSOR
-========================================== */
-
-.cursor::after{
-
-content:"_";
-
-animation:cursorBlink 1s steps(2,start) infinite;
-
-}
-
-@keyframes cursorBlink{
-
-0%{opacity:1;}
-
-50%{opacity:0;}
-
-100%{opacity:1;}
-
-}
-
-
-/* ==========================================
-ONLINE STATUS
-========================================== */
-
-.online{
-
-color:var(--green);
-
-text-shadow:
-
-0 0 6px var(--green);
-
-}
-
-
-/* ==========================================
-WARNING
-========================================== */
-
-.warning{
-
-color:var(--orange);
-
-}
-
-
-/* ==========================================
-ERROR
-========================================== */
-
-.error{
-
-color:#ff3366;
-
-}
-
-
-/* ==========================================
-SUCCESS
-========================================== */
-
-.success{
-
-color:#65ff66;
-
-}
-/*=========================================================
-PART 5
-LIODEN-SPECIFIC OVERRIDES
-=========================================================*/
-
-
-/* ==========================================
-FEATURE TITLES
-========================================== */
-
-.feature>.panel-heading,
-.feature>.header,
-.boxcontainer>.header{
-
-background:#0a000a!important;
-
-border-bottom:2px solid var(--magenta)!important;
-
-padding:10px 16px;
-
-}
-
-
-/* ==========================================
-FEATURE CONTENT
-========================================== */
-
-.feature>.content,
-.boxcontainer>.content{
-
-padding:18px;
-
-background:rgba(0,0,0,.82)!important;
-
-}
-
-
-/* ==========================================
-BREADCRUMBS
-========================================== */
-
-.breadcrumb{
-
-background:#000!important;
-
-border:2px solid var(--magenta)!important;
-
-border-radius:0!important;
-
-}
-
-.breadcrumb>li{
-
-font-family:'VT323',monospace!important;
-
-font-size:22px;
-
-}
-
-.breadcrumb>li>a{
-
-color:var(--orange)!important;
-
-}
-
-.breadcrumb>li>a:hover{
-
-color:var(--green)!important;
-
-}
-
-
-/* ==========================================
-PROFILE TABLES
-========================================== */
-
-table td:first-child{
-
-color:var(--magenta)!important;
-
-font-weight:bold;
-
-}
-
-
-/* ==========================================
-ODD ROWS
-========================================== */
-
-tr:nth-child(even){
-
-background:rgba(255,0,204,.03)!important;
-
-}
-
-tr:nth-child(odd){
-
-background:rgba(0,0,0,.30)!important;
-
-}
-
-
-/* ==========================================
-ICONS
-========================================== */
-
-img[src*="icon"]{
-
-filter:
-
-drop-shadow(0 0 5px #ff00cc);
-
-}
-
-
-/* ==========================================
-DEN IMAGES
-========================================== */
-
-img{
-
-image-rendering:auto;
-
-border-radius:0!important;
-
-}
-
-
-/* ==========================================
-TEXTAREAS
-========================================== */
-
-textarea{
-
-min-height:140px;
-
-}
-
-
-/* ==========================================
-FORMS
-========================================== */
-
-label{
-
-color:var(--green)!important;
-
-font-family:'VT323',monospace!important;
-
-font-size:22px;
-
-}
-
-
-/* ==========================================
+/*************************************************
 PAGINATION
-========================================== */
+*************************************************/
 
 .pagination>li>a{
 
@@ -1669,166 +817,33 @@ color:#000!important;
 }
 
 
-/* ==========================================
-TABS
-========================================== */
+/*************************************************
+BADGES
+*************************************************/
 
-.nav-tabs{
+.badge{
 
-border-bottom:2px solid var(--magenta)!important;
-
-}
-
-.nav-tabs>li>a{
-
-background:#050505!important;
-
-color:var(--orange)!important;
+background:#000!important;
 
 border:1px solid var(--magenta)!important;
 
-border-radius:0!important;
+color:var(--magenta)!important;
 
-}
-
-.nav-tabs>li.active>a{
-
-background:#150015!important;
-
-color:var(--green)!important;
+font-weight:normal;
 
 }
 
 
-/* ==========================================
-PROFILE LINKS
-========================================== */
+/*************************************************
+HORIZONTAL RULES
+*************************************************/
 
-.feature a,
-.boxcontainer a{
+hr{
 
-font-family:'VT323',monospace!important;
+border:none;
 
-}
+border-top:2px solid rgba(255,0,204,.45);
 
-
-/* ==========================================
-FADE-IN
-========================================== */
-
-.feature,
-.boxcontainer{
-
-animation:terminalAppear .55s ease;
+margin:20px 0;
 
 }
-
-@keyframes terminalAppear{
-
-from{
-
-opacity:0;
-
-transform:translateY(8px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:none;
-
-}
-
-}
-
-
-/* ==========================================
-TERMINAL WINDOW BAR
-========================================== */
-
-.feature::before{
-
-content:" ●  ●  ●";
-
-position:absolute;
-
-top:0;
-
-left:0;
-
-right:0;
-
-height:28px;
-
-background:#090009;
-
-border-bottom:2px solid var(--magenta);
-
-padding-left:12px;
-
-line-height:28px;
-
-font-family:'VT323',monospace;
-
-color:#ff4444;
-
-z-index:2;
-
-}
-
-.feature>*{
-
-position:relative;
-
-z-index:3;
-
-}
-
-.feature{
-
-padding-top:36px!important;
-
-}
-
-
-/* ==========================================
-WINDOW TITLE
-========================================== */
-
-.feature h2:first-child::before{
-
-content:"LIONDOS.EXE";
-
-display:block;
-
-font-size:16px;
-
-font-family:'VT323',monospace;
-
-letter-spacing:2px;
-
-margin-bottom:6px;
-
-color:var(--green);
-
-opacity:.75;
-
-}
-
-
-/* ==========================================
-GLOW ON HOVER
-========================================== */
-
-.feature:hover{
-
-transform:translateY(-2px);
-
-}
-
-
-/* ==========================================
-END OF CORE THEME
-========================================== */
