@@ -1998,3 +1998,44 @@ a[onclick*="editdetailspanel"] {
 #allies .bottom a:hover {
   color: #00ff00 !important;
 }
+/* =========================================================
+   V17 — BOOKMARK BUTTON FIX
+   ========================================================= */
+
+input[name="bookmark"] {
+  float: none !important;
+  width: auto !important;
+  min-width: 104px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  margin: 0 !important;
+  padding: 4px 12px !important;
+
+  color: #fff !important;
+  background: #050505 !important;
+  border: 1px solid #ff00ff !important;
+
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+  letter-spacing: 0.4px !important;
+  text-align: center !important;
+  text-shadow: none !important;
+
+  box-shadow: none !important;
+}
+
+input[name="bookmark"]:hover,
+input[name="bookmark"]:focus {
+  color: #000 !important;
+  background: #fff !important;
+  border-color: #fff !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Align the button with the breadcrumb */
+#pageContainer > .floatright:has(input[name="bookmark"]) {
+  width: auto !important;
+  margin: -51px 4px 0 0 !important;
+}
