@@ -1172,3 +1172,354 @@ color:var(--magenta);
 /*************************************************
 END PART 5
 *************************************************/
+/*=========================================================
+PART 6
+LIODEN POLISH
+=========================================================*/
+
+
+/*************************************************
+CONTENT BOXES
+*************************************************/
+
+.panel-body,
+.box-body,
+.feature,
+.boxcontainer{
+
+background:rgba(0,0,0,.88)!important;
+
+}
+
+
+/*************************************************
+TABLE STRIPES
+*************************************************/
+
+.table-striped>tbody>tr:nth-child(odd){
+
+background:rgba(255,0,204,.03)!important;
+
+}
+
+.table-striped>tbody>tr:nth-child(even){
+
+background:rgba(0,0,0,.55)!important;
+
+}
+
+
+/*************************************************
+HOVER ROW
+*************************************************/
+
+.table tbody tr:hover{
+
+background:rgba(103,255,103,.08)!important;
+
+}
+
+
+/*************************************************
+BREADCRUMB CURRENT PAGE
+*************************************************/
+
+.breadcrumb>.active{
+
+color:var(--green)!important;
+
+}
+
+
+/*************************************************
+NAV TABS
+*************************************************/
+
+.nav-tabs{
+
+border-bottom:2px solid var(--magenta)!important;
+
+}
+
+.nav-tabs>li>a{
+
+background:#070707!important;
+
+color:var(--orange)!important;
+
+border:1px solid var(--magenta)!important;
+
+border-radius:0!important;
+
+font-family:'VT323',monospace!important;
+
+font-size:21px!important;
+
+}
+
+.nav-tabs>li.active>a{
+
+background:#180018!important;
+
+color:var(--green)!important;
+
+}
+
+
+/*************************************************
+PAGINATION
+*************************************************/
+
+.pagination>li>a,
+.pagination>li>span{
+
+background:#050505!important;
+
+border:1px solid var(--magenta)!important;
+
+color:var(--orange)!important;
+
+}
+
+.pagination>.active>a{
+
+background:var(--magenta)!important;
+
+color:#000!important;
+
+}
+
+
+/*************************************************
+FORUM POSTS
+*************************************************/
+
+.comment{
+
+background:#080808!important;
+
+border-left:4px solid var(--orange)!important;
+
+padding:18px;
+
+box-shadow:
+
+0 0 8px rgba(255,0,204,.15);
+
+}
+
+
+/*************************************************
+PROFILE SIDEBAR
+*************************************************/
+
+.col-md-3 .panel{
+
+margin-bottom:20px;
+
+}
+
+
+/*************************************************
+KING IMAGE
+*************************************************/
+
+.feature img{
+
+transition:
+
+transform .25s,
+
+box-shadow .25s,
+
+filter .25s;
+
+}
+
+.feature img:hover{
+
+transform:scale(1.03);
+
+filter:brightness(1.08);
+
+box-shadow:
+
+0 0 22px rgba(255,0,204,.55);
+
+}
+
+
+/*************************************************
+LINKS
+*************************************************/
+
+a{
+
+text-decoration:none!important;
+
+}
+
+a:hover{
+
+text-decoration:none!important;
+
+}
+
+
+/*************************************************
+SELECTION
+*************************************************/
+
+::selection{
+
+background:#ff00cc;
+
+color:#000;
+
+}
+
+
+/*************************************************
+SCROLLBAR
+*************************************************/
+
+::-webkit-scrollbar{
+
+width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#050505;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--magenta);
+
+border:2px solid #050505;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:var(--green);
+
+}
+
+
+/*************************************************
+LOADING BAR
+*************************************************/
+
+.progress{
+
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+background-size:200% 100%;
+
+animation:terminalLoad 3s linear infinite;
+
+}
+
+@keyframes terminalLoad{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:200%;
+
+}
+
+}
+
+
+/*************************************************
+TERMINAL TEXT HELPERS
+*************************************************/
+
+.green{
+
+color:var(--green)!important;
+
+}
+
+.orange{
+
+color:var(--orange)!important;
+
+}
+
+.magenta{
+
+color:var(--magenta)!important;
+
+}
+
+.dim{
+
+opacity:.7;
+
+}
+
+
+/*************************************************
+ASCII BOX
+*************************************************/
+
+.ascii-box{
+
+background:#000;
+
+border:2px solid var(--magenta);
+
+padding:16px;
+
+font-family:'VT323',monospace;
+
+white-space:pre-wrap;
+
+color:var(--green);
+
+line-height:1.2em;
+
+}
+
+
+/*************************************************
+CRT BORDER
+*************************************************/
+
+.feature::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+box-shadow:
+
+inset 0 0 30px rgba(255,255,255,.02),
+
+inset 0 0 80px rgba(0,0,0,.55);
+
+}
+
+
+/*************************************************
+END PART 6
+*************************************************/
