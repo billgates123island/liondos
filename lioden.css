@@ -1,6 +1,6 @@
 /* ==========================================================================
    LIONDOS GLOBAL — SAFE GAMEPLAY THEME
-   Version 1.0 clean rebuild
+   Version 2.0 source-aware rebuild
    Designed for Stylus on URLs on the domain: lioden.com
 
    IMPORTANT:
@@ -462,14 +462,14 @@ table.table,
   box-shadow: none !important;
 }
 
-.table > thead > tr > th,
-.table > tbody > tr > th,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > td,
-.table > tfoot > tr > td,
-table.table th,
-table.table td,
+.table:not(#huntingGrid) > thead > tr > th,
+.table:not(#huntingGrid) > tbody > tr > th,
+.table:not(#huntingGrid) > tfoot > tr > th,
+.table:not(#huntingGrid) > thead > tr > td,
+.table:not(#huntingGrid) > tbody > tr > td,
+.table:not(#huntingGrid) > tfoot > tr > td,
+table.table:not(#huntingGrid) th,
+table.table:not(#huntingGrid) td,
 .inner-table th,
 .inner-table td {
   padding: 9px 11px !important;
@@ -491,21 +491,35 @@ table.table th {
   letter-spacing: 0.02em !important;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) > td,
-.table-striped > tbody > tr:nth-of-type(odd) > th,
-.table > tbody > tr:nth-child(odd) > td {
+.table-striped:not(#huntingGrid) > tbody > tr:nth-of-type(odd) > td,
+.table-striped:not(#huntingGrid) > tbody > tr:nth-of-type(odd) > th,
+.table:not(#huntingGrid) > tbody > tr:nth-child(odd) > td {
   background: var(--ld-black-3) !important;
 }
 
-.table > tbody > tr:hover > td,
-.table > tbody > tr:hover > th {
-  color: #000 !important;
-  background: var(--ld-white) !important;
+.table:not(#huntingGrid) > tbody > tr:hover > td,
+.table:not(#huntingGrid) > tbody > tr:hover > th {
+  color: var(--ld-white) !important;
+  background: rgba(255, 0, 230, 0.07) !important;
 }
 
-.table > tbody > tr:hover a {
-  color: #000 !important;
+.table > tbody > tr:hover a,
+.table > tbody > tr:hover a:visited {
+  color: var(--ld-orange) !important;
   text-decoration: underline !important;
+}
+
+/* Native profile/stat tables must never flash white on hover. */
+#player table tr:hover td,
+#player table tr:hover th,
+#pageContainer table tr:hover td,
+#pageContainer table tr:hover th {
+  color: var(--ld-white) !important;
+}
+
+#player table tr:hover td,
+#player table tr:hover th {
+  background: rgba(255, 0, 230, 0.06) !important;
 }
 
 td.left,
@@ -1050,6 +1064,590 @@ body::before {
 
 @media (prefers-reduced-motion: reduce) {
   .liondos-cursor::after {
+    animation: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   SOURCE-AWARE MODULE CORRECTIONS — V32
+   Built from the captured DOM for Den, Hoard, Branch, Hunting, Mound,
+   Beetle, Oasis, Pregnant Lionesses, and The Giving Tree.
+   ========================================================================== */
+
+/* Native pale information panels: Baoball-style game dialogue, Hoard filters,
+   Hunting instructions, Oasis description, and Giving Tree copy. */
+#pageContainer .feature,
+#pageContainer .page-description {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border: 1px solid var(--ld-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+#pageContainer .feature {
+  padding: 14px 16px !important;
+}
+
+#pageContainer .page-description {
+  padding: 16px !important;
+}
+
+#pageContainer .feature p,
+#pageContainer .feature label,
+#pageContainer .feature b,
+#pageContainer .feature .small,
+#pageContainer .page-description p,
+#pageContainer .page-description div,
+#pageContainer .page-description label,
+#pageContainer .page-description b {
+  color: var(--ld-white) !important;
+}
+
+#pageContainer .page-description .left {
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border-color: var(--ld-border-soft) !important;
+}
+
+#pageContainer .page-description span[style*="color: #ff0000"],
+#pageContainer .page-description span[style*="color:#ff0000"] {
+  color: var(--ld-red) !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+}
+
+/* Div-based navigation used by Hoard, Oasis, Hunting, Mounds, and Beetles. */
+#pageContainer .sub_menu,
+#pageContainer .sub_sub_menu {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border: 1px solid var(--ld-border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#pageContainer .sub_menu_item,
+#pageContainer .sub_menu_item_selected,
+#pageContainer .sub_sub_menu_item,
+#pageContainer .sub_sub_menu_item_selected {
+  margin: 0 !important;
+  padding: 7px 10px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border-right: 1px solid var(--ld-border-soft) !important;
+  border-radius: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+}
+
+#pageContainer .sub_menu_item_selected,
+#pageContainer .sub_sub_menu_item_selected {
+  color: #000 !important;
+  background: var(--ld-pink) !important;
+}
+
+#pageContainer .sub_menu_item_selected a,
+#pageContainer .sub_sub_menu_item_selected a {
+  color: #000 !important;
+}
+
+#pageContainer .sub_menu_item a:hover,
+#pageContainer .sub_menu_item a:focus,
+#pageContainer .sub_sub_menu_item a:hover,
+#pageContainer .sub_sub_menu_item a:focus {
+  color: #000 !important;
+  background: var(--ld-white) !important;
+  text-decoration: none !important;
+}
+
+/* Exact item-card DOM used by Hoard, Oasis, Branch, and Giving Tree. */
+#pageContainer .item-header {
+  min-height: 31px;
+  padding: 5px 4px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border-bottom: 1px solid var(--ld-border-soft) !important;
+  font-size: 14.5px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.025em !important;
+}
+
+#pageContainer .item-header a,
+#pageContainer .item-header a:visited {
+  color: var(--ld-white) !important;
+}
+
+#pageContainer .item-header a:hover,
+#pageContainer .item-header a:focus {
+  color: var(--ld-orange) !important;
+}
+
+#pageContainer .item-footer {
+  min-height: 33px;
+  padding: 5px 4px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border-top: 1px solid var(--ld-border-soft) !important;
+  font-size: 14.5px !important;
+  line-height: 1.2 !important;
+}
+
+/* Hoard amount/action text: 1 use, 5 uses, 2 Stacked, etc. */
+#fraHoardList .item {
+  font-size: 15px !important;
+}
+
+#fraHoardList .item-footer .floatright a,
+#fraHoardList .item-footer .floatright a:visited {
+  color: var(--ld-pink) !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.55px !important;
+  text-transform: none !important;
+}
+
+#fraHoardList .item-footer .floatright a:hover,
+#fraHoardList .item-footer .floatright a:focus {
+  color: var(--ld-white) !important;
+}
+
+#fraHoardList .item > i {
+  color: var(--ld-green) !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+}
+
+/* Oasis shop sections and controls. */
+#fraFilterBlock {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border-color: var(--ld-orange) !important;
+}
+
+#pageContainer .shop-section {
+  margin: 20px 0 28px !important;
+  padding-top: 2px !important;
+  border-top: 1px solid var(--ld-border-soft) !important;
+}
+
+#pageContainer .shop-section-action {
+  margin-top: 10px !important;
+  padding: 10px !important;
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+  border: 1px solid var(--ld-border-soft) !important;
+}
+
+#pageContainer .shop-section .item-footer .floatleft {
+  color: var(--ld-orange) !important;
+  font-size: 15.5px !important;
+}
+
+#pageContainer .shop-section .item-footer select {
+  min-height: 28px !important;
+  padding: 2px 4px !important;
+  font-size: 15px !important;
+}
+
+/* Preserve the image-based Gold Beetle purchase button. */
+input[type="submit"][style*="btn_buynowCC_LG.gif"],
+input[type="submit"][style*="btn_buynowCC_LG.gif"]:hover,
+input[type="submit"][style*="btn_buynowCC_LG.gif"]:focus {
+  width: 160px !important;
+  height: 47px !important;
+  min-height: 47px !important;
+  padding: 0 !important;
+  background: url("https://static.lioden.com/images/btn_buynowCC_LG.gif") center / 160px 47px no-repeat !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Den/profile and Beetle detail tables: eliminate pale outer cells and
+   alternating native backgrounds while retaining portrait geometry. */
+#about > tbody > tr.right > td,
+#player > tbody > tr.right > td,
+#about > tbody > tr.right:hover > td,
+#player > tbody > tr.right:hover > td {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+}
+
+#about .inner-table,
+#about .inner-table td,
+#about .inner-table th,
+#player .inner-table,
+#player .inner-table td,
+#player .inner-table th {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-2) !important;
+}
+
+#pageContainer td.right_odd {
+  color: var(--ld-white) !important;
+  background: var(--ld-black-3) !important;
+}
+
+#pageContainer td.unread-msg {
+  color: var(--ld-pink-soft) !important;
+  background: var(--ld-black) !important;
+}
+
+#beetles td,
+#beetles th,
+#about td,
+#about th {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
+#beetles .small,
+#about .small {
+  font-size: 15px !important;
+}
+
+/* Hunting tile-map protection. Generic table rules do not target these cells. */
+#huntingGrid td,
+#huntingGrid tr:hover td {
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+#huntingGrid th {
+  color: var(--ld-white) !important;
+  background: var(--ld-black) !important;
+  border: 1px solid var(--ld-border) !important;
+  font-size: 17px !important;
+}
+
+#huntingGrid .gridSquare,
+#huntingGrid .gridSquare:hover,
+#huntingGrid .gridSquare:focus {
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+
+/* ==========================================================================
+   V12 CONSOLE CORE — USER-PREFERRED TERRITORY MODULE
+   Direct-child BR elements are suppressed because Lioden may convert source
+   line breaks into <br> nodes when rendering a Territory Description.
+   ========================================================================== */
+
+.liondos {
+  width: 100%;
+  color: var(--ld-white) !important;
+  font-family: var(--ld-body-font) !important;
+  font-size: 18px !important;
+  line-height: 1.42 !important;
+  text-align: left !important;
+}
+
+.liondos > br,
+.liondos .console-window > br,
+.liondos .console-body > br,
+.liondos .console-grid > br,
+.liondos .console-grid-3 > br,
+.liondos .console-card > br {
+  display: none !important;
+}
+
+.liondos .console-window {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 18px;
+  color: var(--ld-white) !important;
+  background: linear-gradient(180deg, rgba(6, 9, 7, 0.98), rgba(1, 2, 2, 0.99)) !important;
+  border: 1px solid var(--ld-pink) !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 18px rgba(255, 0, 230, 0.14), inset 0 0 28px rgba(0, 255, 41, 0.018) !important;
+}
+
+.liondos .console-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0, 255, 41, 0.04) 4px);
+}
+
+.liondos .console-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 40px;
+  padding: 7px 13px;
+  color: var(--ld-green) !important;
+  background: linear-gradient(90deg, #040604, #090209 65%, #040604) !important;
+  border-bottom: 1px solid var(--ld-pink) !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 21px !important;
+  line-height: 1.15 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase;
+}
+
+.liondos .console-lights {
+  color: var(--ld-pink) !important;
+  letter-spacing: 4px !important;
+}
+
+.liondos .console-body {
+  position: relative;
+  z-index: 2;
+  padding: 22px;
+  color: var(--ld-white) !important;
+}
+
+.liondos .liondos-hero h2 {
+  margin: 0 0 8px !important;
+  color: var(--ld-pink) !important;
+  font-size: clamp(31px, 5vw, 54px) !important;
+  line-height: 1.02 !important;
+}
+
+.liondos .liondos-subtitle {
+  color: var(--ld-green) !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 22px !important;
+  letter-spacing: 0.8px !important;
+}
+
+.liondos .console-line {
+  margin: 0 0 10px;
+  color: var(--ld-white) !important;
+  line-height: 1.35 !important;
+}
+
+.liondos .console-label {
+  color: var(--ld-orange) !important;
+}
+
+.liondos .console-value {
+  color: var(--ld-green) !important;
+}
+
+.liondos .console-prompt::before {
+  content: "C:\\LIONDOS\\PRIDE> ";
+  color: var(--ld-orange) !important;
+}
+
+.liondos .console-cursor::after {
+  content: "█";
+  margin-left: 5px;
+  color: var(--ld-green) !important;
+  animation: liondos-console-blink 1s steps(2, end) infinite;
+}
+
+.liondos .console-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+}
+
+.liondos .console-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+}
+
+.liondos .console-meter {
+  height: 18px;
+  margin: 7px 0 14px;
+  overflow: hidden;
+  background: #050505 !important;
+  border: 1px solid var(--ld-pink) !important;
+}
+
+.liondos .console-meter > span {
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, var(--ld-green) 0 14px, #050505 14px 17px) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 41, 0.28) !important;
+}
+
+.liondos .console-card {
+  padding: 15px;
+  color: var(--ld-white) !important;
+  background: rgba(255, 255, 255, 0.018) !important;
+  border: 1px solid rgba(255, 0, 230, 0.35) !important;
+}
+
+.liondos .console-card-title {
+  margin-bottom: 9px;
+  color: var(--ld-pink) !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 22px !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px !important;
+}
+
+.liondos .console-rule {
+  height: 1px;
+  margin: 16px 0;
+  background: linear-gradient(90deg, transparent, var(--ld-orange), var(--ld-green), transparent) !important;
+}
+
+.liondos .console-chip {
+  display: inline-block;
+  margin: 3px 5px 3px 0;
+  padding: 4px 8px;
+  color: #000 !important;
+  background: var(--ld-green) !important;
+  border: 1px solid var(--ld-green) !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 18px !important;
+  line-height: 1.05 !important;
+  text-transform: uppercase;
+}
+
+.liondos .console-log {
+  max-height: 260px;
+  overflow: auto;
+  padding: 14px;
+  color: var(--ld-white) !important;
+  background: #020302 !important;
+  border-left: 3px solid var(--ld-orange) !important;
+}
+
+.liondos .console-warning {
+  padding: 12px 14px;
+  color: var(--ld-white) !important;
+  background: rgba(255, 106, 26, 0.08) !important;
+  border: 1px dashed var(--ld-orange) !important;
+}
+
+.liondos .console-glyph-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.liondos .console-glyph {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 31px;
+  color: var(--ld-white) !important;
+  background: #000 !important;
+  border: 1px solid var(--ld-pink) !important;
+  font-family: var(--ld-ui-font) !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.4px !important;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 8px rgba(255, 0, 230, 0.14) !important;
+}
+
+.liondos .console-glyph::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  pointer-events: none;
+  border: 1px dashed rgba(0, 255, 41, 0.55);
+}
+
+.liondos .console-glyph.signal {
+  animation: liondos-console-signal 1.8s steps(2, end) infinite;
+}
+
+.liondos .console-glyph.scan::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+  height: 2px;
+  background: var(--ld-green) !important;
+  box-shadow: 0 0 6px var(--ld-green) !important;
+  animation: liondos-console-scan 2.4s linear infinite;
+}
+
+.liondos .console-orbit {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  margin-right: 6px;
+  border: 2px solid var(--ld-green) !important;
+  border-radius: 50%;
+}
+
+.liondos .console-orbit::before,
+.liondos .console-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.liondos .console-orbit::before {
+  inset: 6px;
+  background: var(--ld-pink) !important;
+}
+
+.liondos .console-orbit::after {
+  width: 5px;
+  height: 5px;
+  left: 9px;
+  top: -4px;
+  background: var(--ld-orange) !important;
+  transform-origin: 3px 17px;
+  animation: liondos-console-orbit 2.8s linear infinite;
+}
+
+@keyframes liondos-console-blink {
+  50% { opacity: 0; }
+}
+
+@keyframes liondos-console-signal {
+  50% {
+    color: #000;
+    background: var(--ld-green);
+    border-color: var(--ld-green);
+  }
+}
+
+@keyframes liondos-console-scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(21px); }
+}
+
+@keyframes liondos-console-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .liondos .console-grid,
+  .liondos .console-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liondos .console-cursor::after,
+  .liondos .console-glyph.signal,
+  .liondos .console-glyph.scan::after,
+  .liondos .console-orbit::after {
     animation: none !important;
   }
 }
