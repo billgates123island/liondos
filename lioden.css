@@ -876,3 +876,149 @@ body:has(#chatMessageContainer) #chatMessageContainer::-webkit-scrollbar-thumb {
     background: #6f1c66 !important;
     border: 1px solid #ff00d4 !important;
 }
+/* =========================================================
+   HUNTING — CHOOSE LIONESSES PANEL
+   Keeps the existing heading font; replaces unreadable grey
+   ========================================================= */
+
+/* Remove any inherited grey from the column */
+#fullbox > form > .col-md-12.col-lg-5 {
+    background: transparent !important;
+}
+
+/* Main Choose Lionesses panel */
+#fullbox > form > .col-md-12.col-lg-5 > .left {
+    padding: 13px 14px 15px !important;
+
+    color: #f1eff3 !important;
+    background:
+        linear-gradient(180deg, #110c12 0%, #08080b 100%) !important;
+
+    border: 1px solid #792170 !important;
+    border-left: 4px solid #ff00d4 !important;
+    border-radius: 2px !important;
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 0, 212, 0.04),
+        0 5px 15px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Keep the existing Choose Lionesses font */
+#fullbox > form > .col-md-12.col-lg-5 > .left > h2 {
+    margin: 0 0 12px !important;
+    padding: 0 0 8px !important;
+
+    color: #ff00d4 !important;
+    background: transparent !important;
+
+    border-bottom: 1px solid #65205e !important;
+    text-shadow: 0 0 7px rgba(255, 0, 212, 0.18) !important;
+}
+
+/* Hunting Parties / Individuals / Adolescents headings */
+#fullbox > form > .col-md-12.col-lg-5 > .left > b {
+    display: block !important;
+    margin: 12px 0 5px !important;
+    padding: 5px 8px !important;
+
+    color: #ffffff !important;
+    background: #160d17 !important;
+
+    border: 1px solid #482043 !important;
+    border-left: 3px solid #32ff68 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 > .left > b::before {
+    content: "●" !important;
+    margin-right: 7px !important;
+    color: #32ff68 !important;
+}
+
+/* The three scrolling selection areas */
+#fullbox > form > .col-md-12.col-lg-5 > .left > .right.auto {
+    margin: 0 0 7px !important;
+    padding: 8px 9px !important;
+
+    color: #e8e5eb !important;
+    background: #08080b !important;
+
+    border: 1px solid #3f253d !important;
+    border-radius: 0 !important;
+
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* General text readability */
+#fullbox > form > .col-md-12.col-lg-5 .left label,
+#fullbox > form > .col-md-12.col-lg-5 .left li,
+#fullbox > form > .col-md-12.col-lg-5 .left span {
+    color: #e8e5eb !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+/* Secondary information such as hunts remaining */
+#fullbox > form > .col-md-12.col-lg-5 .left .small,
+#fullbox > form > .col-md-12.col-lg-5 .left small {
+    color: #aaa6b0 !important;
+    opacity: 1 !important;
+}
+
+/* Party and lioness links */
+#fullbox > form > .col-md-12.col-lg-5 .left a {
+    color: #ff8318 !important;
+    text-decoration: none !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 5px rgba(255, 131, 24, 0.45) !important;
+}
+
+/* Lioness rows */
+#fullbox > form > .col-md-12.col-lg-5 .left ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left li {
+    margin: 0 !important;
+    padding: 5px 4px !important;
+
+    border-bottom: 1px solid #261a25 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left li:last-child {
+    border-bottom: 0 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left li:hover {
+    background: #171018 !important;
+    box-shadow: inset 2px 0 0 #ff00d4 !important;
+}
+
+/* Radio buttons and checkboxes */
+#fullbox > form > .col-md-12.col-lg-5 .left input[type="radio"],
+#fullbox > form > .col-md-12.col-lg-5 .left input[type="checkbox"] {
+    margin-right: 7px !important;
+    accent-color: #ff00d4 !important;
+}
+
+/* Scrollbars */
+#fullbox > form > .col-md-12.col-lg-5 .right.auto {
+    scrollbar-width: thin !important;
+    scrollbar-color: #ff00d4 #08080b !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .right.auto::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .right.auto::-webkit-scrollbar-track {
+    background: #08080b !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .right.auto::-webkit-scrollbar-thumb {
+    background: #6c1d64 !important;
+    border: 1px solid #ff00d4 !important;
+}
