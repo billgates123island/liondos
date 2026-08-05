@@ -2357,4 +2357,93 @@ img[data-layer],
   filter: none !important;
   transform: none !important;
 }
+/* =========================================================
+   CRAFTING PAGE — RECIPE LIST
+   ========================================================= */
 
+/* Standard recipe cards */
+body #pageContainer #recipelist li.recipe {
+    background: #101014 !important;
+    color: #eeeeee !important;
+
+    border: 1px solid #4a1745 !important;
+    border-left: 3px solid #ff00d4 !important;
+    border-radius: 2px !important;
+
+    padding: 5px !important;
+    opacity: 1 !important;
+}
+
+/* Recipe title */
+body #pageContainer #recipelist li.recipe b {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+/* Recipe description */
+body #pageContainer #recipelist li.recipe .small {
+    color: #c9c9cf !important;
+    opacity: 1 !important;
+    line-height: 1.35 !important;
+}
+
+/* Prevent inherited pale text rules */
+body #pageContainer #recipelist li.recipe > span,
+body #pageContainer #recipelist li.recipe > span > span {
+    opacity: 1 !important;
+}
+
+/* Craftable recipes */
+body #pageContainer #recipelist li.recipe.craftable {
+    background: #102117 !important;
+    color: #f2fff4 !important;
+
+    border-color: #216b34 !important;
+    border-left-color: #38ff69 !important;
+}
+
+/* Craftable recipe titles */
+body #pageContainer #recipelist li.recipe.craftable b {
+    color: #74ff91 !important;
+}
+
+/* Craftable recipe descriptions */
+body #pageContainer #recipelist li.recipe.craftable .small {
+    color: #d2e8d7 !important;
+}
+
+/* Hover state for ordinary recipes */
+body #pageContainer #recipelist li.recipe:hover {
+    background: #1a111b !important;
+    border-color: #ff00d4 !important;
+    cursor: pointer !important;
+}
+
+/* Hover state for craftable recipes */
+body #pageContainer #recipelist li.recipe.craftable:hover {
+    background: #183520 !important;
+    border-color: #38ff69 !important;
+}
+
+/* Recipe thumbnails */
+body #pageContainer #recipelist li.recipe img {
+    border: 1px solid #4d4d56 !important;
+    background: #08080a !important;
+}
+
+/* Main recipe list container */
+body #pageContainer #recipelist {
+    background: #050507 !important;
+    border: 1px solid #3b1238 !important;
+    padding: 3px !important;
+}
+
+/* Empty / selected recipe area beneath the list */
+body #pageContainer #recipePage {
+    background: #08080b !important;
+    color: #eeeeee !important;
+    border-top: 1px solid #4a1745 !important;
+    padding: 10px !important;
+}
