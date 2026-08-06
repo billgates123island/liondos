@@ -1,4 +1,91 @@
 /* =========================================================
+   HUNTING PANEL — FORCED OVERRIDE
+   ========================================================= */
+
+html body #pageContainer #fullbox form[action="hunting.php"]
+> .col-md-12.col-lg-5 > .left {
+    padding: 14px !important;
+    color: #eeeeee !important;
+    background: #08080b !important;
+
+    border: 1px solid #ff00d4 !important;
+    border-left: 4px solid #ff00d4 !important;
+    border-radius: 2px !important;
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 0, 212, 0.06),
+        0 5px 18px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Preserve the existing heading font */
+html body #pageContainer #fullbox form[action="hunting.php"]
+> .col-md-12.col-lg-5 > .left > h2 {
+    margin: 0 0 12px !important;
+    padding: 0 0 8px !important;
+
+    color: #ff00d4 !important;
+    background: transparent !important;
+
+    border-bottom: 1px solid #6c1d64 !important;
+    text-shadow: 0 0 7px rgba(255, 0, 212, 0.25) !important;
+}
+
+/* Section headings */
+html body #pageContainer #fullbox form[action="hunting.php"]
+> .col-md-12.col-lg-5 > .left > b {
+    display: block !important;
+    margin: 11px 0 5px !important;
+    padding: 6px 8px !important;
+
+    color: #ffffff !important;
+    background: #160d17 !important;
+
+    border: 1px solid #482043 !important;
+    border-left: 3px solid #32ff68 !important;
+}
+
+/* Hunting Parties, Individuals and Adolescents */
+html body #pageContainer #fullbox form[action="hunting.php"]
+> .col-md-12.col-lg-5 > .left > .right.auto {
+    margin: 0 0 8px !important;
+    padding: 8px 9px !important;
+
+    color: #e9e7ec !important;
+    background: #050507 !important;
+
+    border: 1px solid #3f253d !important;
+    border-radius: 0 !important;
+}
+
+/* Force readable inherited text */
+html body #pageContainer #fullbox form[action="hunting.php"] .left,
+html body #pageContainer #fullbox form[action="hunting.php"] .left label,
+html body #pageContainer #fullbox form[action="hunting.php"] .left li {
+    color: #e9e7ec !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+html body #pageContainer #fullbox form[action="hunting.php"] .left .small,
+html body #pageContainer #fullbox form[action="hunting.php"] .left small {
+    color: #aaa6b0 !important;
+    opacity: 1 !important;
+}
+
+html body #pageContainer #fullbox form[action="hunting.php"] .left a {
+    color: #ff8318 !important;
+}
+
+html body #pageContainer #fullbox form[action="hunting.php"] .left a:hover {
+    color: #ffffff !important;
+}
+
+html body #pageContainer #fullbox form[action="hunting.php"]
+input[type="checkbox"],
+html body #pageContainer #fullbox form[action="hunting.php"]
+input[type="radio"] {
+    accent-color: #ff00d4 !important;
+}/* =========================================================
    LIODEN FINAL OPTIMISATION PATCH
    Crafting + Trading Center + Left Sidebar + Chat Terminal
    Paste at the VERY BOTTOM of the existing stylesheet
