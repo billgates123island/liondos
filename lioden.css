@@ -1,2449 +1,1024 @@
-/* ==========================================================================
-   LIONDOS GLOBAL — SAFE GAMEPLAY THEME
-   Version 2.0 source-aware rebuild
-   Designed for Stylus on URLs on the domain: lioden.com
-
-   IMPORTANT:
-   - This stylesheet intentionally does NOT resize, reposition, transform,
-     filter, or pad interactive images.
-   - Crossroads, Explore, Battle, Hunting, lion layers, portraits, and image
-     maps retain Lioden's native geometry and click regions.
-   ========================================================================== */
-
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap");
-
-:root {
-  --ld-black: #020202;
-  --ld-black-2: #070707;
-  --ld-black-3: #0d0d0d;
-  --ld-white: #ffffff;
-  --ld-muted: #d5d5d5;
-  --ld-pink: #ff00e6;
-  --ld-pink-soft: #ff5ceb;
-  --ld-orange: #ff6a1a;
-  --ld-green: #00ff29;
-  --ld-red: #ff465f;
-  --ld-border: rgba(255, 0, 230, 0.88);
-  --ld-border-soft: rgba(255, 0, 230, 0.38);
-  --ld-body-font: "Share Tech Mono", "Courier New", monospace;
-  --ld-ui-font: "VT323", "Courier New", monospace;
-  --ld-display-font: "Abril Fatface", Georgia, serif;
-}
-
-/* ==========================================================================
-   FOUNDATION
-   ========================================================================== */
-
-html {
-  min-height: 100%;
-  background: #000;
-}
-
-body {
-  min-height: 100%;
-  margin: 0;
-  color: var(--ld-white) !important;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.72)),
-    url("https://ihatecinemapolicies.carrd.co/assets/images/bg.jpg?v47970992911951")
-      center center / cover fixed no-repeat !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 16px !important;
-  line-height: 1.48 !important;
-  letter-spacing: 0.02em;
-  text-rendering: optimizeLegibility;
-}
-
-body,
-input,
-button,
-select,
-textarea,
-table {
-  font-family: var(--ld-body-font) !important;
-}
-
-p,
-li,
-td,
-th,
-label,
-small,
-.panel-body,
-.alert,
-.breadcrumb {
-  color: inherit;
-}
-
-small,
-.small,
-.text-muted {
-  color: var(--ld-muted) !important;
-  font-size: 14px !important;
-  line-height: 1.4 !important;
-}
-
-b,
-strong {
-  color: inherit !important;
-  font-weight: 600 !important;
-}
-
-::selection {
-  color: #000;
-  background: var(--ld-green);
-}
-
-/* ==========================================================================
-   SITE SHELL — NATIVE WIDTHS PRESERVED
-   ========================================================================== */
-
-.container.topbar,
-.navbar,
-.navbar-default,
-.container.main,
-.container.footer,
-.footer,
-#pageContainer,
-#pageSidebar {
-  color: var(--ld-white) !important;
-  background: rgba(2, 2, 2, 0.96) !important;
-}
-
-.container.main {
-  border-left: 1px solid var(--ld-border-soft);
-  border-right: 1px solid var(--ld-border-soft);
-  box-shadow: 0 0 34px rgba(0, 0, 0, 0.72);
-}
-
-#pageContainer {
-  border-right: 1px solid var(--ld-border-soft);
-}
-
-#pageSidebar {
-  background: rgba(3, 3, 3, 0.97) !important;
-}
-
-/* ==========================================================================
-   TOP BAR
-   ========================================================================== */
-
-.container.topbar {
-  min-height: 42px !important;
-  padding: 8px 13px !important;
-  border: 1px solid var(--ld-border-soft);
-  border-top: 0;
-}
-
-.welcomeback,
-.toplinks,
-.toplinks li,
-.toplinks a {
-  color: var(--ld-white) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 18px !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.45px !important;
-}
-
-.toplinks a,
-.welcomeback a {
-  color: var(--ld-orange) !important;
-}
-
-.toplinks a:hover,
-.toplinks a:focus,
-.welcomeback a:hover,
-.welcomeback a:focus {
-  color: var(--ld-white) !important;
-  text-decoration: underline !important;
-}
-
-/* ==========================================================================
-   MAIN NAVIGATION
-   ========================================================================== */
-
-.navbar,
-.navbar-default {
-  min-height: 68px !important;
-  margin-bottom: 0 !important;
-  border: 1px solid var(--ld-border) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-.navbar-brand img,
-.navbar img,
-.topbar img,
-.toplinks img {
-  padding: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-.navbar-default .navbar-nav > li > a,
-.navbar-nav > li > a,
-.navbar a {
-  color: var(--ld-pink) !important;
-  background: transparent !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 23px !important;
-  font-weight: 400 !important;
-  line-height: 1.15 !important;
-  letter-spacing: 1.05px !important;
-  text-transform: uppercase;
-  text-shadow: none !important;
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-nav > li > a:hover,
-.navbar-nav > li > a:focus {
-  color: #000 !important;
-  background: var(--ld-white) !important;
-  text-shadow: none !important;
-}
-
-/* ==========================================================================
-   LINKS
-   ========================================================================== */
-
-a,
-a:visited {
-  color: var(--ld-orange) !important;
-  font-weight: 400 !important;
-  text-decoration: none !important;
-  text-shadow: none !important;
-}
-
-a:hover,
-a:focus {
-  color: var(--ld-white) !important;
-  text-decoration: underline !important;
-  text-shadow: none !important;
-}
-
-/* ==========================================================================
-   HEADINGS
-   ========================================================================== */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-.h1,
-.h2,
-.h3,
-.h4 {
-  color: var(--ld-pink) !important;
-  font-family: var(--ld-display-font) !important;
-  font-weight: 400 !important;
-  line-height: 1.1 !important;
-  letter-spacing: 0.8px !important;
-  text-transform: uppercase;
-  text-shadow: 0 0 9px rgba(255, 0, 230, 0.34);
-}
-
-h1,
-.h1 {
-  margin: 24px 0 20px !important;
-  font-size: 42px !important;
-}
-
-h2,
-.h2 {
-  font-size: 31px !important;
-}
-
-h3,
-.h3 {
-  font-size: 25px !important;
-}
-
-#pageSidebar h3 {
-  margin: 18px 0 8px !important;
-  color: var(--ld-pink-soft) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 28px !important;
-  line-height: 1.05 !important;
-  letter-spacing: 1px !important;
-  text-shadow: none !important;
-}
-
-/* ==========================================================================
-   BREADCRUMBS, ALERTS, AND INFORMATION BARS
-   ========================================================================== */
-
-.breadcrumb {
-  min-height: 48px !important;
-  margin-bottom: 15px !important;
-  padding: 11px 14px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border) !important;
-  border-radius: 0 !important;
-  font-size: 17px !important;
-  line-height: 1.35 !important;
-}
-
-.breadcrumb > .active {
-  color: var(--ld-green) !important;
-}
-
-.alert {
-  padding: 13px 15px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-green) !important;
-  border-left-width: 5px !important;
-  border-radius: 0 !important;
-  font-size: 16px !important;
-  line-height: 1.5 !important;
-  box-shadow: none !important;
-}
-
-.alert-warning {
-  border-color: var(--ld-orange) !important;
-}
-
-.alert-danger {
-  border-color: var(--ld-red) !important;
-}
-
-/* Bookmark stays in Lioden's native layout. No negative margins. */
-input[name="bookmark"] {
-  min-width: 132px !important;
-  min-height: 42px !important;
-  padding: 7px 15px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border: 1px solid var(--ld-pink) !important;
-  border-radius: 0 !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 20px !important;
-  font-weight: 400 !important;
-  line-height: 1.1 !important;
-  letter-spacing: 0.75px !important;
-  text-shadow: none !important;
-  box-shadow: none !important;
-}
-
-input[name="bookmark"]:hover,
-input[name="bookmark"]:focus {
-  color: #000 !important;
-  background: var(--ld-white) !important;
-  border-color: var(--ld-white) !important;
-}
-
-/* ==========================================================================
-   PANELS, WELLS, THUMBNAILS, AND RECURRING GREY BOXES
-   ========================================================================== */
-
-.panel,
-.panel-default,
-.well,
-.thumbnail,
-.modal-content,
-.popover,
-.dropdown-menu,
-#pageContainer .media {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border-soft) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-.panel-heading,
-.modal-header,
-.popover-title {
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border-color: var(--ld-border-soft) !important;
-  border-radius: 0 !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 20px !important;
-  letter-spacing: 0.5px !important;
-}
-
-.panel-body,
-.well,
-.thumbnail,
-.modal-body {
-  color: var(--ld-white) !important;
-  font-size: 16px !important;
-  line-height: 1.48 !important;
-}
-
-#pageSidebar .panel {
-  margin-bottom: 18px !important;
-  border-color: var(--ld-border) !important;
-}
-
-#pageSidebar .panel::before {
-  content: "●  ●  ●  LIONDOS.EXE";
-  display: block;
-  min-height: 31px;
-  padding: 5px 10px;
-  color: var(--ld-green);
-  background: var(--ld-black);
-  border-bottom: 1px solid var(--ld-border);
-  font-family: var(--ld-ui-font);
-  font-size: 19px;
-  line-height: 21px;
-  letter-spacing: 0.8px;
-}
-
-#pageSidebar .panel-body {
-  padding: 13px !important;
-  color: var(--ld-white) !important;
-  font-size: 16px !important;
-  line-height: 1.42 !important;
-}
-
-/* ==========================================================================
-   PAGE TABS AND SECTION NAVIGATION
-   ========================================================================== */
-
-#pageContainer .nav-tabs,
-#pageContainer .nav-pills,
-#pageContainer ul.nav {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border-soft) !important;
-  border-radius: 0 !important;
-}
-
-#pageContainer .nav-tabs > li > a,
-#pageContainer .nav-pills > li > a,
-#pageContainer ul.nav > li > a {
-  padding: 10px 14px !important;
-  color: var(--ld-orange) !important;
-  background: var(--ld-black-2) !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 16px !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.03em !important;
-  text-shadow: none !important;
-}
-
-#pageContainer .nav-tabs > li > a:hover,
-#pageContainer .nav-tabs > li > a:focus,
-#pageContainer .nav-pills > li > a:hover,
-#pageContainer .nav-pills > li > a:focus,
-#pageContainer ul.nav > li > a:hover,
-#pageContainer ul.nav > li > a:focus,
-#pageContainer .nav-tabs > li.active > a,
-#pageContainer .nav-pills > li.active > a,
-#pageContainer ul.nav > li.active > a {
-  color: #000 !important;
-  background: var(--ld-white) !important;
-  border: 0 !important;
-  text-decoration: none !important;
-  text-shadow: none !important;
-}
-
-/* ==========================================================================
-   TABLES
-   ========================================================================== */
-
-.table,
-table.table,
-.inner-table {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border-color: var(--ld-border-soft) !important;
-  box-shadow: none !important;
-}
-
-.table:not(#huntingGrid) > thead > tr > th,
-.table:not(#huntingGrid) > tbody > tr > th,
-.table:not(#huntingGrid) > tfoot > tr > th,
-.table:not(#huntingGrid) > thead > tr > td,
-.table:not(#huntingGrid) > tbody > tr > td,
-.table:not(#huntingGrid) > tfoot > tr > td,
-table.table:not(#huntingGrid) th,
-table.table:not(#huntingGrid) td,
-.inner-table th,
-.inner-table td {
-  padding: 9px 11px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border-color: var(--ld-border-soft) !important;
-  font-size: 15.5px !important;
-  line-height: 1.42 !important;
-  vertical-align: middle !important;
-}
-
-.table .top,
-.table .bottom,
-.table th,
-table.table th {
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  font-size: 17px !important;
-  letter-spacing: 0.02em !important;
-}
-
-.table-striped:not(#huntingGrid) > tbody > tr:nth-of-type(odd) > td,
-.table-striped:not(#huntingGrid) > tbody > tr:nth-of-type(odd) > th,
-.table:not(#huntingGrid) > tbody > tr:nth-child(odd) > td {
-  background: var(--ld-black-3) !important;
-}
-
-.table:not(#huntingGrid) > tbody > tr:hover > td,
-.table:not(#huntingGrid) > tbody > tr:hover > th {
-  color: var(--ld-white) !important;
-  background: rgba(255, 0, 230, 0.07) !important;
-}
-
-.table > tbody > tr:hover a,
-.table > tbody > tr:hover a:visited {
-  color: var(--ld-orange) !important;
-  text-decoration: underline !important;
-}
-
-/* Native profile/stat tables must never flash white on hover. */
-#player table tr:hover td,
-#player table tr:hover th,
-#pageContainer table tr:hover td,
-#pageContainer table tr:hover th {
-  color: var(--ld-white) !important;
-}
-
-#player table tr:hover td,
-#player table tr:hover th {
-  background: rgba(255, 0, 230, 0.06) !important;
-}
-
-td.left,
-th.left {
-  color: var(--ld-pink-soft) !important;
-}
-
-/* ==========================================================================
-   FORMS AND BUTTONS
-   ========================================================================== */
-
-input,
-textarea,
-select,
-.form-control {
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border: 1px solid var(--ld-border) !important;
-  border-radius: 0 !important;
-  font-size: 16px !important;
-  line-height: 1.35 !important;
-  box-shadow: none !important;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #c7c7c7 !important;
-  opacity: 1;
-}
-
-input:focus,
-textarea:focus,
-select:focus,
-.form-control:focus {
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border-color: var(--ld-white) !important;
-  outline: 2px solid var(--ld-pink) !important;
-  outline-offset: 1px;
-  box-shadow: none !important;
-}
-
-.btn,
-button,
-input[type="submit"],
-input[type="button"] {
-  min-height: 38px;
-  padding: 7px 13px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border: 1px solid var(--ld-pink) !important;
-  border-radius: 0 !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  line-height: 1.1 !important;
-  letter-spacing: 0.55px !important;
-  text-transform: uppercase;
-  text-shadow: none !important;
-  box-shadow: none !important;
-}
-
-.btn:hover,
-.btn:focus,
-button:hover,
-button:focus,
-input[type="submit"]:hover,
-input[type="submit"]:focus,
-input[type="button"]:hover,
-input[type="button"]:focus {
-  color: #000 !important;
-  background: var(--ld-white) !important;
-  border-color: var(--ld-white) !important;
-  text-decoration: none !important;
-  text-shadow: none !important;
-}
-
-/* ==========================================================================
-   PROGRESS BARS
-   ========================================================================== */
-
-.progress {
-  height: 22px !important;
-  margin-bottom: 8px !important;
-  overflow: hidden;
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border: 1px solid var(--ld-pink) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-.progress-bar {
-  color: var(--ld-white) !important;
-  background:
-    linear-gradient(90deg, var(--ld-pink), var(--ld-orange), var(--ld-green)) !important;
-  font-size: 14px !important;
-  line-height: 20px !important;
-  text-shadow:
-    1px 0 2px #000,
-    -1px 0 2px #000,
-    0 1px 2px #000,
-    0 -1px 2px #000 !important;
-  box-shadow: none !important;
-}
-
-.progress div {
-  color: var(--ld-white) !important;
-  text-shadow:
-    1px 0 2px #000,
-    -1px 0 2px #000,
-    0 1px 2px #000,
-    0 -1px 2px #000 !important;
-}
-
-/* ==========================================================================
-   HOARD AND ITEM CARDS
-   ========================================================================== */
-
-#pageContainer .item,
-#pageContainer .item-card,
-#pageContainer .hoard-item,
-#pageContainer .inventory-item {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border-soft) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-#pageContainer .item .top,
-#pageContainer .item .bottom,
-#pageContainer .item-card .top,
-#pageContainer .item-card .bottom,
-#pageContainer .hoard-item .top,
-#pageContainer .hoard-item .bottom {
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-}
-
-/* ==========================================================================
-   COMMENTS
-   ========================================================================== */
-
-#commentBox {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-.comment {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border-left: 3px solid var(--ld-orange) !important;
-  font-size: 16px !important;
-  line-height: 1.45 !important;
-}
-
-/* ==========================================================================
-   INTERACTIVE SCREEN PROTECTION
-   These declarations restore native artwork geometry. No width, height,
-   position, margin, or scale is imposed on interactive assets.
-   ========================================================================== */
-
-img[usemap],
-#pageContainer img[src*="crossroad"],
-#pageContainer img[src*="explore"],
-#pageContainer img[src*="battle"],
-#pageContainer img[src*="hunt"],
-#pageContainer img[src*="patrol"],
-#pageContainer img[src*="event"],
-#pageContainer img[src*="zone"],
-#pageContainer img[src*="map"] {
-  max-width: none !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-/* Do not let decorative hover rules alter game controls. */
-img[usemap]:hover,
-#pageContainer img[src*="crossroad"]:hover,
-#pageContainer img[src*="explore"]:hover,
-#pageContainer img[src*="battle"]:hover,
-#pageContainer img[src*="hunt"]:hover,
-#pageContainer img[src*="map"]:hover {
-  padding: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-/* ==========================================================================
-   LION, CUB, DECOR, AND PORTRAIT PROTECTION
-   Native stacking and dimensions remain untouched.
-   ========================================================================== */
-
-#lion_image,
-.lion-image-block,
-#player {
-  background: transparent !important;
-  box-shadow: none !important;
-  transform: none !important;
-}
-
-#lion_image img,
-.lion-image-block img,
-.lion-image-block > img,
-img[data-layer],
-#player img {
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-#lion_image img:hover,
-.lion-image-block img:hover,
-img[data-layer]:hover,
-#player img:hover {
-  padding: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-
-.container.footer,
-.footer {
-  padding: 17px 22px !important;
-  color: var(--ld-muted) !important;
-  border: 1px solid var(--ld-border-soft) !important;
-  border-top-color: var(--ld-border) !important;
-  font-size: 14px !important;
-  line-height: 1.45 !important;
-}
-
-.footer::before {
-  content: "LIONDOS // MULTIPLIED NEGATIVITY // SAFE MODE";
-  display: block;
-  margin-bottom: 7px;
-  color: var(--ld-green);
-  font-family: var(--ld-ui-font);
-  font-size: 18px;
-  letter-spacing: 0.8px;
-}
-
-/* ==========================================================================
-   RESPONSIVE
-   No interactive image scaling is introduced.
-   ========================================================================== */
-
-@media (max-width: 991px) {
-  body {
-    background-attachment: scroll !important;
-    font-size: 15px !important;
-  }
-
-  h1,
-  .h1 {
-    font-size: 34px !important;
-  }
-
-  .navbar-default .navbar-nav > li > a,
-  .navbar-nav > li > a,
-  .navbar a {
-    font-size: 21px !important;
-  }
-
-  #pageSidebar h3 {
-    font-size: 25px !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
-
-/* ==========================================================================
-   PUBLIC DEN / CAVE PROFILE ADDITIONS
-   ========================================================================== */
-
-@media (min-width: 1200px) {
-  .container,
-  .container.topbar,
-  .container.main,
-  .container.footer {
-    width: min(1320px, calc(100vw - 40px)) !important;
-    max-width: none !important;
-  }
-
-  #pageContainer {
-    width: 78% !important;
-  }
-
-  #pageSidebar {
-    width: 22% !important;
-  }
-}
-
-/* Subtle CRT texture is limited to public profile pages. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  pointer-events: none;
-  opacity: 0.08;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.04) 0,
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-}
-
-/* ==========================================================================
-   CUSTOM TERRITORY DESCRIPTION
-   ========================================================================== */
-
-.liondos {
-  width: 100%;
-  margin: 14px auto 24px;
-  color: var(--ld-white);
-  font-family: var(--ld-body-font);
-  font-size: 17px;
-  line-height: 1.5;
-}
-
-.liondos-window {
-  margin: 0 0 18px;
-  overflow: hidden;
-  color: var(--ld-white);
-  background:
-    linear-gradient(180deg, rgba(7, 7, 7, 0.99), rgba(1, 1, 1, 0.99));
-  border: 1px solid var(--ld-border);
-  box-shadow: 0 0 16px rgba(255, 0, 230, 0.10);
-}
-
-.liondos-titlebar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  min-height: 43px;
-  padding: 8px 14px;
-  color: var(--ld-white);
-  background: var(--ld-black);
-  border-bottom: 1px solid var(--ld-orange);
-  font-family: var(--ld-ui-font);
-  font-size: 21px;
-  line-height: 1.1;
-  letter-spacing: 0.9px;
-  text-transform: uppercase;
-}
-
-.liondos-lights {
-  color: var(--ld-green);
-  letter-spacing: 4px;
-}
-
-.liondos-body {
-  padding: 24px;
-}
-
-.liondos-hero {
-  padding: 38px 24px 34px;
-  text-align: center;
-}
-
-.liondos-hero h2 {
-  margin: 0 0 12px !important;
-  color: var(--ld-pink) !important;
-  font-size: clamp(42px, 4.6vw, 62px) !important;
-  line-height: 1.04 !important;
-}
-
-.liondos-subtitle {
-  color: var(--ld-green);
-  font-family: var(--ld-ui-font);
-  font-size: 23px;
-  line-height: 1.2;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-}
-
-.liondos-divider {
-  height: 1px;
-  margin: 20px 0;
-  background:
-    linear-gradient(90deg, transparent, var(--ld-pink), var(--ld-orange), var(--ld-green), transparent);
-}
-
-.liondos-badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 9px;
-}
-
-.liondos-badge {
-  display: inline-block;
-  min-width: 158px;
-  padding: 8px 13px;
-  color: var(--ld-green);
-  background: var(--ld-black);
-  border: 1px solid var(--ld-green);
-  font-family: var(--ld-ui-font);
-  font-size: 20px;
-  line-height: 1.1;
-  letter-spacing: 0.7px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.liondos-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  align-items: stretch;
-}
-
-.liondos-grid > .liondos-window {
-  margin-bottom: 18px;
-}
-
-.liondos-data {
-  width: 100% !important;
-  margin: 0 !important;
-  color: var(--ld-white) !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-}
-
-.liondos-data td {
-  padding: 8px 7px !important;
-  color: var(--ld-white) !important;
-  background: transparent !important;
-  border: 0 !important;
-  border-bottom: 1px dotted var(--ld-border-soft) !important;
-  font-size: 17px !important;
-  line-height: 1.35 !important;
-}
-
-.liondos-data tr:hover td {
-  color: var(--ld-white) !important;
-  background: transparent !important;
-}
-
-.liondos-data td:first-child {
-  width: 43%;
-  color: var(--ld-pink-soft) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 20px !important;
-  letter-spacing: 0.7px !important;
-  text-transform: uppercase;
-}
-
-.liondos-command {
-  margin: 0 0 12px;
-  color: var(--ld-orange);
-  font-size: 17px;
-  line-height: 1.45;
-}
-
-.liondos-output {
-  margin: 0 0 10px;
-  color: var(--ld-green);
-  font-size: 17px;
-  line-height: 1.45;
-}
-
-.liondos-muted {
-  color: var(--ld-white);
-  opacity: 0.78;
-}
-
-.liondos-note {
-  padding: 14px 15px;
-  color: var(--ld-white);
-  background: rgba(255, 106, 26, 0.06);
-  border: 1px dashed var(--ld-orange);
-  border-left-width: 4px;
-  font-size: 17px;
-  line-height: 1.5;
-}
-
-.liondos-cursor::after {
-  content: "█";
-  margin-left: 5px;
-  color: var(--ld-green);
-  animation: liondos-blink 1.05s steps(2, end) infinite;
-}
-
-@keyframes liondos-blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-@media (max-width: 900px) {
-  .liondos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .liondos-hero h2 {
-    font-size: 38px !important;
-  }
-
-  .liondos-titlebar {
-    font-size: 19px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .liondos-cursor::after {
-    animation: none !important;
-  }
-}
-
-
-/* ==========================================================================
-   SOURCE-AWARE MODULE CORRECTIONS — V32
-   Built from the captured DOM for Den, Hoard, Branch, Hunting, Mound,
-   Beetle, Oasis, Pregnant Lionesses, and The Giving Tree.
-   ========================================================================== */
-
-/* Native pale information panels: Baoball-style game dialogue, Hoard filters,
-   Hunting instructions, Oasis description, and Giving Tree copy. */
-#pageContainer .feature,
-#pageContainer .page-description {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  font-size: 17px !important;
-  line-height: 1.55 !important;
-}
-
-#pageContainer .feature {
-  padding: 14px 16px !important;
-}
-
-#pageContainer .page-description {
-  padding: 16px !important;
-}
-
-#pageContainer .feature p,
-#pageContainer .feature label,
-#pageContainer .feature b,
-#pageContainer .feature .small,
-#pageContainer .page-description p,
-#pageContainer .page-description div,
-#pageContainer .page-description label,
-#pageContainer .page-description b {
-  color: var(--ld-white) !important;
-}
-
-#pageContainer .page-description .left {
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border-color: var(--ld-border-soft) !important;
-}
-
-#pageContainer .page-description span[style*="color: #ff0000"],
-#pageContainer .page-description span[style*="color:#ff0000"] {
-  color: var(--ld-red) !important;
-  font-size: 14px !important;
-  line-height: 1.45 !important;
-}
-
-/* Div-based navigation used by Hoard, Oasis, Hunting, Mounds, and Beetles. */
-#pageContainer .sub_menu,
-#pageContainer .sub_sub_menu {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-#pageContainer .sub_menu_item,
-#pageContainer .sub_menu_item_selected,
-#pageContainer .sub_sub_menu_item,
-#pageContainer .sub_sub_menu_item_selected {
-  margin: 0 !important;
-  padding: 7px 10px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border-right: 1px solid var(--ld-border-soft) !important;
-  border-radius: 0 !important;
-  font-size: 16px !important;
-  line-height: 1.25 !important;
-}
-
-#pageContainer .sub_menu_item_selected,
-#pageContainer .sub_sub_menu_item_selected {
-  color: #000 !important;
-  background: var(--ld-pink) !important;
-}
-
-#pageContainer .sub_menu_item_selected a,
-#pageContainer .sub_sub_menu_item_selected a {
-  color: #000 !important;
-}
-
-#pageContainer .sub_menu_item a:hover,
-#pageContainer .sub_menu_item a:focus,
-#pageContainer .sub_sub_menu_item a:hover,
-#pageContainer .sub_sub_menu_item a:focus {
-  color: #000 !important;
-  background: var(--ld-white) !important;
-  text-decoration: none !important;
-}
-
-/* Exact item-card DOM used by Hoard, Oasis, Branch, and Giving Tree. */
-#pageContainer .item-header {
-  min-height: 31px;
-  padding: 5px 4px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border-bottom: 1px solid var(--ld-border-soft) !important;
-  font-size: 14.5px !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.025em !important;
-}
-
-#pageContainer .item-header a,
-#pageContainer .item-header a:visited {
-  color: var(--ld-white) !important;
-}
-
-#pageContainer .item-header a:hover,
-#pageContainer .item-header a:focus {
-  color: var(--ld-orange) !important;
-}
-
-#pageContainer .item-footer {
-  min-height: 33px;
-  padding: 5px 4px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border-top: 1px solid var(--ld-border-soft) !important;
-  font-size: 14.5px !important;
-  line-height: 1.2 !important;
-}
-
-/* Hoard amount/action text: 1 use, 5 uses, 2 Stacked, etc. */
-#fraHoardList .item {
-  font-size: 15px !important;
-}
-
-#fraHoardList .item-footer .floatright a,
-#fraHoardList .item-footer .floatright a:visited {
-  color: var(--ld-pink) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 20px !important;
-  line-height: 1 !important;
-  letter-spacing: 0.55px !important;
-  text-transform: none !important;
-}
-
-#fraHoardList .item-footer .floatright a:hover,
-#fraHoardList .item-footer .floatright a:focus {
-  color: var(--ld-white) !important;
-}
-
-#fraHoardList .item > i {
-  color: var(--ld-green) !important;
-  font-size: 15px !important;
-  line-height: 1.25 !important;
-}
-
-/* Oasis shop sections and controls. */
-#fraFilterBlock {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border-color: var(--ld-orange) !important;
-}
-
-#pageContainer .shop-section {
-  margin: 20px 0 28px !important;
-  padding-top: 2px !important;
-  border-top: 1px solid var(--ld-border-soft) !important;
-}
-
-#pageContainer .shop-section-action {
-  margin-top: 10px !important;
-  padding: 10px !important;
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-  border: 1px solid var(--ld-border-soft) !important;
-}
-
-#pageContainer .shop-section .item-footer .floatleft {
-  color: var(--ld-orange) !important;
-  font-size: 15.5px !important;
-}
-
-#pageContainer .shop-section .item-footer select {
-  min-height: 28px !important;
-  padding: 2px 4px !important;
-  font-size: 15px !important;
-}
-
-/* Preserve the image-based Gold Beetle purchase button. */
-input[type="submit"][style*="btn_buynowCC_LG.gif"],
-input[type="submit"][style*="btn_buynowCC_LG.gif"]:hover,
-input[type="submit"][style*="btn_buynowCC_LG.gif"]:focus {
-  width: 160px !important;
-  height: 47px !important;
-  min-height: 47px !important;
-  padding: 0 !important;
-  background: url("https://static.lioden.com/images/btn_buynowCC_LG.gif") center / 160px 47px no-repeat !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-}
-
-/* Den/profile and Beetle detail tables: eliminate pale outer cells and
-   alternating native backgrounds while retaining portrait geometry. */
-#about > tbody > tr.right > td,
-#player > tbody > tr.right > td,
-#about > tbody > tr.right:hover > td,
-#player > tbody > tr.right:hover > td {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-}
-
-#about .inner-table,
-#about .inner-table td,
-#about .inner-table th,
-#player .inner-table,
-#player .inner-table td,
-#player .inner-table th {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-2) !important;
-}
-
-#pageContainer td.right_odd {
-  color: var(--ld-white) !important;
-  background: var(--ld-black-3) !important;
-}
-
-#pageContainer td.unread-msg {
-  color: var(--ld-pink-soft) !important;
-  background: var(--ld-black) !important;
-}
-
-#beetles td,
-#beetles th,
-#about td,
-#about th {
-  font-size: 16px !important;
-  line-height: 1.4 !important;
-}
-
-#beetles .small,
-#about .small {
-  font-size: 15px !important;
-}
-
-/* Hunting tile-map protection. Generic table rules do not target these cells. */
-#huntingGrid td,
-#huntingGrid tr:hover td {
-  padding: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-#huntingGrid th {
-  color: var(--ld-white) !important;
-  background: var(--ld-black) !important;
-  border: 1px solid var(--ld-border) !important;
-  font-size: 17px !important;
-}
-
-#huntingGrid .gridSquare,
-#huntingGrid .gridSquare:hover,
-#huntingGrid .gridSquare:focus {
-  padding: 0 !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-}
-
-
-/* ==========================================================================
-   V12 CONSOLE CORE — USER-PREFERRED TERRITORY MODULE
-   Direct-child BR elements are suppressed because Lioden may convert source
-   line breaks into <br> nodes when rendering a Territory Description.
-   ========================================================================== */
-
-.liondos {
-  width: 100%;
-  color: var(--ld-white) !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 18px !important;
-  line-height: 1.42 !important;
-  text-align: left !important;
-}
-
-.liondos > br,
-.liondos .console-window > br,
-.liondos .console-body > br,
-.liondos .console-grid > br,
-.liondos .console-grid-3 > br,
-.liondos .console-card > br {
-  display: none !important;
-}
-
-.liondos .console-window {
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 18px;
-  color: var(--ld-white) !important;
-  background: linear-gradient(180deg, rgba(6, 9, 7, 0.98), rgba(1, 2, 2, 0.99)) !important;
-  border: 1px solid var(--ld-pink) !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 18px rgba(255, 0, 230, 0.14), inset 0 0 28px rgba(0, 255, 41, 0.018) !important;
-}
-
-.liondos .console-window::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.12;
-  background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0, 255, 41, 0.04) 4px);
-}
-
-.liondos .console-bar {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  min-height: 40px;
-  padding: 7px 13px;
-  color: var(--ld-green) !important;
-  background: linear-gradient(90deg, #040604, #090209 65%, #040604) !important;
-  border-bottom: 1px solid var(--ld-pink) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 21px !important;
-  line-height: 1.15 !important;
-  letter-spacing: 1px !important;
-  text-transform: uppercase;
-}
-
-.liondos .console-lights {
-  color: var(--ld-pink) !important;
-  letter-spacing: 4px !important;
-}
-
-.liondos .console-body {
-  position: relative;
-  z-index: 2;
-  padding: 22px;
-  color: var(--ld-white) !important;
-}
-
-.liondos .liondos-hero h2 {
-  margin: 0 0 8px !important;
-  color: var(--ld-pink) !important;
-  font-size: clamp(31px, 5vw, 54px) !important;
-  line-height: 1.02 !important;
-}
-
-.liondos .liondos-subtitle {
-  color: var(--ld-green) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 22px !important;
-  letter-spacing: 0.8px !important;
-}
-
-.liondos .console-line {
-  margin: 0 0 10px;
-  color: var(--ld-white) !important;
-  line-height: 1.35 !important;
-}
-
-.liondos .console-label {
-  color: var(--ld-orange) !important;
-}
-
-.liondos .console-value {
-  color: var(--ld-green) !important;
-}
-
-.liondos .console-prompt::before {
-  content: "C:\\LIONDOS\\PRIDE> ";
-  color: var(--ld-orange) !important;
-}
-
-.liondos .console-cursor::after {
-  content: "█";
-  margin-left: 5px;
-  color: var(--ld-green) !important;
-  animation: liondos-console-blink 1s steps(2, end) infinite;
-}
-
-.liondos .console-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 16px;
-}
-
-.liondos .console-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
-  gap: 14px;
-}
-
-.liondos .console-meter {
-  height: 18px;
-  margin: 7px 0 14px;
-  overflow: hidden;
-  background: #050505 !important;
-  border: 1px solid var(--ld-pink) !important;
-}
-
-.liondos .console-meter > span {
-  display: block;
-  height: 100%;
-  background: repeating-linear-gradient(90deg, var(--ld-green) 0 14px, #050505 14px 17px) !important;
-  box-shadow: 0 0 10px rgba(0, 255, 41, 0.28) !important;
-}
-
-.liondos .console-card {
-  padding: 15px;
-  color: var(--ld-white) !important;
-  background: rgba(255, 255, 255, 0.018) !important;
-  border: 1px solid rgba(255, 0, 230, 0.35) !important;
-}
-
-.liondos .console-card-title {
-  margin-bottom: 9px;
-  color: var(--ld-pink) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 22px !important;
-  line-height: 1.1 !important;
-  text-transform: uppercase;
-  letter-spacing: 1px !important;
-}
-
-.liondos .console-rule {
-  height: 1px;
-  margin: 16px 0;
-  background: linear-gradient(90deg, transparent, var(--ld-orange), var(--ld-green), transparent) !important;
-}
-
-.liondos .console-chip {
-  display: inline-block;
-  margin: 3px 5px 3px 0;
-  padding: 4px 8px;
-  color: #000 !important;
-  background: var(--ld-green) !important;
-  border: 1px solid var(--ld-green) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 18px !important;
-  line-height: 1.05 !important;
-  text-transform: uppercase;
-}
-
-.liondos .console-log {
-  max-height: 260px;
-  overflow: auto;
-  padding: 14px;
-  color: var(--ld-white) !important;
-  background: #020302 !important;
-  border-left: 3px solid var(--ld-orange) !important;
-}
-
-.liondos .console-warning {
-  padding: 12px 14px;
-  color: var(--ld-white) !important;
-  background: rgba(255, 106, 26, 0.08) !important;
-  border: 1px dashed var(--ld-orange) !important;
-}
-
-.liondos .console-glyph-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.liondos .console-glyph {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 88px;
-  height: 31px;
-  color: var(--ld-white) !important;
-  background: #000 !important;
-  border: 1px solid var(--ld-pink) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 15px !important;
-  line-height: 1 !important;
-  letter-spacing: 0.4px !important;
-  text-align: center;
-  text-transform: uppercase;
-  box-shadow: inset 0 0 8px rgba(255, 0, 230, 0.14) !important;
-}
-
-.liondos .console-glyph::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  pointer-events: none;
-  border: 1px dashed rgba(0, 255, 41, 0.55);
-}
-
-.liondos .console-glyph.signal {
-  animation: liondos-console-signal 1.8s steps(2, end) infinite;
-}
-
-.liondos .console-glyph.scan::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-  height: 2px;
-  background: var(--ld-green) !important;
-  box-shadow: 0 0 6px var(--ld-green) !important;
-  animation: liondos-console-scan 2.4s linear infinite;
-}
-
-.liondos .console-orbit {
-  position: relative;
-  width: 26px;
-  height: 26px;
-  margin-right: 6px;
-  border: 2px solid var(--ld-green) !important;
-  border-radius: 50%;
-}
-
-.liondos .console-orbit::before,
-.liondos .console-orbit::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-}
-
-.liondos .console-orbit::before {
-  inset: 6px;
-  background: var(--ld-pink) !important;
-}
-
-.liondos .console-orbit::after {
-  width: 5px;
-  height: 5px;
-  left: 9px;
-  top: -4px;
-  background: var(--ld-orange) !important;
-  transform-origin: 3px 17px;
-  animation: liondos-console-orbit 2.8s linear infinite;
-}
-
-@keyframes liondos-console-blink {
-  50% { opacity: 0; }
-}
-
-@keyframes liondos-console-signal {
-  50% {
-    color: #000;
-    background: var(--ld-green);
-    border-color: var(--ld-green);
-  }
-}
-
-@keyframes liondos-console-scan {
-  from { transform: translateY(0); }
-  to { transform: translateY(21px); }
-}
-
-@keyframes liondos-console-orbit {
-  to { transform: rotate(360deg); }
-}
-
-@media (max-width: 900px) {
-  .liondos .console-grid,
-  .liondos .console-grid-3 {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .liondos .console-cursor::after,
-  .liondos .console-glyph.signal,
-  .liondos .console-glyph.scan::after,
-  .liondos .console-orbit::after {
-    animation: none !important;
-  }
-}
-
-/* ==========================================================================
-   LIONDOS V34 — HYBRID TERMINAL EDITION
-   Restores the saturated DOS/CRT identity while improving scanning and
-   separation. Functional image geometry remains untouched.
-   ========================================================================== */
-
-:root {
-  --ld-black: #020202;
-  --ld-black-2: #080808;
-  --ld-black-3: #101010;
-  --ld-black-4: #171217;
-  --ld-white: #f8f8f8;
-  --ld-muted: #c6c6c6;
-  --ld-pink: #ff00e6;
-  --ld-pink-soft: #ff65ec;
-  --ld-orange: #ff751f;
-  --ld-green: #00ff38;
-  --ld-red: #ff4c66;
-  --ld-border: rgba(255, 0, 230, 0.92);
-  --ld-border-soft: rgba(255, 0, 230, 0.46);
-  --ld-neutral-border: #393139;
-  --ld-body-font: "IBM Plex Mono", "Cascadia Mono", Consolas, "Courier New", monospace;
-  --ld-ui-font: "VT323", "Cascadia Mono", Consolas, monospace;
-  --ld-display-font: "Abril Fatface", Georgia, serif;
-}
-
-/* Readable terminal foundation */
-body {
-  color: var(--ld-white) !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 16.5px !important;
-  font-weight: 400 !important;
-  line-height: 1.56 !important;
-  letter-spacing: 0 !important;
-  text-rendering: optimizeLegibility !important;
-}
-
-body,
-input,
-button,
-select,
-textarea,
-table,
-.panel-body,
-.alert,
-.breadcrumb {
-  font-family: var(--ld-body-font) !important;
-  letter-spacing: 0 !important;
-}
-
-small,
-.small,
-.text-muted {
-  color: var(--ld-muted) !important;
-  font-size: 14.5px !important;
-  line-height: 1.48 !important;
-}
-
-/* Layered black surfaces instead of one undifferentiated void */
-.container.topbar,
-.navbar,
-.navbar-default,
-.container.footer,
-.footer {
-  background: rgba(2, 2, 2, 0.98) !important;
-}
-
-.container.main {
-  background: #030303 !important;
-  border-left: 1px solid var(--ld-border-soft) !important;
-  border-right: 1px solid var(--ld-border-soft) !important;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.025),
-    0 18px 48px rgba(0, 0, 0, 0.78) !important;
-}
-
-#pageContainer {
-  background: #040404 !important;
-  border-right: 1px solid var(--ld-border-soft) !important;
-}
-
-#pageSidebar {
-  background: #080608 !important;
-}
-
-/* Top bar remains terminal-like but is not cramped */
-.container.topbar {
-  min-height: 42px !important;
-  padding: 8px 13px !important;
-  border-bottom: 1px solid var(--ld-border-soft) !important;
-}
-
-.welcomeback,
-.toplinks,
-.toplinks li,
-.toplinks a {
-  font-family: var(--ld-body-font) !important;
-  font-size: 14.5px !important;
-  font-weight: 500 !important;
-  line-height: 1.45 !important;
-  letter-spacing: 0 !important;
-}
-
-/* Main navigation keeps the distinctive display face */
-.navbar,
-.navbar-default {
-  min-height: 62px !important;
-  border: 1px solid var(--ld-border) !important;
-  border-top: 3px solid var(--ld-pink) !important;
-  box-shadow: inset 0 -1px 0 rgba(0, 255, 56, 0.22) !important;
-}
-
-.navbar-default .navbar-nav > li > a,
-.navbar-nav > li > a,
-.navbar a {
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
-  color: var(--ld-pink) !important;
-  background: #030303 !important;
-  border-right: 1px solid rgba(255, 0, 230, 0.24) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 22px !important;
-  font-weight: 400 !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.65px !important;
-  text-transform: uppercase !important;
-  text-shadow: 0 0 6px rgba(255, 0, 230, 0.24) !important;
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-nav > li > a:hover,
-.navbar-nav > li > a:focus {
-  color: var(--ld-white) !important;
-  background: #171017 !important;
-  box-shadow: inset 0 -3px 0 var(--ld-orange) !important;
-  text-decoration: none !important;
-}
-
-/* Strong but distinctive hierarchy */
-h1,
-.h1 {
-  position: relative;
-  margin: 25px 0 22px !important;
-  padding: 0 0 13px !important;
-  color: var(--ld-pink) !important;
-  font-family: var(--ld-display-font) !important;
-  font-size: 38px !important;
-  font-weight: 400 !important;
-  line-height: 1.15 !important;
-  letter-spacing: 0.01em !important;
-  text-transform: none !important;
-  text-shadow: 2px 2px 0 rgba(255, 0, 230, 0.14) !important;
-  border-bottom: 1px solid var(--ld-border-soft) !important;
-}
-
-h1::after,
-.h1::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 42%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--ld-pink), var(--ld-orange), var(--ld-green));
-}
-
-h2,
-.h2 {
-  color: var(--ld-pink) !important;
-  font-family: var(--ld-display-font) !important;
-  font-size: 30px !important;
-  font-weight: 400 !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.01em !important;
-  text-transform: none !important;
-}
-
-h3,
-.h3,
-h4,
-.h4 {
-  color: var(--ld-pink-soft) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-weight: 400 !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.5px !important;
-  text-transform: uppercase !important;
-}
-
-h3,
-.h3 {
-  font-size: 25px !important;
-}
-
-#pageSidebar h3 {
-  margin: 22px 0 9px !important;
-  padding: 0 0 7px !important;
-  border-bottom: 1px solid var(--ld-border) !important;
-  font-size: 23px !important;
-  text-shadow: 0 0 6px rgba(255, 0, 230, 0.22) !important;
-}
-
-/* Breadcrumbs and alerts read as separate modules */
-.breadcrumb {
-  min-height: 44px !important;
-  margin-bottom: 17px !important;
-  padding: 11px 14px !important;
-  color: var(--ld-white) !important;
-  background: #0c090c !important;
-  border: 1px solid var(--ld-neutral-border) !important;
-  border-left: 4px solid var(--ld-pink) !important;
-  font-size: 15.5px !important;
-  line-height: 1.45 !important;
-}
-
-.alert {
-  margin-bottom: 15px !important;
-  padding: 14px 16px !important;
-  color: var(--ld-white) !important;
-  background: #0b100c !important;
-  border: 1px solid #285530 !important;
-  border-left: 4px solid var(--ld-green) !important;
-  font-size: 15.5px !important;
-  line-height: 1.58 !important;
-}
-
-.alert-warning {
-  background: #120d08 !important;
-  border-color: #69401f !important;
-  border-left-color: var(--ld-orange) !important;
-}
-
-.alert-danger {
-  background: #13080c !important;
-  border-color: #692233 !important;
-  border-left-color: var(--ld-red) !important;
-}
-
-/* Panels retain neon console frames but gain interior hierarchy */
-.panel,
-.panel-default,
-.well,
-.thumbnail,
-.modal-content,
-.popover,
-.dropdown-menu {
-  color: var(--ld-white) !important;
-  background: #090909 !important;
-  border: 1px solid var(--ld-border-soft) !important;
-  border-radius: 0 !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.018),
-    0 7px 18px rgba(0, 0, 0, 0.34) !important;
-}
-
-.panel-heading,
-.modal-header,
-.popover-title {
-  padding: 9px 12px !important;
-  color: var(--ld-white) !important;
-  background: #151015 !important;
-  border-bottom: 1px solid var(--ld-border) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 20px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.45px !important;
-  text-transform: uppercase !important;
-}
-
-.panel-body,
-.well,
-.thumbnail,
-.modal-body {
-  padding: 15px !important;
-  color: var(--ld-white) !important;
-  background: #090909 !important;
-  font-size: 15.5px !important;
-  line-height: 1.56 !important;
-}
-
-#pageSidebar .panel {
-  margin-bottom: 20px !important;
-  border-color: var(--ld-border) !important;
-}
-
-#pageSidebar .panel::before {
-  min-height: 30px !important;
-  padding: 6px 10px !important;
-  color: var(--ld-green) !important;
-  background: #030303 !important;
-  border-bottom: 1px solid var(--ld-border) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  line-height: 1.05 !important;
-  letter-spacing: 0.45px !important;
-  text-shadow: 0 0 5px rgba(0, 255, 56, 0.24) !important;
-}
-
-#pageSidebar .panel-body {
-  background: #090709 !important;
-  font-size: 15px !important;
-  line-height: 1.52 !important;
-}
-
-/* Links remain orange, with a visible keyboard focus state */
-a,
-a:visited {
-  color: var(--ld-orange) !important;
-  font-weight: 500 !important;
-}
-
-a:hover,
-a:focus {
-  color: #ffd0b1 !important;
-  text-decoration: underline !important;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--ld-green) !important;
-  outline-offset: 2px !important;
-}
-
-/* Clearly segmented tabs, still styled like a DOS menu */
-#pageContainer .nav-tabs,
-#pageContainer .nav-pills,
-#pageContainer ul.nav,
-#pageContainer .sub_menu,
-#pageContainer .sub_sub_menu {
-  background: #050505 !important;
-  border: 1px solid var(--ld-border) !important;
-  border-top: 2px solid var(--ld-pink) !important;
-}
-
-#pageContainer .nav-tabs > li > a,
-#pageContainer .nav-pills > li > a,
-#pageContainer ul.nav > li > a,
-#pageContainer .sub_menu_item,
-#pageContainer .sub_menu_item_selected,
-#pageContainer .sub_sub_menu_item,
-#pageContainer .sub_sub_menu_item_selected {
-  color: var(--ld-orange) !important;
-  background: #080808 !important;
-  border-right: 1px solid var(--ld-border-soft) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.35px !important;
-}
-
-#pageContainer .nav-tabs > li > a:hover,
-#pageContainer .nav-tabs > li > a:focus,
-#pageContainer .nav-pills > li > a:hover,
-#pageContainer .nav-pills > li > a:focus,
-#pageContainer ul.nav > li > a:hover,
-#pageContainer ul.nav > li > a:focus,
-#pageContainer .sub_menu_item a:hover,
-#pageContainer .sub_menu_item a:focus,
-#pageContainer .sub_sub_menu_item a:hover,
-#pageContainer .sub_sub_menu_item a:focus {
-  color: var(--ld-white) !important;
-  background: #181018 !important;
-  text-decoration: none !important;
-}
-
-#pageContainer .nav-tabs > li.active > a,
-#pageContainer .nav-pills > li.active > a,
-#pageContainer ul.nav > li.active > a,
-#pageContainer .sub_menu_item_selected,
-#pageContainer .sub_sub_menu_item_selected {
-  color: #000 !important;
-  background: var(--ld-pink) !important;
-  font-weight: 400 !important;
-}
-
-/* Tables gain obvious rows and labels without becoming generic */
-.table,
-table.table,
-.inner-table {
-  color: var(--ld-white) !important;
-  background: #070707 !important;
-  border: 1px solid var(--ld-border-soft) !important;
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
-}
-
-.table:not(#huntingGrid) > thead > tr > th,
-.table:not(#huntingGrid) > tbody > tr > th,
-.table:not(#huntingGrid) > tfoot > tr > th,
-.table:not(#huntingGrid) > thead > tr > td,
-.table:not(#huntingGrid) > tbody > tr > td,
-.table:not(#huntingGrid) > tfoot > tr > td,
-table.table:not(#huntingGrid) th,
-table.table:not(#huntingGrid) td,
-.inner-table th,
-.inner-table td {
-  padding: 10px 12px !important;
-  color: var(--ld-white) !important;
-  background: #080808 !important;
-  border-color: #332b33 !important;
-  border-bottom: 1px solid #332b33 !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 15.5px !important;
-  line-height: 1.5 !important;
-  letter-spacing: 0 !important;
-}
-
-.table .top,
-.table .bottom,
-.table th,
-table.table th {
-  color: var(--ld-white) !important;
-  background: #171017 !important;
-  border-left: 3px solid var(--ld-pink) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.35px !important;
-}
-
-.table-striped:not(#huntingGrid) > tbody > tr:nth-of-type(odd) > td,
-.table-striped:not(#huntingGrid) > tbody > tr:nth-of-type(odd) > th,
-.table:not(#huntingGrid) > tbody > tr:nth-child(odd) > td {
-  background: #0d0a0d !important;
-}
-
-.table:not(#huntingGrid) > tbody > tr:hover > td,
-.table:not(#huntingGrid) > tbody > tr:hover > th,
-#pageContainer table tr:hover td,
-#pageContainer table tr:hover th {
-  color: var(--ld-white) !important;
-  background: #1a1019 !important;
-}
-
-td.left,
-th.left,
-#about .inner-table td.left,
-#player .inner-table td.left {
-  color: var(--ld-pink-soft) !important;
-  background: #100b10 !important;
-  font-weight: 600 !important;
-}
-
-/* Forms remain terminal controls but are easier to locate */
-input,
-textarea,
-select,
-.form-control {
-  min-height: 36px !important;
-  padding: 6px 9px !important;
-  color: var(--ld-white) !important;
-  background: #050505 !important;
-  border: 1px solid #796079 !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 15.5px !important;
-  line-height: 1.42 !important;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #aaa0aa !important;
-  opacity: 1 !important;
-}
-
-input:focus,
-textarea:focus,
-select:focus,
-.form-control:focus {
-  border-color: var(--ld-pink) !important;
-  box-shadow: 0 0 0 2px rgba(255, 0, 230, 0.19) !important;
-}
-
-.btn,
-button,
-input[type="submit"],
-input[type="button"] {
-  min-height: 38px !important;
-  padding: 7px 13px !important;
-  color: var(--ld-white) !important;
-  background: #080808 !important;
-  border: 1px solid var(--ld-pink) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 19px !important;
-  font-weight: 400 !important;
-  line-height: 1.1 !important;
-  letter-spacing: 0.45px !important;
-  text-transform: uppercase !important;
-}
-
-.btn:hover,
-.btn:focus,
-button:hover,
-button:focus,
-input[type="submit"]:hover,
-input[type="submit"]:focus,
-input[type="button"]:hover,
-input[type="button"]:focus {
-  color: #000 !important;
-  background: var(--ld-pink) !important;
-  border-color: var(--ld-pink) !important;
-  text-decoration: none !important;
-}
-
-/* Inventory cards keep their arcade-item identity */
-#pageContainer .item,
-#pageContainer .item-card,
-#pageContainer .hoard-item,
-#pageContainer .inventory-item {
-  background: #060606 !important;
-  border: 1px solid var(--ld-border) !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(0, 255, 56, 0.035),
-    0 5px 14px rgba(0, 0, 0, 0.38) !important;
-}
-
-#pageContainer .item-header {
-  min-height: 33px !important;
-  padding: 6px 5px !important;
-  color: var(--ld-white) !important;
-  background: #171017 !important;
-  border-bottom: 1px solid var(--ld-border-soft) !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 13.5px !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-  letter-spacing: 0 !important;
-}
-
-#pageContainer .item-footer {
-  min-height: 37px !important;
-  padding: 7px 5px !important;
-  color: var(--ld-white) !important;
-  background: #0c090c !important;
-  border-top: 1px solid var(--ld-border-soft) !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 14px !important;
-  line-height: 1.35 !important;
-}
-
-#fraHoardList .item-footer .floatright a,
-#fraHoardList .item-footer .floatright a:visited {
-  color: var(--ld-pink) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 21px !important;
-  font-weight: 400 !important;
-  line-height: 1 !important;
-  letter-spacing: 0.35px !important;
-  text-shadow: 0 0 5px rgba(255, 0, 230, 0.18) !important;
-}
-
-/* Native information boxes become readable console readouts */
-#pageContainer .feature,
-#pageContainer .page-description {
-  padding: 17px 19px !important;
-  color: var(--ld-white) !important;
-  background: #0b0b0b !important;
-  border: 1px solid #4a3c4a !important;
-  border-left: 4px solid var(--ld-green) !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 16px !important;
-  line-height: 1.62 !important;
-}
-
-/* Progress bars retain the neon diagnostic look */
-.progress {
-  height: 24px !important;
-  background: #030303 !important;
-  border: 1px solid var(--ld-border) !important;
-}
-
-.progress > div:last-child,
-.progress-bar + div {
-  color: #fff !important;
-  font-family: var(--ld-body-font) !important;
-  font-size: 12.5px !important;
-  font-weight: 600 !important;
-  line-height: 22px !important;
-  text-shadow: 0 1px 2px #000, 0 0 4px #000 !important;
-}
-
-/* Public profile: retain the Console Core character, improve body reading */
-.liondos {
-  position: relative;
-}
-
-.liondos::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  pointer-events: none;
-  opacity: 0.11;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 3px,
-    rgba(255, 255, 255, 0.05) 4px
-  );
-  mix-blend-mode: screen;
-}
-
-.liondos .console-window,
-.liondos .liondos-window {
-  background: #050505 !important;
-  border: 1px solid var(--ld-border) !important;
-  box-shadow:
-    inset 0 0 18px rgba(255, 0, 230, 0.035),
-    0 8px 22px rgba(0, 0, 0, 0.42) !important;
-}
-
-.liondos .console-bar,
-.liondos .liondos-titlebar {
-  padding: 8px 11px !important;
-  color: var(--ld-white) !important;
-  background: #120b12 !important;
-  border-bottom: 1px solid var(--ld-orange) !important;
-  font-family: var(--ld-ui-font) !important;
-  font-size: 20px !important;
-  font-weight: 400 !important;
-  line-height: 1.05 !important;
-  letter-spacing: 0.55px !important;
-  text-transform: uppercase !important;
-}
-
-.liondos,
-.liondos .console-body,
-.liondos .console-line,
-.liondos .console-log,
-.liondos .liondos-body,
-.liondos .liondos-output,
-.liondos .liondos-note {
-  font-family: var(--ld-body-font) !important;
-  font-size: 15.5px !important;
-  line-height: 1.58 !important;
-  letter-spacing: 0 !important;
-}
-
-.liondos .console-body,
-.liondos .liondos-body {
-  padding: 17px !important;
-}
-
-.liondos .console-card {
-  padding: 14px !important;
-  background: #0b080b !important;
-  border: 1px solid var(--ld-border-soft) !important;
-  border-left: 3px solid var(--ld-pink) !important;
-}
-
-.liondos .console-label,
-.liondos .console-prompt,
-.liondos .console-chip,
-.liondos .console-card-title,
-.liondos .console-glyph,
-.liondos .liondos-badge,
-.liondos .liondos-command,
-.liondos .liondos-muted {
-  font-family: var(--ld-ui-font) !important;
-  letter-spacing: 0.4px !important;
-}
-
-.liondos .console-chip,
-.liondos .liondos-badge {
-  padding: 7px 10px !important;
-  color: var(--ld-green) !important;
-  background: #030603 !important;
-  border: 1px solid var(--ld-green) !important;
-  font-size: 18px !important;
-  line-height: 1 !important;
-}
-
-.liondos .console-glyph,
-.liondos .console-orbit,
-.liondos .console-glyph.signal,
-.liondos .console-glyph.scan::after,
-.liondos .console-orbit::after {
-  animation-duration: 3.4s !important;
-}
-
-/* Motion remains subtle and is removed when the user requests reduced motion. */
-@media (prefers-reduced-motion: reduce) {
-  .liondos *,
-  .liondos *::before,
-  .liondos *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* Functional artwork and click geometry remain native. */
-img[usemap],
-#huntingGrid img,
-.lion-image-block img,
-img[data-layer],
-#lion_image img {
-  filter: none !important;
-  transform: none !important;
-}
 /* =========================================================
-   CRAFTING PAGE — RECIPE LIST
+   LIODEN FINAL OPTIMISATION PATCH
+   Crafting + Trading Center + Left Sidebar + Chat Terminal
+   Paste at the VERY BOTTOM of the existing stylesheet
    ========================================================= */
 
-/* Standard recipe cards */
-body #pageContainer #recipelist li.recipe {
-    background: #101014 !important;
-    color: #eeeeee !important;
 
-    border: 1px solid #4a1745 !important;
+/* =========================================================
+   1. MOVE THE EXISTING SIDEBAR TO THE LEFT
+   Desktop only. Contents and dimensions remain unchanged.
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .container.main > .row:has(> #pageContainer) {
+        display: flex !important;
+        align-items: flex-start !important;
+    }
+
+    #pageSidebar {
+        order: 1 !important;
+        float: none !important;
+        flex: 0 0 25% !important;
+        max-width: 25% !important;
+    }
+
+    #pageContainer {
+        order: 2 !important;
+        float: none !important;
+        flex: 0 0 75% !important;
+        max-width: 75% !important;
+    }
+}
+
+
+/* =========================================================
+   2. CRAFTING PAGE
+   Fix unreadable pale cards and remove individual scrollbars
+   ========================================================= */
+
+body:has(#recipelist) #recipelist {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+
+    width: 100% !important;
+    height: 430px !important;
+    margin: 0 !important;
+    padding: 6px !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    background: #050507 !important;
+    border: 1px solid #5c1756 !important;
+    box-sizing: border-box !important;
+}
+
+body:has(#recipelist) #recipelist li.recipe {
+    float: none !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 68px !important;
+
+    margin: 0 !important;
+    padding: 7px !important;
+    overflow: hidden !important;
+
+    color: #eeeeee !important;
+    background: #101014 !important;
+
+    border: 1px solid #481943 !important;
     border-left: 3px solid #ff00d4 !important;
     border-radius: 2px !important;
 
-    padding: 5px !important;
+    box-sizing: border-box !important;
     opacity: 1 !important;
 }
 
-/* Recipe title */
-body #pageContainer #recipelist li.recipe b {
+body:has(#recipelist) #recipelist li.recipe:hover {
     color: #ffffff !important;
-    font-weight: bold !important;
-    opacity: 1 !important;
-    text-shadow: none !important;
-}
-
-/* Recipe description */
-body #pageContainer #recipelist li.recipe .small {
-    color: #c9c9cf !important;
-    opacity: 1 !important;
-    line-height: 1.35 !important;
-}
-
-/* Prevent inherited pale text rules */
-body #pageContainer #recipelist li.recipe > span,
-body #pageContainer #recipelist li.recipe > span > span {
-    opacity: 1 !important;
-}
-
-/* Craftable recipes */
-body #pageContainer #recipelist li.recipe.craftable {
-    background: #102117 !important;
-    color: #f2fff4 !important;
-
-    border-color: #216b34 !important;
-    border-left-color: #38ff69 !important;
-}
-
-/* Craftable recipe titles */
-body #pageContainer #recipelist li.recipe.craftable b {
-    color: #74ff91 !important;
-}
-
-/* Craftable recipe descriptions */
-body #pageContainer #recipelist li.recipe.craftable .small {
-    color: #d2e8d7 !important;
-}
-
-/* Hover state for ordinary recipes */
-body #pageContainer #recipelist li.recipe:hover {
-    background: #1a111b !important;
+    background: #1b101b !important;
     border-color: #ff00d4 !important;
     cursor: pointer !important;
 }
 
-/* Hover state for craftable recipes */
-body #pageContainer #recipelist li.recipe.craftable:hover {
-    background: #183520 !important;
-    border-color: #38ff69 !important;
-}
+body:has(#recipelist) #recipelist li.recipe img {
+    float: left !important;
+    width: 52px !important;
+    height: 52px !important;
+    margin: 0 8px 0 0 !important;
 
-/* Recipe thumbnails */
-body #pageContainer #recipelist li.recipe img {
-    border: 1px solid #4d4d56 !important;
-    background: #08080a !important;
-}
-
-/* Main recipe list container */
-body #pageContainer #recipelist {
+    object-fit: cover !important;
     background: #050507 !important;
-    border: 1px solid #3b1238 !important;
-    padding: 3px !important;
+    border: 1px solid #56515b !important;
 }
 
-/* Empty / selected recipe area beneath the list */
-body #pageContainer #recipePage {
-    background: #08080b !important;
+body:has(#recipelist) #recipelist li.recipe > span,
+body:has(#recipelist) #recipelist li.recipe > span > span {
     color: #eeeeee !important;
-    border-top: 1px solid #4a1745 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+body:has(#recipelist) #recipelist li.recipe b {
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: bold !important;
+    opacity: 1 !important;
+}
+
+body:has(#recipelist) #recipelist li.recipe .small {
+    display: block !important;
+    margin-top: 2px !important;
+
+    color: #c8c6ce !important;
+    line-height: 1.3 !important;
+    opacity: 1 !important;
+}
+
+/* Craftable recipes */
+
+body:has(#recipelist) #recipelist li.recipe.craftable {
+    color: #effff2 !important;
+    background: #0d2114 !important;
+
+    border-color: #216531 !important;
+    border-left-color: #32ff68 !important;
+}
+
+body:has(#recipelist) #recipelist li.recipe.craftable:hover {
+    background: #16351e !important;
+    border-color: #32ff68 !important;
+}
+
+body:has(#recipelist) #recipelist li.recipe.craftable b {
+    color: #65ff86 !important;
+}
+
+body:has(#recipelist) #recipelist li.recipe.craftable .small {
+    color: #d1e8d6 !important;
+}
+
+/* Search and filter controls */
+
+body:has(#recipelist) #searchRecipes,
+body:has(#recipelist) #recipeFilter,
+body:has(#recipelist) #recipeType {
+    color: #eeeeee !important;
+    background: #09090d !important;
+
+    border: 1px solid #7a2372 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+body:has(#recipelist) #searchRecipes:focus,
+body:has(#recipelist) #recipeFilter:focus,
+body:has(#recipelist) #recipeType:focus {
+    border-color: #ff00d4 !important;
+    box-shadow: 0 0 0 1px rgba(255, 0, 212, 0.25) !important;
+}
+
+body:has(#recipelist) #recipeFilter option,
+body:has(#recipelist) #recipeType option {
+    color: #eeeeee !important;
+    background: #09090d !important;
+}
+
+body:has(#recipelist) #recipePage {
+    width: 100% !important;
+    height: 350px !important;
     padding: 10px !important;
+
+    overflow: auto !important;
+    color: #eeeeee !important;
+    background: #08080b !important;
+
+    border: 1px solid #481943 !important;
+    border-top: 2px solid #ff00d4 !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 700px) {
+    body:has(#recipelist) #recipelist {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+/* =========================================================
+   3. TRADING CENTER
+   Navigation, filters, dropdowns, forms and result tables
+   ========================================================= */
+
+/* Primary Trading Center navigation */
+
+body:has(#filters) #pageContainer .sub_menu {
+    padding: 5px 8px !important;
+    overflow: hidden !important;
+
+    color: #eeeeee !important;
+    background: #08080b !important;
+
+    border: 1px solid #7a2372 !important;
+    border-radius: 2px !important;
+}
+
+body:has(#filters) #pageContainer .sub_sub_menu {
+    margin-top: 5px !important;
+    padding: 4px 8px !important;
+
+    color: #eeeeee !important;
+    background: #0d0a10 !important;
+
+    border: 1px solid #481943 !important;
+    border-left: 3px solid #ff00d4 !important;
+}
+
+body:has(#filters) .sub_menu_item,
+body:has(#filters) .sub_menu_item_selected,
+body:has(#filters) .sub_sub_menu_item,
+body:has(#filters) .sub_sub_menu_item_selected {
+    color: #eeeeee !important;
+    background: transparent !important;
+    border-color: #481943 !important;
+}
+
+body:has(#filters) .sub_menu_item a,
+body:has(#filters) .sub_sub_menu_item a {
+    color: #d7d5dc !important;
+}
+
+body:has(#filters) .sub_menu_item:hover,
+body:has(#filters) .sub_sub_menu_item:hover {
+    background: #1c101c !important;
+}
+
+body:has(#filters) .sub_menu_item:hover a,
+body:has(#filters) .sub_sub_menu_item:hover a {
+    color: #ffffff !important;
+}
+
+body:has(#filters) .sub_menu_item_selected,
+body:has(#filters) .sub_sub_menu_item_selected {
+    color: #ffffff !important;
+    background: #32102e !important;
+    box-shadow: inset 0 -2px 0 #ff00d4 !important;
+}
+
+body:has(#filters) .sub_menu_item_selected a,
+body:has(#filters) .sub_sub_menu_item_selected a {
+    color: #ffffff !important;
+}
+
+
+/* Trading Center introduction */
+
+body:has(#filters) .page-description {
+    padding: 10px !important;
+
+    color: #d8d6dc !important;
+    background: #0b090d !important;
+
+    border: 1px solid #481943 !important;
+    border-left: 3px solid #ff00d4 !important;
+    border-radius: 2px !important;
+}
+
+body:has(#filters) .page-description img {
+    margin-right: 14px !important;
+    border-right: 1px solid #481943 !important;
+}
+
+
+/* Filter title */
+
+body:has(#filters) #filters {
+    margin-top: 18px !important;
+    padding: 8px 10px !important;
+
+    color: #ffffff !important;
+    background: #100b12 !important;
+
+    border: 1px solid #5c1756 !important;
+    border-left: 4px solid #ff00d4 !important;
+}
+
+body:has(#filters) #filters a {
+    color: #ff8a16 !important;
+}
+
+
+/* Filter table shell */
+
+body:has(#filters) .table-search {
+    width: 100% !important;
+
+    color: #eeeeee !important;
+    background: #08070a !important;
+
+    border: 1px solid #5c1756 !important;
+    border-collapse: collapse !important;
+}
+
+body:has(#filters) .table-search > tbody > tr > th.sub-header {
+    padding: 7px !important;
+
+    color: #eeeeee !important;
+    background: #130c15 !important;
+
+    border-bottom: 1px solid #7a2372 !important;
+}
+
+body:has(#filters) #filter-container {
+    overflow-x: auto !important;
+    color: #eeeeee !important;
+    background: #09070a !important;
+}
+
+
+/* Basic / Lions / Items / Beetles / Currency tabs */
+
+body:has(#filters) #menuSearchFilter a {
+    display: inline-block !important;
+    margin: 1px !important;
+    padding: 5px 9px !important;
+
+    color: #d6d3db !important;
+    background: #09090d !important;
+
+    border: 1px solid #481943 !important;
+    border-radius: 0 !important;
+}
+
+body:has(#filters) #menuSearchFilter a:hover {
+    color: #ffffff !important;
+    background: #241021 !important;
+    border-color: #ff00d4 !important;
+}
+
+body:has(#filters) #menuSearchFilter a.selected {
+    color: #ffffff !important;
+    background: #401138 !important;
+
+    border-color: #ff00d4 !important;
+    box-shadow: inset 0 -2px 0 #ff00d4 !important;
+}
+
+
+/* Inner filter sections */
+
+body:has(#filters) .table-search .innerTable {
+    width: 100% !important;
+    margin: 0 !important;
+
+    color: #eeeeee !important;
+    background: #0b080c !important;
+
+    border-collapse: collapse !important;
+}
+
+body:has(#filters) .table-search .innerTable tr {
+    color: #eeeeee !important;
+    background: #0b080c !important;
+}
+
+body:has(#filters) .table-search .innerTable tr:nth-child(even) {
+    background: #100b11 !important;
+}
+
+body:has(#filters) .table-search .innerTable td,
+body:has(#filters) .table-search .innerTable th {
+    color: #eeeeee !important;
+    border-color: #362035 !important;
+}
+
+body:has(#filters) .table-search .innerTable td.left.b {
+    color: #f0edf2 !important;
+    background: rgba(255, 255, 255, 0.015) !important;
+}
+
+body:has(#filters) .table-search .innerHeader {
+    padding: 9px 11px !important;
+
+    color: #ffffff !important;
+    background: #180d18 !important;
+
+    border-top: 1px solid #6a205f !important;
+    border-bottom: 1px solid #481943 !important;
+    border-left: 3px solid #ff00d4 !important;
+}
+
+body:has(#filters) .table-search .innerHeader.collapsed {
+    background: #100b12 !important;
+}
+
+body:has(#filters) .collapse-button {
+    float: right !important;
+    min-width: 22px !important;
+
+    color: #32ff68 !important;
+    cursor: pointer !important;
+    text-align: center !important;
+}
+
+
+/* Trading Center text fields and selects */
+
+body:has(#filters) #filter-container input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+body:has(#filters) #filter-container select,
+body:has(#filters) #filter-container textarea,
+body:has(#filters) #filter-container .cbo-select {
+    min-height: 31px !important;
+
+    color: #f2f2f4 !important;
+    background: #08080b !important;
+
+    border: 1px solid #63305f !important;
+    border-radius: 0 !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body:has(#filters) #filter-container input:focus,
+body:has(#filters) #filter-container select:focus,
+body:has(#filters) #filter-container textarea:focus,
+body:has(#filters) #filter-container .cbo-select:focus {
+    color: #ffffff !important;
+    background: #0d0c10 !important;
+
+    border-color: #ff00d4 !important;
+    box-shadow: 0 0 0 1px rgba(255, 0, 212, 0.3) !important;
+}
+
+body:has(#filters) #filter-container select option {
+    color: #eeeeee !important;
+    background: #08080b !important;
+}
+
+
+/* Custom searchable dropdowns */
+
+body:has(#filters) .cbo-wrapper {
+    position: relative !important;
+}
+
+body:has(#filters) .cbo-list {
+    z-index: 99999 !important;
+
+    max-height: 270px !important;
+    overflow-y: auto !important;
+
+    color: #eeeeee !important;
+    background: #08080b !important;
+
+    border: 1px solid #ff00d4 !important;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(255, 0, 212, 0.18) !important;
+}
+
+body:has(#filters) .cbo-list .option {
+    padding: 6px 8px !important;
+
+    color: #e5e3e8 !important;
+    background: #08080b !important;
+
+    border-bottom: 1px solid #241723 !important;
+}
+
+body:has(#filters) .cbo-list .option:hover,
+body:has(#filters) .cbo-list .option.active,
+body:has(#filters) .cbo-list .option[aria-selected="true"] {
+    color: #ffffff !important;
+    background: #3a1034 !important;
+
+    border-left: 3px solid #32ff68 !important;
+    cursor: pointer !important;
+}
+
+body:has(#filters) .customiser-clear {
+    color: #ff7a00 !important;
+}
+
+
+/* Buttons */
+
+body:has(#filters) #btnClearFilters {
+    color: #ffffff !important;
+    background: #261018 !important;
+
+    border: 1px solid #ff355e !important;
+    border-radius: 0 !important;
+}
+
+body:has(#filters) #btnClearFilters:hover {
+    background: #45101e !important;
+}
+
+body:has(#filters) #filter-container input[type="submit"] {
+    min-width: 120px !important;
+    padding: 7px 18px !important;
+
+    color: #ffffff !important;
+    background: #34102f !important;
+
+    border: 1px solid #ff00d4 !important;
+    border-radius: 0 !important;
+}
+
+body:has(#filters) #filter-container input[type="submit"]:hover {
+    color: #050507 !important;
+    background: #32ff68 !important;
+    border-color: #32ff68 !important;
+}
+
+
+/* Search-result table */
+
+body:has(#filters) #results {
+    width: 100% !important;
+
+    color: #eeeeee !important;
+    background: #08080b !important;
+
+    border: 1px solid #5c1756 !important;
+    border-collapse: collapse !important;
+}
+
+body:has(#filters) #results th {
+    color: #ffffff !important;
+    background: #180d18 !important;
+
+    border-color: #5c1756 !important;
+}
+
+body:has(#filters) #results td {
+    color: #dedce2 !important;
+    background: #0b090d !important;
+
+    border-color: #362035 !important;
+}
+
+body:has(#filters) #results tr:nth-child(even) td {
+    background: #100b11 !important;
+}
+
+body:has(#filters) #results tr:hover td {
+    background: #19101a !important;
+}
+
+body:has(#filters) #results a {
+    color: #ff8614 !important;
+}
+
+body:has(#filters) #results a:hover {
+    color: #ffffff !important;
+}
+
+
+/* Pagination */
+
+body:has(#filters) .pagination a,
+body:has(#filters) .pagination span {
+    display: inline-block !important;
+    min-width: 25px !important;
+    margin: 1px !important;
+    padding: 4px 6px !important;
+
+    color: #eeeeee !important;
+    background: #09090d !important;
+
+    border: 1px solid #481943 !important;
+    text-align: center !important;
+}
+
+body:has(#filters) .pagination a:hover {
+    color: #ffffff !important;
+    background: #31102d !important;
+    border-color: #ff00d4 !important;
+}
+
+body:has(#filters) .pagination span {
+    color: #050507 !important;
+    background: #32ff68 !important;
+    border-color: #32ff68 !important;
+}
+
+
+/* Alternate-interface notice */
+
+body:has(#filters) #interface.feature {
+    padding: 12px !important;
+
+    color: #d6d4da !important;
+    background: #0c0a0e !important;
+
+    border: 1px solid #481943 !important;
+    border-left: 3px solid #ff7a00 !important;
+    border-radius: 0 !important;
+}
+
+
+/* =========================================================
+   4. CHAT BOX OUTER TERMINAL
+   ========================================================= */
+
+/* Chat title shell */
+
+#pageSidebar h3:has(+ #fraSidebarChat) {
+    position: relative !important;
+    min-height: 58px !important;
+
+    margin: 22px 0 0 !important;
+    padding: 7px 9px !important;
+
+    font-size: 0 !important;
+    background:
+        linear-gradient(180deg, #130d15 0%, #08080b 100%) !important;
+
+    border: 1px solid #ff00d4 !important;
+    border-bottom: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#pageSidebar h3:has(+ #fraSidebarChat)::before {
+    content: "●  ●  ●   LIONDOS.CHAT" !important;
+    display: block !important;
+
+    color: #32ff68 !important;
+    font-size: 11px !important;
+    line-height: 16px !important;
+    letter-spacing: 0.4px !important;
+}
+
+#pageSidebar h3:has(+ #fraSidebarChat)::after {
+    content: "LIVE COMMS // CHANNEL: MAIN" !important;
+    display: block !important;
+    margin-top: 3px !important;
+
+    color: #b9b6bf !important;
+    font-size: 9px !important;
+    line-height: 12px !important;
+    letter-spacing: 0.8px !important;
+}
+
+/* Hide/show control */
+
+#pageSidebar h3:has(+ #fraSidebarChat) > div:first-of-type {
+    position: absolute !important;
+    right: 90px !important;
+    bottom: 6px !important;
+
+    margin: 0 !important;
+    font-size: 10px !important;
+}
+
+#btnToggleSidebarChat {
+    padding: 3px 7px !important;
+    margin: 0 !important;
+
+    color: #eeeeee !important;
+    background: #08080b !important;
+
+    border: 1px solid #ff00d4 !important;
+    border-radius: 0 !important;
+}
+
+#btnToggleSidebarChat:hover {
+    color: #050507 !important;
+    background: #32ff68 !important;
+    border-color: #32ff68 !important;
+}
+
+/* Chat Room link */
+
+#pageSidebar h3:has(+ #fraSidebarChat) > div:last-of-type {
+    top: auto !important;
+    right: 8px !important;
+    bottom: 7px !important;
+
+    font-size: 9px !important;
+    line-height: 18px !important;
+}
+
+#pageSidebar h3:has(+ #fraSidebarChat) > div:last-of-type a {
+    color: #ff7a00 !important;
+}
+
+/* Frame shell */
+
+#fraSidebarChat {
+    position: relative !important;
+    padding: 5px !important;
+
+    background: #050507 !important;
+
+    border: 1px solid #ff00d4 !important;
+    border-top: 1px solid #481943 !important;
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 0, 212, 0.05),
+        0 0 10px rgba(255, 0, 212, 0.12) !important;
+
+    box-sizing: border-box !important;
+}
+
+#fraSidebarChat::before {
+    content: "SECURE FEED  /  AUTO-REFRESH ENABLED" !important;
+    display: block !important;
+
+    margin-bottom: 4px !important;
+    padding: 3px 5px !important;
+
+    color: #908b95 !important;
+    background: #0b090d !important;
+
+    border-left: 2px solid #32ff68 !important;
+
+    font-size: 8px !important;
+    letter-spacing: 0.6px !important;
+}
+
+#fraSidebarChat iframe {
+    display: block !important;
+    width: 100% !important;
+    min-height: 430px !important;
+
+    background: #07070a !important;
+
+    border: 1px solid #4c2148 !important;
+    border-radius: 0 !important;
+}
+
+
+/* =========================================================
+   5. CHAT CONTENT INSIDE THE IFRAME
+   These rules activate only in the chat document.
+   ========================================================= */
+
+html:has(#chatMessageContainer),
+body:has(#chatMessageContainer) {
+    color: #eeeeee !important;
+    background: #060608 !important;
+}
+
+body:has(#chatMessageContainer) #chatMessageContainer {
+    color: #eeeeee !important;
+    background: #060608 !important;
+
+    border: 1px solid #481943 !important;
+    border-radius: 0 !important;
+}
+
+body:has(#chatMessageContainer) #chatMessagePinned,
+body:has(#chatMessageContainer) .s-chat-message__pinned {
+    color: #ffffff !important;
+    background:
+        linear-gradient(90deg, #1d101d, #0b090d) !important;
+
+    border: 0 !important;
+    border-left: 3px solid #32ff68 !important;
+    border-bottom: 1px solid #481943 !important;
+}
+
+body:has(#chatMessageContainer) .s-chat-message:nth-child(odd) {
+    color: #eeeeee !important;
+    background: #09090c !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid #211520 !important;
+}
+
+body:has(#chatMessageContainer) .s-chat-message:nth-child(even) {
+    color: #eeeeee !important;
+    background: #100b11 !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid #291827 !important;
+}
+
+body:has(#chatMessageContainer) .s-chat-message:hover {
+    background: #1a101a !important;
+    box-shadow: inset 2px 0 0 #ff00d4 !important;
+}
+
+body:has(#chatMessageContainer) .s-chat-message_timestamp,
+body:has(#chatMessageContainer) .s-chat-message__timestamp {
+    color: #7e7883 !important;
+}
+
+body:has(#chatMessageContainer) .s-chat-message_claim {
+    color: #fff1dc !important;
+    background:
+        linear-gradient(90deg, #2c1609, #100b0b) !important;
+
+    border: 0 !important;
+    border-left: 3px solid #ff7a00 !important;
+}
+
+body:has(#chatMessageContainer) #label_currentChannel {
+    color: #ffffff !important;
+    background: #160d17 !important;
+
+    border: 1px solid #ff00d4 !important;
+    border-radius: 0 !important;
+}
+
+body:has(#chatMessageContainer) #label_currentChannel:hover {
+    color: #050507 !important;
+    background: #32ff68 !important;
+    border-color: #32ff68 !important;
+}
+
+body:has(#chatMessageContainer) input,
+body:has(#chatMessageContainer) select,
+body:has(#chatMessageContainer) textarea,
+body:has(#chatMessageContainer) button {
+    color: #eeeeee !important;
+    background: #08080b !important;
+
+    border: 1px solid #6a2463 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+body:has(#chatMessageContainer) input:focus,
+body:has(#chatMessageContainer) select:focus,
+body:has(#chatMessageContainer) textarea:focus {
+    border-color: #ff00d4 !important;
+    outline: none !important;
+}
+
+body:has(#chatMessageContainer) a {
+    color: #ff7a00 !important;
+}
+
+body:has(#chatMessageContainer) a:hover {
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   6. SCROLLBARS FOR THE NEWLY OPTIMISED AREAS
+   ========================================================= */
+
+#recipelist,
+#recipePage,
+body:has(#filters) .cbo-list,
+body:has(#chatMessageContainer) #chatMessageContainer {
+    scrollbar-width: thin !important;
+    scrollbar-color: #ff00d4 #08080b !important;
+}
+
+#recipelist::-webkit-scrollbar,
+#recipePage::-webkit-scrollbar,
+body:has(#filters) .cbo-list::-webkit-scrollbar,
+body:has(#chatMessageContainer) #chatMessageContainer::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+#recipelist::-webkit-scrollbar-track,
+#recipePage::-webkit-scrollbar-track,
+body:has(#filters) .cbo-list::-webkit-scrollbar-track,
+body:has(#chatMessageContainer) #chatMessageContainer::-webkit-scrollbar-track {
+    background: #08080b !important;
+}
+
+#recipelist::-webkit-scrollbar-thumb,
+#recipePage::-webkit-scrollbar-thumb,
+body:has(#filters) .cbo-list::-webkit-scrollbar-thumb,
+body:has(#chatMessageContainer) #chatMessageContainer::-webkit-scrollbar-thumb {
+    background: #6f1c66 !important;
+    border: 1px solid #ff00d4 !important;
+}
+/* =========================================================
+   HUNTING — CHOOSE LIONESSES PANEL
+   Keeps the existing heading font; replaces unreadable grey
+   ========================================================= */
+
+/* Remove any inherited grey from the column */
+#fullbox > form > .col-md-12.col-lg-5 {
+    background: transparent !important;
+}
+
+/* Main Choose Lionesses panel */
+#fullbox > form > .col-md-12.col-lg-5 > .left {
+    padding: 13px 14px 15px !important;
+
+    color: #f1eff3 !important;
+    background:
+        linear-gradient(180deg, #110c12 0%, #08080b 100%) !important;
+
+    border: 1px solid #792170 !important;
+    border-left: 4px solid #ff00d4 !important;
+    border-radius: 2px !important;
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 0, 212, 0.04),
+        0 5px 15px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Keep the existing Choose Lionesses font */
+#fullbox > form > .col-md-12.col-lg-5 > .left > h2 {
+    margin: 0 0 12px !important;
+    padding: 0 0 8px !important;
+
+    color: #ff00d4 !important;
+    background: transparent !important;
+
+    border-bottom: 1px solid #65205e !important;
+    text-shadow: 0 0 7px rgba(255, 0, 212, 0.18) !important;
+}
+
+/* Hunting Parties / Individuals / Adolescents headings */
+#fullbox > form > .col-md-12.col-lg-5 > .left > b {
+    display: block !important;
+    margin: 12px 0 5px !important;
+    padding: 5px 8px !important;
+
+    color: #ffffff !important;
+    background: #160d17 !important;
+
+    border: 1px solid #482043 !important;
+    border-left: 3px solid #32ff68 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 > .left > b::before {
+    content: "●" !important;
+    margin-right: 7px !important;
+    color: #32ff68 !important;
+}
+
+/* The three scrolling selection areas */
+#fullbox > form > .col-md-12.col-lg-5 > .left > .right.auto {
+    margin: 0 0 7px !important;
+    padding: 8px 9px !important;
+
+    color: #e8e5eb !important;
+    background: #08080b !important;
+
+    border: 1px solid #3f253d !important;
+    border-radius: 0 !important;
+
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* General text readability */
+#fullbox > form > .col-md-12.col-lg-5 .left label,
+#fullbox > form > .col-md-12.col-lg-5 .left li,
+#fullbox > form > .col-md-12.col-lg-5 .left span {
+    color: #e8e5eb !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+/* Secondary information such as hunts remaining */
+#fullbox > form > .col-md-12.col-lg-5 .left .small,
+#fullbox > form > .col-md-12.col-lg-5 .left small {
+    color: #aaa6b0 !important;
+    opacity: 1 !important;
+}
+
+/* Party and lioness links */
+#fullbox > form > .col-md-12.col-lg-5 .left a {
+    color: #ff8318 !important;
+    text-decoration: none !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 5px rgba(255, 131, 24, 0.45) !important;
+}
+
+/* Lioness rows */
+#fullbox > form > .col-md-12.col-lg-5 .left ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left li {
+    margin: 0 !important;
+    padding: 5px 4px !important;
+
+    border-bottom: 1px solid #261a25 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left li:last-child {
+    border-bottom: 0 !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .left li:hover {
+    background: #171018 !important;
+    box-shadow: inset 2px 0 0 #ff00d4 !important;
+}
+
+/* Radio buttons and checkboxes */
+#fullbox > form > .col-md-12.col-lg-5 .left input[type="radio"],
+#fullbox > form > .col-md-12.col-lg-5 .left input[type="checkbox"] {
+    margin-right: 7px !important;
+    accent-color: #ff00d4 !important;
+}
+
+/* Scrollbars */
+#fullbox > form > .col-md-12.col-lg-5 .right.auto {
+    scrollbar-width: thin !important;
+    scrollbar-color: #ff00d4 #08080b !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .right.auto::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .right.auto::-webkit-scrollbar-track {
+    background: #08080b !important;
+}
+
+#fullbox > form > .col-md-12.col-lg-5 .right.auto::-webkit-scrollbar-thumb {
+    background: #6c1d64 !important;
+    border: 1px solid #ff00d4 !important;
 }
