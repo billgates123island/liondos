@@ -1022,3 +1022,103 @@ body:has(#chatMessageContainer) #chatMessageContainer::-webkit-scrollbar-thumb {
     background: #6c1d64 !important;
     border: 1px solid #ff00d4 !important;
 }
+/* =========================================================
+   CHAT BOX ONLY
+   ========================================================= */
+
+/* Move the entire Chat Box section to the left + make it wider */
+#pageSidebar > .col-md-12.col-xs-12:has(#fraSidebarChat) {
+    position: fixed !important;
+    top: 150px !important;
+    left: 18px !important;
+    right: auto !important;
+
+    width: 380px !important;
+    z-index: 9999 !important;
+}
+
+/* Make the actual chat fill the new width */
+#fraSidebarChat,
+#fraSidebarChat iframe {
+    width: 100% !important;
+}
+
+
+/* =========================================================
+   CHAT COLOURS ONLY
+   These rules are loaded inside the chat iframe by Lioden.
+   ========================================================= */
+
+/* Main chat background */
+html.nolayout,
+html.nolayout body,
+#fra_chatContainer,
+#chatMessageContainer,
+#chatMessageList {
+    background: #050505 !important;
+    color: #f2f2f2 !important;
+}
+
+
+/* Individual messages */
+.s-chat-message:nth-child(even) {
+    background: #080808 !important;
+    color: #f2f2f2 !important;
+    border: none !important;
+}
+
+.s-chat-message:nth-child(odd) {
+    background: #111111 !important;
+    color: #f2f2f2 !important;
+    border: none !important;
+}
+
+
+/* Force normal message text to stay readable */
+.s-chat-message_content {
+    color: #f2f2f2 !important;
+}
+
+
+/* Pinned / system messages */
+.s-chat-message__pinned {
+    background: #141414 !important;
+    color: #f2f2f2 !important;
+    border: none !important;
+}
+
+
+/* Timestamps */
+.s-chat-message_timestamp {
+    color: #aaaaaa !important;
+}
+
+
+/* Links and usernames */
+.s-chat-message a,
+.s-chat-message a:link,
+.s-chat-message a:visited {
+    color: #ff7900 !important;
+}
+
+
+/* Current channel button */
+button#label_currentChannel {
+    background: #080808 !important;
+    color: #ffffff !important;
+    border: 1px solid #ff00d4 !important;
+}
+
+
+/* Channel dropdown */
+#fra_chatContainer .channelMenu .channelSwitcher {
+    background: #080808 !important;
+    color: #ffffff !important;
+}
+
+#fra_chatContainer .channelMenu .channelSwitcher:hover,
+#fra_chatContainer .channelMenu .channelSwitcher:focus,
+#fra_chatContainer .channelMenu .channelSwitcher.active {
+    background: #181818 !important;
+    color: #ff7900 !important;
+}
