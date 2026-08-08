@@ -1,0 +1,453 @@
+/* ==========================================================================
+   LIONDOS EFFECTS — STABLE V42
+   Permanent den-page effects migrated out of Stylus.
+
+   Includes ONLY:
+   - animated PRIDE INTEGRITY / ARCHIVE SYNCHRONIZATION meters
+   - SYSTEM ONLINE / PRIDE SCAN / LINK box containment
+   - 430px fixed left chat + dark readable chat
+   - desktop no-overlap chat rail
+   - blinking terminal cursor
+
+   The frozen base LIONDOS stylesheet remains separate and untouched.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap");
+
+:root {
+  --ld-pink: #ff00e6;
+  --ld-pink-soft: #ff65ec;
+  --ld-orange: #ff751f;
+  --ld-green: #00ff38;
+  --ld-body-font: "IBM Plex Mono", "Cascadia Mono", Consolas, "Courier New", monospace;
+  --ld-ui-font: "VT323", "Cascadia Mono", Consolas, monospace;
+}
+
+/* ==========================================================================
+   A. TERMINAL ACTIVITY METERS
+   ========================================================================== */
+
+.liondos .console-meter {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #020202 !important;
+  border: 1px solid var(--ld-pink) !important;
+  box-shadow:
+    inset 0 0 8px rgba(255, 0, 230, 0.08),
+    0 0 4px rgba(255, 0, 230, 0.08) !important;
+}
+
+.liondos .console-meter > span {
+  position: absolute !important;
+  top: 2px !important;
+  left: 4px;
+  display: block !important;
+  width: 126px !important;
+  max-width: calc(100% - 8px) !important;
+  height: calc(100% - 4px) !important;
+  min-height: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--ld-pink) 0 13px,
+      transparent 13px 16px,
+      var(--ld-orange) 16px 29px,
+      transparent 29px 32px,
+      var(--ld-green) 32px 45px,
+      transparent 45px 48px
+    ) !important;
+
+  box-shadow:
+    0 0 5px rgba(255, 0, 230, 0.24),
+    0 0 7px rgba(0, 255, 56, 0.12) !important;
+
+  animation-name: liondos-meter-pingpong !important;
+  animation-duration: 2.7s !important;
+  animation-timing-function: ease-in-out !important;
+  animation-iteration-count: infinite !important;
+  animation-direction: alternate !important;
+  animation-fill-mode: both !important;
+  animation-play-state: running !important;
+  will-change: left !important;
+}
+
+.liondos .console-meter > span[style*="72%"] {
+  animation-duration: 3.35s !important;
+  animation-delay: -1.1s !important;
+}
+
+.liondos .console-meter > span[style*="86%"] {
+  animation-duration: 2.65s !important;
+  animation-delay: -0.35s !important;
+}
+
+@keyframes liondos-meter-pingpong {
+  0% {
+    left: 4px;
+  }
+  45% {
+    left: calc(100% - 130px);
+  }
+  55% {
+    left: calc(100% - 130px);
+  }
+  100% {
+    left: 4px;
+  }
+}
+
+/* ==========================================================================
+   B. SYSTEM ONLINE / PRIDE SCAN / LINK BOX CONTAINMENT
+   ========================================================================== */
+
+.liondos .console-glyph-row {
+  line-height: 1 !important;
+}
+
+.liondos .console-glyph-row .console-glyph {
+  width: 96px !important;
+  min-width: 96px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 5px 7px !important;
+  box-sizing: border-box !important;
+
+  font-family: var(--ld-ui-font) !important;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.25px !important;
+  text-align: center !important;
+  white-space: normal !important;
+  vertical-align: top !important;
+}
+
+.liondos .console-glyph-row .console-glyph.signal,
+.liondos .console-glyph-row .console-glyph.scan {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.liondos .console-glyph-row .console-glyph:not(.signal):not(.scan) {
+  width: 100px !important;
+  min-width: 100px !important;
+}
+
+/* ==========================================================================
+   C. CHAT POSITION + SIZE
+   ========================================================================== */
+
+#pageSidebar h3:has(+ #fraSidebarChat) {
+  position: fixed !important;
+  top: 72px !important;
+  left: 14px !important;
+  right: auto !important;
+  width: 430px !important;
+  max-width: calc(100vw - 28px) !important;
+  min-height: 44px !important;
+  margin: 0 !important;
+  padding: 8px 10px !important;
+  box-sizing: border-box !important;
+
+  color: var(--ld-pink-soft) !important;
+  background: #080608 !important;
+  border: 1px solid var(--ld-pink) !important;
+  border-bottom: 1px solid var(--ld-orange) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45) !important;
+  z-index: 2147483001 !important;
+}
+
+#fraSidebarChat {
+  position: fixed !important;
+  top: 116px !important;
+  left: 14px !important;
+  right: auto !important;
+  width: 430px !important;
+  max-width: calc(100vw - 28px) !important;
+  height: 585px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+
+  color: #fff !important;
+  background: #050505 !important;
+  border: 1px solid var(--ld-pink) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.58) !important;
+  z-index: 2147483000 !important;
+}
+
+#fraSidebarChat iframe {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #050505 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#btnToggleSidebarChat {
+  color: #fff !important;
+  background: #050505 !important;
+  border: 1px solid var(--ld-pink) !important;
+  box-shadow: none !important;
+}
+
+#pageSidebar h3:has(+ #fraSidebarChat) a[href*="chat.php"] {
+  color: var(--ld-orange) !important;
+}
+
+@media (max-width: 760px) {
+  #pageSidebar h3:has(+ #fraSidebarChat),
+  #fraSidebarChat {
+    left: 8px !important;
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+
+  #fraSidebarChat {
+    height: min(585px, calc(100vh - 130px)) !important;
+  }
+}
+
+/* ==========================================================================
+   D. CHAT INTERNAL COLORS
+   ========================================================================== */
+
+#fra_chatContainer,
+#chatMessageContainer,
+#chatMessageList {
+  color: #f7f7f7 !important;
+  background: #050505 !important;
+  border-color: var(--ld-pink) !important;
+  box-shadow: none !important;
+}
+
+.s-chat-message {
+  color: #f7f7f7 !important;
+  background: #080808 !important;
+  border-color: #332433 !important;
+  text-shadow: none !important;
+}
+
+.s-chat-message:nth-child(odd) {
+  background: #090709 !important;
+}
+
+.s-chat-message:nth-child(even) {
+  background: #100c10 !important;
+}
+
+.s-chat-message_content,
+.s-chat-message_message,
+.s-chat-message .message {
+  color: #f7f7f7 !important;
+  text-shadow: none !important;
+}
+
+.s-chat-message_timestamp,
+.s-chat-message_time,
+#fra_chatContainer .text-muted,
+#fra_chatContainer small {
+  color: #aaa2aa !important;
+}
+
+.s-chat-message a,
+.s-chat-message a:visited,
+#fra_chatContainer a,
+#fra_chatContainer a:visited {
+  color: var(--ld-orange) !important;
+}
+
+.s-chat-message a:hover,
+.s-chat-message a:focus,
+#fra_chatContainer a:hover,
+#fra_chatContainer a:focus {
+  color: #fff !important;
+}
+
+#chatMessagePinned,
+.s-chat-message__pinned,
+.s-chat-message.pinned {
+  color: #fff !important;
+  background: #101018 !important;
+  border: 1px solid #556b86 !important;
+}
+
+#chatMessagePinned .s-chat-message_content,
+.s-chat-message__pinned .s-chat-message_content {
+  color: #fff !important;
+}
+
+.s-chat-message_mention,
+.s-chat-message.hasContext,
+.s-chat-message.context {
+  color: #fff !important;
+  background: #171017 !important;
+  border-left: 3px solid var(--ld-pink) !important;
+}
+
+#fra_chatContainer #label_currentChannel,
+#fra_chatContainer .channelMenu,
+#fra_chatContainer .channelMenu button,
+#fra_chatContainer .channelMenu .channelSwitcher,
+#fra_chatContainer select,
+#fra_chatContainer input[type="text"],
+#fra_chatContainer textarea,
+#fra_chatContainer button {
+  color: #fff !important;
+  background: #050505 !important;
+  border-color: var(--ld-pink) !important;
+  box-shadow: none !important;
+}
+
+#fra_chatContainer .channelMenu .channelSwitcher:hover,
+#fra_chatContainer .channelMenu .channelSwitcher:focus,
+#fra_chatContainer .channelMenu .channelSwitcher.active {
+  color: #fff !important;
+  background: #171017 !important;
+}
+
+#fra_chatContainer input[type="text"]::placeholder,
+#fra_chatContainer textarea::placeholder {
+  color: #aaa2aa !important;
+}
+
+#fra_chatContainer label,
+#fra_chatContainer #lblCharacterCounter {
+  color: #d8d8d8 !important;
+}
+
+#chatMessageList::-webkit-scrollbar {
+  width: 10px !important;
+  background: #050505 !important;
+}
+
+#chatMessageList::-webkit-scrollbar-thumb {
+  background: var(--ld-pink) !important;
+  border: 2px solid #050505 !important;
+  border-radius: 0 !important;
+}
+
+#chatMessageList::-webkit-scrollbar-thumb:hover {
+  background: var(--ld-orange) !important;
+}
+
+.s-chat-message_claim,
+#modalClaimList {
+  color: #fff !important;
+  background: #0b080b !important;
+  border-color: var(--ld-pink) !important;
+}
+
+#modalClaimBG {
+  background: rgba(0, 0, 0, 0.82) !important;
+}
+
+/* ==========================================================================
+   E. DESKTOP CHAT RAIL — PREVENT OVERLAP
+   ========================================================================== */
+
+@media (min-width: 1500px) {
+  .container.topbar,
+  .container.main,
+  .container.footer {
+    width: min(1170px, calc(100vw - 478px)) !important;
+    max-width: 1170px !important;
+    margin-left: 462px !important;
+    margin-right: 16px !important;
+  }
+}
+
+@media (max-width: 1499px) {
+  #pageSidebar h3:has(+ #fraSidebarChat) {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+
+    margin: 22px 0 9px !important;
+    padding: 0 0 7px !important;
+
+    box-shadow: none !important;
+    z-index: auto !important;
+  }
+
+  #fraSidebarChat {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    height: 585px !important;
+
+    margin: 0 !important;
+    z-index: auto !important;
+  }
+}
+
+/* ==========================================================================
+   F. REAL TERMINAL CURSOR BLINK
+   ========================================================================== */
+
+.liondos .console-cursor::after {
+  content: "█" !important;
+  display: inline-block !important;
+  margin-left: 7px !important;
+
+  color: var(--ld-green) !important;
+  opacity: 1;
+
+  font-family: var(--ld-body-font) !important;
+  font-size: 1em !important;
+  line-height: 1 !important;
+
+  text-shadow:
+    0 0 4px rgba(0, 255, 56, 0.75),
+    0 0 8px rgba(0, 255, 56, 0.28) !important;
+
+  animation:
+    liondos-terminal-cursor 1.05s steps(1, end) infinite !important;
+}
+
+@keyframes liondos-terminal-cursor {
+  0%,
+  46% {
+    opacity: 1;
+  }
+
+  47%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Keep the explicitly requested decorative animations active even if the
+   system/browser has reduced-motion enabled. */
+@media (prefers-reduced-motion: reduce) {
+  .liondos .console-cursor::after {
+    animation:
+      liondos-terminal-cursor 1.05s steps(1, end) infinite !important;
+  }
+
+  .liondos .console-meter > span {
+    animation-name: liondos-meter-pingpong !important;
+    animation-iteration-count: infinite !important;
+    animation-direction: alternate !important;
+    animation-play-state: running !important;
+  }
+}
+
+/* ==========================================================================
+   END LIONDOS EFFECTS V42
+   ========================================================================== */
